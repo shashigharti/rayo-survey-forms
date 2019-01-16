@@ -134,7 +134,7 @@ return [
     |
     */
 
-    'providers' => [
+    'providers' => array_merge(array_merge([
 
         /*
          * Laravel Framework Service Providers...
@@ -175,7 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-    ],
+    ], Robust\Core\Helpers\CoreHelper::service_providers()),
+    [
+        App\Providers\AppServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class
+    ]),
 
     /*
     |--------------------------------------------------------------------------
