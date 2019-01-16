@@ -2,7 +2,7 @@
 </div>
 
 
-{{ Form::model($form, ['route' => ['admin.forms.data.store', $form->id], 'method' => 'POST', 'enctype' => 'multipart/form-data', 'class' => 'form dynamic-progress-form' ]) }}
+{{--{{ Form::model($form, ['route' => ['admin.forms.data.store', $form->id], 'method' => 'POST', 'enctype' => 'multipart/form-data', 'class' => 'form dynamic-progress-form' ]) }}
 @if(!empty($model))
     <input type="hidden" name="edit_mode" value="1">
 @endif
@@ -13,4 +13,4 @@
 
 {!!  $pages !!}
 
-{{  Form::close() }}
+{{  Form::close() }}--}}

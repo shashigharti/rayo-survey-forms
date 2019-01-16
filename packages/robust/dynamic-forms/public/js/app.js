@@ -21,6 +21,7 @@ FRW.DynamicForms = {};
 
 //import("modules/reports/report.js");
 
-//import("modules/report.vue.js");
-//import("modules/form.vue.js");
-//import("modules/permissions.vue.js");
+//import("../../../../../node_modules/node_modules/formiojs/dist/formio.full.min.js");
+//import("modules/formio.js");
+
+

@@ -2,7 +2,8 @@
 @section('custom_design')
     @inject('form_helper', 'Robust\DynamicForms\Helpers\FormHelper')
     <div class="dynamic-form design_page_form">
-        <div class="col-md-4 left-box">
+        <div id='builder'></div>
+        {{--<div class="col-md-4 left-box">
             @include('dynamic-forms::admin.forms.partials.controlbox')
         </div>
         <div class="col-md-8 right-box panel-box">
@@ -26,6 +27,6 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+        </div>--}}
     </div>
 @endsection
