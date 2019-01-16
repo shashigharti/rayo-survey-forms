@@ -1,0 +1,351 @@
+$url_1:url('../../assets/images/night.jpeg');
+.form__content {
+    border: 3px solid $theme_color;
+    padding:30px;
+    
+}
+.form-control{
+	color: #262626;
+}
+.theme-title{
+	text-align: center;
+	span{
+		font-size:25px;
+		font-family:'roboto';
+	}
+}
+
+.default-form{
+	padding:40px 50px;
+}
+
+.preview-page{
+	label{
+	font-weight:500;
+	font-size:15px;
+	}
+}
+
+.preview--container{
+	color:#111;
+}
+.data-div{
+	height:300px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+
+.page-panel{
+	border:3px solid $theme_color;
+	padding:20px;
+	margin: 0 auto;
+	width: 80%;
+	margin: 0 auto;
+	height: 700px;
+	overflow: auto;
+	box-shadow: 0px 0px 5px #ccc;
+	h4{
+		color:$theme_color;
+	}
+	hr{
+		margin-bottom: 42px;
+		border-top:5px solid #ccc;
+	}
+	label{
+		font-weight: 500;
+	}
+}
+.pager li > a, .pager li > span {
+	color:#fff;
+	background:$theme_color;
+	border-color:$theme_color;
+	&:hover{
+	 background:$hover_color;
+	color:#fff;
+	border-color:$hover_color;	
+	}
+}
+
+.pager li.disabled > a, .pager li.disabled >span{
+	background:$hover_color;
+	color:#fff;
+	border-color:$hover_color;
+}
+.page-button{
+    margin-bottom:25px; 
+   a {
+    color: #fff;
+    padding: 10px 34px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 3px 2px 3px #777;
+    border-radius: 4px;
+    text-decoration: none;
+   }
+}
+.page-links {
+    position: absolute;
+    top: 50%;
+    width: 95%;
+    text-align:left;
+
+}
+.dynamic__form-permissions{
+	form{
+	border:3px solid $theme_color;
+	padding:20px;
+	}
+}
+legend{
+	margin-bottom:0px;
+	font-weight:500;
+}
+
+fieldset{
+	margin:15px 0;
+}
+.theme--panel {
+	.panel-heading{
+		margin-top: 0px;
+	}
+	padding-left:0px;
+	a{
+		text-decoration: none;
+		img{
+			
+		}
+		img:hover{
+		 
+		 -webkit-box-shadow: 0px 0px 15px 0px rgba(62, 43, 85, 0.67);
+		-moz-box-shadow:    0px 0px 15px 0px rgba(62, 43, 85, 0.67);
+		box-shadow:         0px 0px 15px 0px rgba(62, 43, 85, 0.67);
+		}
+		li{
+			margin-bottom: 10px;
+			font-size: 12px;
+		}
+	}
+	
+}
+.default-theme{
+	.project-info{
+		padding-top: 11px;
+	}
+}
+.dark-theme{
+	.panel-body{
+		background: #44505e;
+	}
+	.form__content {
+		background:#576475;
+    	border: 3px solid  #a6b3c4;
+    	color:#fff;
+	}
+	.theme-title{
+		text-align: left;
+		span {
+	    
+	    font-size: 25px;
+	    color: #fff;
+	    font-weight: 500;
+	    padding-bottom: 5px;
+        border-bottom: 3px solid #fff;
+
+	   }
+	}
+	input[type=checkbox]:after {
+		color:#333;
+	}
+	.form__field{
+    	margin-top: 10px;
+	}
+	.form-control {
+		background-color: #576475;
+		border: 1px solid #a6b3c4;
+		color:#fff;
+    }
+    select.form-control {
+    	background-color: #576475;
+		border: 1px solid #a6b3c4;
+		color:#fff;
+    }
+    .btn-primary{
+    	background-color:#333e4d ;
+ 	    border-color: #a6b3c4;
+    }
+    .btn-primary:active:focus, .btn-primary.active:focus{
+ 	background-color:#333e4d ;
+ 	border-color: #a6b3c4;
+ 	}
+    .btn-submit{
+    	background:#333e4d;
+    	border-color:#a6b3c4;
+    	&:focus{
+    	background:#333e4d;
+    	border-color:#a6b3c4;	
+    	}
+    }
+    .btn-next{
+       background:#333e4d;
+    	border-color:#a6b3c4;
+    	&:hover{
+    		color:#fff;
+    	}
+    }
+    .btn-previous{
+       background:#333e4d;
+    	border-color:#a6b3c4;
+    	&:hover{
+    		color:#fff;
+    	}
+    }
+    .dynamic-form__form-element{
+    	background:#576475;
+    	border: 1px solid #a6b3c4;
+    }
+    .dynamic-form__droppable, .dynamic-form__column{
+    	background: #576475;
+    	border:3px dashed #a6b3c4;
+    }
+    .project-info{
+    	padding-top:11px;
+    	h3{
+    		color:#fff;
+    	}
+    	h6{
+    		color:#fff;
+    	}
+    }
+    .company-info{
+    	h6{
+    	color:#fff;
+       }
+    }
+    .form_title{
+    	h2{
+    		color:#fff;
+    	}
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	    -webkit-border-radius: 10px;
+	    border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+	    -webkit-border-radius: 10px;
+	    border-radius: 10px;
+	    background: rgba(166, 179, 196,0.8); 
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
+	::-webkit-scrollbar-thumb:window-inactive {
+		background: rgba(166, 179, 196,0.4); 
+	}
+}
+
+.night-theme{
+	.form-bottom{
+		text-align: center;
+	}
+	.panel-body{
+		background: $url_1;
+		background-size: cover;
+	}
+	input[type=checkbox]:after {
+		color:#333;
+	}
+	.form__content {
+    	border: none;
+    	color:#fff;
+    	padding:0px;
+	}
+	.btn-primary{
+		background-color:#5c708a ;
+ 	    border-color: #c2cbd6;
+	}
+	.btn-primary:active:focus, .btn-primary.active:focus{
+ 	background-color:#5c708a ;
+ 	border-color: #c2cbd6;
+ 	}
+	.btn-submit{
+    	background:#5c708a;
+    	border-color:#c2cbd6;
+    	width: 150px;
+    	&:focus{
+    	background:#5c708a;
+    	border-color:#c2cbd6;
+    	}
+    }
+    .btn-next{
+    	background:#5c708a;
+    	border-color:#c2cbd6;
+    	&:hover{
+    		color:#fff;
+    	}
+    }
+    .btn-previous{
+    	background:#5c708a;
+    	border-color:#c2cbd6;
+    	&:hover{
+    		color:#fff;
+    	}
+    }
+    .row{
+    	width: 80%;
+    	margin:0 auto;
+    }
+    .dynamic-form__form-element{
+    	width:76%;
+    	margin:0 auto;
+    }
+    .theme-title span{
+    	font-weight: 500;
+    }
+    .project-info{
+    	h3{
+    		color:#fff;
+    	}
+    	h6{
+    		color:#fff;
+    	}
+    }
+    .company-info{
+    	h6{
+    	color:#fff;
+       }
+    }
+    .form_title{
+    	h2{
+    		color:#fff;
+    	}
+    }
+   
+	::-webkit-scrollbar {
+        width: 3px;
+    }
+    ::-webkit-scrollbar-track {
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	    -webkit-border-radius: 10px;
+	    border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+	    -webkit-border-radius: 10px;
+	    border-radius: 10px;
+	    background: rgba(166, 179, 196,0.8); 
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
+	::-webkit-scrollbar-thumb:window-inactive {
+		background: rgba(166, 179, 196,0.4); 
+	}
+}
+ .btn-previous{
+ 	&:hover{
+ 		color:#fff;
+ 	}
+ }
+ .btn-primary:active:focus, .btn-primary.active:focus{
+ 	background-color: $theme_color ;
+ 	border-color: $theme_color;
+ }

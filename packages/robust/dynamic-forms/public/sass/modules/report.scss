@@ -1,0 +1,28 @@
+.report_query-designer{
+  select{
+    width: 100%;
+    min-height: 33px;
+  }
+  .report-block{
+    margin: 10px 0px;
+  }
+}
+.report__display{
+  th {
+    font-size: 18px;
+    font-weight: 500;
+    background: #777;
+    color:#fff;
+  }
+  td, th {
+    padding: 10px 5px;
+  }
+  .company-info{
+    margin-bottom: 20px;
+    h3{
+      margin: 0px;
+    }
+  }
+  tr:nth-child(even) {background: #CCC}
+  tr:nth-child(odd) {background: #FFF}
+}

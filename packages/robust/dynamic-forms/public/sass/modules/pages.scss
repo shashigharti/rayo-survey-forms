@@ -1,0 +1,48 @@
+
+
+/*
+|------------------------------------------------------------------------------
+| Dynamic form
+|------------------------------------------------------------------------------
+*/
+
+.dynamic__form-fill {
+  margin: 20px 0;
+  padding: 20px;
+  background: #F5F5F5;
+  .form__field {
+    .form-top {
+      padding-left: 20px;
+    }
+    .form-bottom {
+      padding: 20px;
+      background: #fff;
+      .form-group {
+        input.file-form-control {
+          height: auto;
+          text-indent: 0;
+        }
+        .form-control {
+          border-radius: 5px;
+        }
+        label {
+          width: 100%;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+          margin: 5px 10px;
+        }
+      }
+      .btn {
+        padding: 8px 20px;
+        background: #E2210D;
+        color: #fff;
+        font-size: 15px;
+        text-transform: uppercase;
+      }
+      @media only screen and (max-width: 479px) {
+        padding: 10px 8px;
+      }
+    }
+  }
+}
