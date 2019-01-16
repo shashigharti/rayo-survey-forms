@@ -1,10 +1,4 @@
 FRW.DynamicForms = {};
-import vSelect from 'vue-select';
-
-//import("../../../../../bower_components/jquery-ui-draggable/dist/jquery-ui-draggable.js");
-//import("../../../../../bower_components/jquery-ui-droppable/dist/jquery-ui-droppable.js");
-//import("../../../../../bower_components/jquery-searchable/dist/jquery.searchable-1.1.0.min.js");
-
 //import("modules/elements/section.js");
 //import("modules/elements/text.js");
 //import("modules/elements/textarea.js");
