@@ -99,6 +99,8 @@
       <path value="$PROJECT_DIR$/vendor/laravolt/avatar" />
       <path value="$PROJECT_DIR$/vendor/danielstjules/stringy" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/xethron/laravel-4-generators" />
+      <path value="$PROJECT_DIR$/vendor/xethron/migrations-generator" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
