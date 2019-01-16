@@ -80,10 +80,7 @@
         "sweetalert": "^1.1.3",
         "topojson": "^2.2.0",
         "typeahead": "^0.2.2",
-        "underscore.string": "^3.3.4",
-        "vue-multiselect": "^2.0.2",
-        "vue-select": "github:sagalbot/vue-select",
-        "vueify": "^9.4.1",
-        "vuex": "^2.1.2"
+        "underscore.string": "^3.3.4"
+
     }
 }
