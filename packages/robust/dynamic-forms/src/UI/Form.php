@@ -181,7 +181,7 @@ class Form extends BaseUI
      */
     public function getEmailFields($params)
     {
-        return $params->fields()->where('type', 'email')->pluck('label', 'id');
+        return [];//$params->fields()->where('type', 'email')->pluck('label', 'id');
     }
 
     /**

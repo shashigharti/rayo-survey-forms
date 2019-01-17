@@ -19,8 +19,7 @@ class DynamicFormsTableSeeder extends Seeder
                 'field_for_user_email' => '',
                 'notify_to_user' => 0,
                 'form_group_id' => 1,
-                'status' => 1,
-                'notify_to_admin' => 0
+                'status' => 1
             ],
             [
                 'title' => 'Test Form 2',
@@ -29,8 +28,7 @@ class DynamicFormsTableSeeder extends Seeder
                 'field_for_user_email' => '',
                 'notify_to_user' => 0,
                 'form_group_id' => 2,
-                'status' => 1,
-                'notify_to_admin' => 0
+                'status' => 1
             ]
         ]);
     }

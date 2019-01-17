@@ -7,7 +7,6 @@ use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Illuminate\Http\Request;
 use Robust\DynamicForms\Models\Form;
-use Robust\DynamicForms\Repositories\Admin\FormFieldRepository;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
 
 /**
@@ -23,12 +22,10 @@ class FormController extends Controller
      * FormController constructor.
      * @param Request $request
      * @param FormRepository $model
-     * @param FormFieldRepository $form_field
      */
     public function __construct(
         Request $request,
-        FormRepository $model,
-        FormFieldRepository $form_field
+        FormRepository $model
     )
     {
         $this->request = $request;
@@ -37,25 +34,21 @@ class FormController extends Controller
         $this->package_name = 'dynamic-forms';
         $this->view = 'admin.forms';
         $this->title = 'Forms';
-        $this->form_field = $form_field;
     }
 
     /**
-     * @param FormFieldRepository $form_field
+
      * @param $form_id
      * @return $this
      */
-    public function design(FormFieldRepository $form_field, $form_id)
+    public function design($form_id)
     {
         $form = $this->model->find($form_id);
-        $form_fields = $form_field->getAllFieldsTree($form_id);
 
         return $this->display('dynamic-forms::admin.forms.design', [
             'title' => 'Design',
             'form' => $form,
             'model' => $form,
-            'form_fields' => $form_fields,
-            'pages' => $form->pages,
             'ui' => 'Robust\DynamicForms\UI\Form'
         ]);
     }
@@ -109,11 +102,9 @@ class FormController extends Controller
             'slug' => $form->slug,
             'title' => $form->title,
             'pages' => $form->pages,
-            'form_group_id' => $form->form_group_id,
             'status' => $form->status,
             'field_for_user_email' => $form->field_for_user_email,
             'notify_to_user' => $form->notify_to_user,
-            'notify_to_admin' => $form->notify_to_admin,
             'single_submit' => $form->single_submit,
             'make_public' => $form->make_public
         ];

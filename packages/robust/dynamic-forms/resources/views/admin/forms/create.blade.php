@@ -41,12 +41,6 @@
                     {{ Form::label('notify_to_user', 'Notify to user', ['class' => 'control-label' ]) }}
                 </div>
                 <div class="col-sm-3">
-                    {{ Form::checkbox('notify_to_admin', $model->notify_to_admin, null, [
-                           ($model->notify_to_admin == 1)? 'Checked' : ''
-                           ]) }}
-                    {{ Form::label('notify_to_admin', 'Notify to admin', ['class' => 'control-label' ]) }}
-                </div>
-                <div class="col-sm-3">
                     {{ Form::checkbox('single_submit', $model->single_submit, null, [
                         ($model->single_submit    == 1)? 'Checked' : ''
                         ]) }}

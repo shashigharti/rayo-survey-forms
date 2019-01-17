@@ -6,13 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Robust\DynamicForms\Helpers\FormHelper;
 use Robust\DynamicForms\Models\Data;
-
 use Robust\DynamicForms\Models\Form;
-
-
-use Robust\DynamicForms\Models\FormField;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
-use Robust\Projects\Models\Target;
 
 /**
  * Class FormController
@@ -64,83 +59,63 @@ class FormController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function generateForm(Form $form, Request $request, $monitoring_id)
-    {
+    /* public function generateForm(Form $form, Request $request, $monitoring_id)
+     {
 
-        $project = \Robust\Projects\Models\Project::find($request->get('project_id'));
-        $count_form = $form->where('form_group_id', $project->id)->get()->count();
-        $monitoring = \Robust\Projects\Models\Monitoring::find($monitoring_id);
+         $project = \Robust\Projects\Models\Project::find($request->get('project_id'));
+         $count_form = $form->where('form_group_id', $project->id)->get()->count();
+         $monitoring = \Robust\Projects\Models\Monitoring::find($monitoring_id);
 
-        $data['title'] = "{$monitoring->name} - {$count_form}";
-        $data['slug'] = str_slug("Form - {$count_form}");
-        $data['form_group_id'] = $project->id;
-        $data['pages'] = 1;
+         $data['title'] = "{$monitoring->name} - {$count_form}";
+         $data['slug'] = str_slug("Form - {$count_form}");
+         $data['form_group_id'] = $project->id;
+         $data['pages'] = 1;
 
-        $demography_fields = [];
-        //TODO start from here
-//        foreach ($monitoring->indicators as $indicator) {
-//            if ($indicator->target_id != 0) {
-//                $target = Target::find($indicator->target_id);
-//
-//                $demography_fields = array_merge($demography_fields, $target->identificationFields->pluck('type', 'name')->toArray());
-//            } else {
-//                $demography_fields = [];
-//                $ind = Indicator::where('registration', $monitoring->filter_type)->where('project_id', $project->id)->get();
-////                dd($ind);
-//                foreach ($ind as $each) {
-//                    if ($each->target_id != 0) {
-//                        $target = Target::find($each->target_id);
-//
-//                        $demography_fields = array_merge($demography_fields, $target->identificationFields->pluck('type', 'name')->toArray());
-//                    }
-//                }
-//            }
-//        }
-        //TODO Upto here
-        $targets = Target::all();
-        foreach ($targets as $target) {
-            $demography_fields = array_merge($demography_fields, $target->identificationFields()->get(['type', 'name', 'order'])->toArray());
+         $demography_fields = [];
+         $targets = Target::all();
+         foreach ($targets as $target) {
+             $demography_fields = array_merge($demography_fields, $target->identificationFields()->get(['type', 'name', 'order'])->toArray());
 
-        }
-        $form = $form->create($data);
-        foreach ($demography_fields as $key => $each) {
-            $count = FormField::where('form_id', $form->id)->count();
-            $field = FormField::create(
-                [
-                    'form_id' => $form->id,
-                    'name' => "Field-{$count}",
-                    'label' => $each['name'],
-                    'field_name' => 'Field name',
-                    'type' => $each['type'],
-                    'section_id' => 0,
-                    'column_no' => 0,
-                    'properties' => json_encode([]),
-                    'conditions' => json_encode([]),
-                    'page_no' => 1,
-                ]);
+         }
+         $form = $form->create($data);
+         foreach ($demography_fields as $key => $each) {
+             $count = FormField::where('form_id', $form->id)->count();
+             $field = FormField::create(
+                 [
+                     'form_id' => $form->id,
+                     'name' => "Field-{$count}",
+                     'label' => $each['name'],
+                     'field_name' => 'Field name',
+                     'type' => $each['type'],
+                     'section_id' => 0,
+                     'column_no' => 0,
+                     'properties' => json_encode([]),
+                     'conditions' => json_encode([]),
+                     'page_no' => 1,
+                 ]);
 
-            $field->order = $each['order'];
-            $field->update();
-        }
-        foreach ($monitoring->indicators as $indicator) {
-            $count = FormField::where('form_id', $form->id)->count();
-            FormField::create(
-                [
-                    'form_id' => $form->id,
-                    'name' => "Field-{$count}",
-                    'label' => $indicator->name,
-                    'field_name' => 'Field name',
-                    'type' => $indicator->type,
-                    'section_id' => 0,
-                    'column_no' => 0,
-                    'properties' => $indicator->properties,
-                    'conditions' => json_encode([]),
-                    'page_no' => 1,
-                ]);
-        }
+             $field->order = $each['order'];
+             $field->update();
+         }
+         foreach ($monitoring->indicators as $indicator) {
+             $count = FormField::where('form_id', $form->id)->count();
+             FormField::create(
+                 [
+                     'form_id' => $form->id,
+                     'name' => "Field-{$count}",
+                     'label' => $indicator->name,
+                     'field_name' => 'Field name',
+                     'type' => $indicator->type,
+                     'section_id' => 0,
+                     'column_no' => 0,
+                     'properties' => $indicator->properties,
+                     'conditions' => json_encode([]),
+                     'page_no' => 1,
+                 ]);
+         }
 
-        return response()->json(['message' => 'successfully created', 'redirect_url' => route("admin.dynamic-forms.index")]);
-    }
+         return response()->json(['message' => 'successfully created', 'redirect_url' => route("admin.dynamic-forms.index")]);
+     }*/
 
     /**
      * @param $project_id

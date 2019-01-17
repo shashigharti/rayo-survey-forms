@@ -19,14 +19,12 @@ class FormRepository
 
     /**
      * @param Form $model
-     * @param FormFieldRepository $form_field
      */
-    public function __construct(Form $model, FormFieldRepository $form_field, RoleRepository $role, UserRepository $user)
+    public function __construct(Form $model, RoleRepository $role, UserRepository $user)
     {
         $this->model = $model;
         $this->role = $role;
         $this->user = $user;
-        $this->form_field = $form_field;
     }
 
     /**
@@ -34,13 +32,8 @@ class FormRepository
      */
     public function store_design($data)
     {
-
-        $form_fields = $data['form_data']['elements'];
         $form = $data['form_data'];
-
         $form_to_save = $this->model->find($form['id']);
-        $this->form_field->create($form_fields, $form['id']);
-
         $form_to_save->title = $form['title'];
         $form_to_save->slug = \Str::slug($form['title']);
         $form_to_save->form_group_id = $form['group_id'];
@@ -55,34 +48,6 @@ class FormRepository
     {
         $forms = $this->model->all();
         return $forms;
-    }
-
-    /**
-     * @param $form
-     * @return mixed
-     */
-    public function getPagesTab($form)
-    {
-        $options = [];
-
-        foreach (range(1, $form->pages) as $page) {
-            $options['Page ' . $page] = route('admin.forms.design', [$form->id]);
-        }
-        return $options;
-    }
-
-    /**
-     * @param $form_id
-     * @param $page
-     * @return mixed
-     */
-    public function getFieldsByPage($form_id, $page)
-    {
-        return $this->model->where('id', '=', $form_id)
-            ->where('page', '=', $page)
-            ->orderBy('id', 'ASC')
-            ->get();
-
     }
 
     /**

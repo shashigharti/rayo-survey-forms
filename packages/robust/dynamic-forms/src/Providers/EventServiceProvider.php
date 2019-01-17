@@ -19,9 +19,6 @@ class EventServiceProvider extends ServiceProvider
         'eloquent.saving: Robust\DynamicForms\Models\Form' => [
             \Robust\DynamicForms\Listeners\FormSavingEventListener::class
         ],
-        'eloquent.saving: Robust\DynamicForms\Models\FormField' => [
-            \Robust\DynamicForms\Listeners\FieldEventListener::class
-        ],
         'eloquent.saved: Robust\DynamicForms\Models\Form' => [
             \Robust\DynamicForms\Listeners\FormSavedEventListener::class
         ],

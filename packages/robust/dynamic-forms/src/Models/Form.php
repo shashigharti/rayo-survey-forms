@@ -36,22 +36,11 @@ class Form extends BaseModel
         'slug',
         'pages',
         'status',
-        'notify_to_admin',
-        'form_group_id',
         'field_for_user_email',
         'notify_to_user',
         'single_submit',
         'make_public'
     ];
-
-
-    /**
-     * @return mixed
-     */
-    public function fields()
-    {
-        return $this->hasMany('Robust\DynamicForms\Models\FormField');
-    }
 
     /**
      * @return mixed
