@@ -11,11 +11,12 @@
         <div class="page-brand-info">
             <div class="brand clearfix">
                 <div class="brand-info">
-                   <div class="brand-txt">
-                    <img class="brand-img" src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png') }}"
-                         alt="company logo"
-                         class="img-rounded">
-                    <p>{{ settings('general-setting', 'description') }}</p>
+                    <div class="brand-txt">
+                        <img class="brand-img"
+                             src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png') }}"
+                             alt="company logo"
+                             class="img-rounded">
+                        <p>{{ settings('general-setting', 'description') }}</p>
                     </div>
                 </div>
             </div>
@@ -23,7 +24,8 @@
         <div class="panel pull-right">
             <div class="panel-body">
                 <div class="responsive-logo">
-                    <img class="brand-img2" src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png') }}"
+                    <img class="brand-img2"
+                         src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png') }}"
                          alt="company logo"
                          class="img-rounded">
                 </div>
@@ -33,7 +35,7 @@
                     </div>
                 @endif
 
-                {{ Form::open(['route' => 'frw.user.auth', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
+                {{ Form::open(['route' => 'auth.check', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
                 <div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
                     <label class="floating-label">Email</label>
                     {{ Form::email('email', null, [
@@ -73,12 +75,13 @@
                 </button>
                 {{ Form::close() }}
 
-                <p>Still no account? Please go to <a href="#">Sign up</a></p>
+               {{-- <p>Still no account? Please go to <a href="#">Sign up</a></p>
                 <a href="{{ route('frw.user.auth.facebook') }}" type="submit"
-                   class="btn btn-primary btn-block sign-in btn-lg margin-top-40" style="pointer-events: none; cursor: default;">Sign up wth Facebook</a>
+                   class="btn btn-primary btn-block sign-in btn-lg margin-top-40"
+                   style="pointer-events: none; cursor: default;">Sign up wth Facebook</a>--}}
 
             </div>
-            <footer class="page-copyright text-center">
+           {{-- <footer class="page-copyright text-center">
                 <div class="social-share">
                     <a href="https://www.facebook.com/robustitconcepts" target="_blank"><img class="social-icon"
                                                                                              src="{{ URL::asset('assets/images/fb.png') }}"
@@ -95,7 +98,7 @@
                 <p>Robust IT Concepts</p>
 
                 <p>© 2016. All RIGHT RESERVED.</p>
-            </footer>
+            </footer>--}}
         </div>
 
     </div>

@@ -34,7 +34,9 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         @foreach($user->dashboards as $dashboard)
-                        <li><a href="{{route('admin.dashboards.show', [$dashboard->slug])}}">{{$dashboard->name}}</a></li>
+                            <li>
+                                <a href="{{route('admin.dashboards.show', [$dashboard->slug])}}">{{$dashboard->name}}</a>
+                            </li>
                         @endforeach
                         <li><a href="{{route('admin.dashboards.create')}}">+ Create New</a></li>
                     </ul>
@@ -127,8 +129,8 @@
                             @endif
                         @endforeach
                         <li role="presentation">
-                            <a href="{{route('frw.user.logout')}}" role="menuitem"><i class="icon md-power"
-                                                                                      aria-hidden="true"></i> Logout</a>
+                            <a href="{{route('auth.logout')}}" role="menuitem"><i class="icon md-power"
+                                                                                  aria-hidden="true"></i> Logout</a>
                         </li>
                     </ul>
                 </li>

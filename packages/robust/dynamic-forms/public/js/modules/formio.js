@@ -24,6 +24,7 @@
                 formData['display'] = display;
                 formData['title'] = 'Test Form';
                 formData['slug'] = 'test-form';
+                formData['id'] = $('.design--form :input[name="id"]').val();
 
                 form.on('change', (elem) => {
                     if(elem.components){
@@ -39,8 +40,11 @@
             });
         }
         $('.dynamic-form__save').on('click', function(){
+
+            let url = $('.design--form').data("url");
+            let type = $('.design--form').data("type");
             $.ajax({
-                url: "http://localhost/mis-new/public/admin/forms",
+                url: url,
                 type: 'POST',
                 data: formData,
                 success: function (result) {

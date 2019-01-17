@@ -38,31 +38,16 @@ class FormRepository
         return $this->model->create($data);
     }
 
-    /**
-     * @return mixed
-     */
-    public function getForms()
-    {
-        $forms = $this->model->all();
-        return $forms;
-    }
 
     /**
-     * @param $criteria
+     * @param $id
+     * @param $data
      * @return mixed
      */
-    public function findByCriteria($criteria)
+    public function update($id, $data)
     {
-        $where = (is_numeric($criteria)) ? 'id' : 'slug';
-
-        if (\Auth::user() && \Auth::user()->can('edit_dynamic_forms')) {
-            return $this->model->withTrashed()->where($where, $criteria)
-                ->first();
-        }
-
-        return $this->model
-            ->where($where, $criteria)
-            ->first();
+        $data['components'] = json_encode($data['components']);
+        return $this->model->find($id)->update($data);
     }
 
     /**

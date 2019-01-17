@@ -78,18 +78,18 @@ class RouteServiceProvider extends ServiceProvider
                 require $file;
             }
         });
-
-        Route::group([
-            'middleware' => ['web', 'guest'],
-        ], function ($router) {
-            foreach (glob(base_path() . '/packages/robust/core/routes/guest/*') as $file) {
-                require $file;
-            }
-        });
         Route::group([
             'middleware' => ['web', 'api'],
         ], function ($router) {
             foreach (glob(base_path() . '/packages/robust/core/routes/api/*') as $file) {
+                require $file;
+            }
+        });
+
+        Route::group([
+            'middleware' => ['web'],
+        ], function ($router) {
+            foreach (glob(base_path() . '/packages/robust/core/routes/auth/*') as $file) {
                 require $file;
             }
         });

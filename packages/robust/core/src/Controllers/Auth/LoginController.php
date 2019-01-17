@@ -1,8 +1,10 @@
 <?php
-namespace Robust\Core\Controllers\Admin\Auth;
+
+namespace Robust\Core\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class LoginController
@@ -28,8 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-
+    protected $redirectTo = '/admin';
 
     /**
      * LoginController constructor.
@@ -37,5 +38,32 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getLogin()
+    {
+        return view('core::admin.auth.login');
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getRegister()
+    {
+        return view('core::admin.auth.register');
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function forgot_password()
+    {
+        return view(Site::templateResolver('core::admin.auth.forgot-password'));
     }
 }

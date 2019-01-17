@@ -36,10 +36,9 @@ class CoreServiceProvider extends ServiceProvider
 //        'Robust\Core\Console\Commands\SendEmailWeekly',
     ];
 
+
     /**
-     * Register the application services.
-     *
-     * @return void
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function register()
     {
@@ -47,10 +46,9 @@ class CoreServiceProvider extends ServiceProvider
         $this->register_shortcodes();
     }
 
+
     /**
-     * Bootstrap the application events.
-     *
-     * @return void
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function boot()
     {
@@ -85,7 +83,7 @@ class CoreServiceProvider extends ServiceProvider
 
     }
 
-    public function registerFacades()
+       public function registerFacades()
     {
         $loader = AliasLoader::getInstance();
         $loader->alias('Asset', 'Robust\Core\Helpage\Assets');
@@ -104,23 +102,11 @@ class CoreServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../../config/settings.php', 'core.settings');
         $this->mergeConfigFrom(__DIR__ . '/../../config/email-settings.php', 'core.email-settings');
 
-        foreach (new \DirectoryIterator(__DIR__ . '/../../routes/admin') as $fileInfo) {
+        foreach (new \DirectoryIterator(__DIR__ . '/../..') as $fileInfo) {
             if (!$fileInfo->isDot()) {
-                include __DIR__ . '/../../routes/admin/' . $fileInfo->getFilename();
                 include __DIR__ . '/../../helpers.php';
             }
         }
-        foreach (new \DirectoryIterator(__DIR__ . '/../../routes/website') as $fileInfo) {
-            if (!$fileInfo->isDot()) {
-                include __DIR__ . '/../../routes/website/' . $fileInfo->getFilename();
-            }
-        }
-        foreach (new \DirectoryIterator(__DIR__ . '/../../routes/guest') as $fileInfo) {
-            if (!$fileInfo->isDot()) {
-                include __DIR__ . '/../../routes/guest/' . $fileInfo->getFilename();
-            }
-        }
-
 
         $this->commands($this->commands);
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'core');
