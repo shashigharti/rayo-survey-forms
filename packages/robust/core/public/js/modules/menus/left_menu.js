@@ -9,11 +9,11 @@
         $(".page").on('click', function() {
             $('#theMenu').removeClass('left-change');
             $('.sub-menu').removeClass('in');
-            $(".left .fa").removeClass('md-minus');
-            $(".left .fa").addClass('md-plus');
+            $(".left .fa").removeClass('fa-minus');
+            $(".left .fa").addClass('fa-plus');
         }); 
         $(".btn-class").on("click", function(){
-            $(this).find($(".fa")).toggleClass('md-plus md-minus');
+            $(this).find($(".fa")).toggleClass('fa-plus fas-minus');
         });
 
     });

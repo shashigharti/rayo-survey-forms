@@ -14,7 +14,7 @@
                            {{ ($sub_menus->count())? 'data-toggle=collapse' :'' }} href="{{ ($sub_menus->count()) ? '#'.str_replace(' ', '',$menu->display_name) : $menu->url}}">{{$menu->display_name}}</a>
                             @if($sub_menus->count())
                                 <a class="" data-toggle="collapse"
-                                   href="#{{str_replace(' ', '',$menu->display_name)}}"><i class="fa md-plus"></i></a>
+                                   href="#{{str_replace(' ', '',$menu->display_name)}}"><i class="fa fa-plus"></i></a>
                             @endif
                             </span>
                         <ul id="{{str_replace(' ', '',$menu->display_name)}}" class="sub-menu collapse">

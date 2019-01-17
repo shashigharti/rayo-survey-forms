@@ -24,7 +24,7 @@
             <button type="submit"
                     class="btn btn-sm btn-close btn-icon btn-primary waves-effect waves-light waves-round"
                     data-toggle="tooltip" data-original-title="Edit">
-                <i class="icon md-plus" aria-hidden="true"></i>
+                <i class="icon fa-plus" aria-hidden="true"></i>
             </button>
             {{Form::close()}}
         </li>
