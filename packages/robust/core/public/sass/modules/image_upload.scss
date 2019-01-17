@@ -1,0 +1,19 @@
+.element__image-editor {
+  /* Limit image width to avoid overflow the container */
+  img {
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
+  }
+  .modal-dialog {
+    width: 80%;
+    height: 80%;
+  }
+  .button__actions{
+    button{
+      float:left
+    }
+  }
+}
+
+#media-manager{
+  z-index:10000;
+}

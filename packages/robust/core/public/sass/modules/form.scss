@@ -1,0 +1,24 @@
+.form-group {
+  label.required::after {
+    content: ' *';
+    margin-right: 4px;
+    color: red;
+  }
+}
+
+#crudModal {
+  .modal-dialog {
+    width: 1200px;
+  }
+}
+
+#contentModal {
+  .modal-dialog {
+    width: 1200px;
+  }
+}
+
+.modal-body-60vh{
+  max-height: 60vh;
+  overflow: scroll;
+}

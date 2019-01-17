@@ -1,0 +1,11 @@
+
+$theme_color:#6b4994;
+.checkbox-theme input {
+  &[type="checkbox"]:checked + label::before, &[type="radio"]:checked + label::before {
+    background-color: $theme_color;
+    border-color:$theme_color;
+  }
+  &[type="checkbox"]:checked + label::after, &[type="radio"]:checked + label::after {
+    color: #fff;
+  }
+} 

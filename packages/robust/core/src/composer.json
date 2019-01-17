@@ -1,0 +1,11 @@
+{
+    "name": "robust/report",
+    "description": "Reporting tool",
+    "authors": [
+        {
+            "name": "Shashi Gharti",
+            "email": "shashi.gharti@gmail.com"
+        }
+    ],
+    "require": {}
+}
