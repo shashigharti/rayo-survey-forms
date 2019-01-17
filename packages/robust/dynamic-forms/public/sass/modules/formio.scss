@@ -210,6 +210,7 @@
 $theme_color: #6b4994;
 $hover_color: #9676bc;
 $grey: #F3F2F1;
+$white:#FFFFFF;
 
 .default-theme {
   .form-container {
@@ -383,7 +384,55 @@ option {
   white-space: initial;
   padding: 5px 10px;
 }
-
+.btn-theme{
+  background: #6b4994;
+  display: inline-block;
+  padding: 4px 15px;
+  color: #fff;
+  box-shadow: 1px 1px 1px 1px #888686;
+}
+a{
+  &:hover{
+    text-decoration:none;
+  }
+}
 table {
   width: 100%;
+}
+.design--form--header {
+  margin: 10px 0px 20px;
+  select{
+    width: 350px;
+    border: 1px solid #ccc;
+    background: #fff;
+    height: 30px;
+  }
+}
+.design--form--block{
+  .card-header {
+    background-color:#8c8888;
+    border-color:#8c8888;
+    .panel-title {
+      padding: 0px;
+      color:$white;
+      &:before,&:after{
+        top:10px;
+      }
+      .btn{
+        color:$white;
+        font-weight: 500;
+      }
+    }
+  }
+  .formcomponents{
+    .panel-body{
+      padding:10px 0px;
+      .btn-xs{
+        margin-left:0px;
+        margin-bottom: 6px;
+        padding: 8px;
+        text-decoration:none;
+      }
+    }
+  }
 }
