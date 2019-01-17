@@ -34,8 +34,10 @@ class Form extends BaseModel
     protected $fillable = [
         'title',
         'slug',
+        'display',
         'pages',
         'status',
+        'components',
         'field_for_user_email',
         'notify_to_user',
         'single_submit',

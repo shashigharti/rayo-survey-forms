@@ -114,10 +114,8 @@ trait CrudTrait
         }
 
         $data = $request->all();
-        $rules = with(new $this->ui)->addrules;
-        $this->validate($request,
-            $rules
-        );
+        $request->validate(with(new $this->ui)->addrules);
+
         $model = $this->model->store($data);
         if (isset($this->events['store'])) {
             $event = $this->events['store'];

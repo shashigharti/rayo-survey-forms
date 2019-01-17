@@ -17,13 +17,13 @@ class CreateDynformFormsTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 100)->unique();
 			$table->string('slug', 100);
-			$table->text('properties', 65535)->nullable();
+			$table->string('display', 50);
+			$table->text('components', 65535)->nullable();
 			$table->string('field_for_user_email')->nullable();
 			$table->boolean('notify_to_user')->nullable();
 			$table->integer('single_submit')->default(0);
 			$table->integer('make_public')->default(0);
 			$table->boolean('status')->default(1);
-			$table->string('theme')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
