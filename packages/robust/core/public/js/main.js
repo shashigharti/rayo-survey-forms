@@ -2,7 +2,11 @@ import jquery from 'jquery';
 import Vue from 'vue/dist/vue.js';
 
 window.$ = window.jQuery = jquery;
-window.FRW = {};
+window.FRW = {
+    fetch: function($params){
+
+    }
+};
 window.Vue = Vue;
 
 //import("../../../../../node_modules/bootstrap-tokenfield/dist/bootstrap-tokenfield.js");

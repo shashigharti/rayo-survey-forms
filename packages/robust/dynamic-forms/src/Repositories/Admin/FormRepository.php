@@ -27,18 +27,15 @@ class FormRepository
         $this->user = $user;
     }
 
+
     /**
      * @param $data
+     * @return mixed
      */
-    public function store_design($data)
+    public function store($data)
     {
-        $form = $data['form_data'];
-        $form_to_save = $this->model->find($form['id']);
-        $form_to_save->title = $form['title'];
-        $form_to_save->slug = \Str::slug($form['title']);
-        $form_to_save->form_group_id = $form['group_id'];
-
-        $form_to_save->save();
+        $data['components'] = json_encode($data['components']);
+        return $this->model->create($data);
     }
 
     /**

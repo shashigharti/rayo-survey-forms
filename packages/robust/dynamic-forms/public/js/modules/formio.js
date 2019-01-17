@@ -14,6 +14,7 @@
         let frm = null;
         let formData = {};
 
+
         if ($('#designer').length > 0) {
             let formElement = document.getElementById('designer');
 
@@ -21,6 +22,8 @@
             then(function (form) {
                 formData['components'] = form.component.components;
                 formData['display'] = display;
+                formData['title'] = 'Test Form';
+                formData['slug'] = 'test-form';
 
                 form.on('change', (elem) => {
                     if(elem.components){
@@ -35,8 +38,15 @@
                 });
             });
         }
-        $('.dynamic-form__save').on('click', function(type){
-            console.log(formData);
+        $('.dynamic-form__save').on('click', function(){
+            $.ajax({
+                url: "http://localhost/mis-new/public/admin/forms",
+                type: 'POST',
+                data: formData,
+                success: function (result) {
+                    console.log(result);
+                }
+            });
         });
         if ($('#preview--container__form').length > 0) {
             Formio.createForm(document.getElementById('preview--container__form'), 'https://examples.form.io/example', {
