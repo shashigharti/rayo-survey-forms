@@ -407,32 +407,41 @@ table {
     background: #fff;
     height: 30px;
   }
+  .btn{
+    color:$white;
+    text-transform:uppercase;
+    font-weight:500;
+  }
 }
 .design--form--block{
   .card-header {
-    background-color:#8c8888;
-    border-color:#8c8888;
     .panel-title {
       padding: 0px;
-      color:$white;
       &:before,&:after{
         top:10px;
+        right:12px;
       }
       .btn{
-        color:$white;
         font-weight: 500;
       }
     }
   }
   .formcomponents{
+    .form-builder-panel{
+      min-height:0px;
+      margin-top:5px;
+    }
     .panel-body{
       padding:10px 0px;
       .btn-xs{
         margin-left:0px;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         padding: 8px;
         text-decoration:none;
       }
     }
   }
+}
+.btn-no-radius{
+  border-radius: 0px;
 }
