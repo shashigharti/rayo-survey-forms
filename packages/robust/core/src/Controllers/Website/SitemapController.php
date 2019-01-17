@@ -3,17 +3,18 @@
 namespace Robust\Core\Controllers\Website;
 
 use Illuminate\Support\Facades\Storage;
-use Robust\Core\Controllers\Admin\Controller;
 
 /**
  * Class SitemapController
- * @package packages\robust\core\src\Controllers\Website
+ * @package Robust\Core\Controllers\Website
  */
 class SitemapController extends Controller
 {
 
+
     /**
-     * @return mixed
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function index()
     {

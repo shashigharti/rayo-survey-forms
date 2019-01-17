@@ -41,7 +41,8 @@ class IsAdmin
     {
         if (Auth::user() && Auth::user()->can('admin.view'))
             return $next($request);
-
-        return redirect()->route('website.home');
+        return $request->expectsJson()
+            ? abort(403,  __('messages.no_access_to_page'))
+            : redirect()->route('website.home');
     }
 }
