@@ -8,29 +8,16 @@
         <div class="form-group form-material row">
             <div class="col-sm-6">
                 {{ Form::label('title', 'Form Name', ['class' => 'control-label' ])}}
-                <input type="text" name="title" class="form-control name" v-model="title"
-                       placeholder="Form Name i.e. \'KISAN\'" @blur="slugify"
-                       required='required' data-value="{{isset($model->title)?$model->title:''}}">
+                <input type="text" name="title" class="form-control name" value="{{$model->title ?? ''}}"
+                       placeholder="Form Name i.e. \'KISAN\'"
+                       required='required'>
             </div>
             <div class="col-sm-6">
                 {{ Form::label('slug', 'Slug', ['class' => 'control-label' ])}}
-                <input type="text" name="slug" class="form-control" v-model="slug"
-                       placeholder="slug i.e. \'slug\'"
-                       required='required' data-value="{{isset($model->slug)?$model->slug:''}}">
+                <input type="text" name="slug" class="form-control" value="{{$model->slug ?? ''}}"
+                       required='required'>
             </div>
         </div>
-
-        @if(is_dir(base_path()."/packages/robust/projects"))
-            <div class="form-group form-material row">
-                <div class="col-sm-12">
-                    {{ Form::label('form_group_id', 'Projects', ['class' => 'control-label' ]) }}
-                    <v-select tabindex="1" v-model="selected_project" :options="projects"></v-select>
-                    <input type="hidden" name="form_group_id" v-model="current_project"
-                           data-value="{{isset($model->form_group_id)?$model->form_group_id:''}}">
-
-                </div>
-            </div>
-        @endif
 
         @if(isset($model->id))
             <div class="form-group form-material row">
