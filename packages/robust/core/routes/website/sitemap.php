@@ -1,5 +1,5 @@
 <?php
-Route::group(['as' => 'robust.website.', 'group' => 'Sitemap'], function () {
+Route::group(['as' => 'website.', 'group' => 'Sitemap'], function () {
 
     Route::get('/sitemap.xml', [
         'as' => 'sitemaps.index',

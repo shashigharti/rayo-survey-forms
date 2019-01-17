@@ -1,5 +1,5 @@
 <?php
-namespace Robust\Core\Controllers\Website;
+namespace Robust\Core\Controllers\Admin;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

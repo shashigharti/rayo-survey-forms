@@ -1,4 +1,5 @@
 <?php
+
 namespace Robust\Core\Controllers\Website;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;

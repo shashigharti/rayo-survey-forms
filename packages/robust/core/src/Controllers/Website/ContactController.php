@@ -3,7 +3,6 @@
 namespace Robust\Core\Controllers\Website;
 
 use Illuminate\Http\Request;
-use Robust\Core\Controllers\Admin\Controller;
 use Robust\Core\Helpage\Site;
 use Robust\Core\Repositories\ContactRepository;
 use Robust\Core\Services\ContactEmail;
@@ -33,9 +32,11 @@ class ContactController extends Controller
         return view(Site::templateResolver('core::website.forms.contactus'));
     }
 
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function contact(Request $request)
     {

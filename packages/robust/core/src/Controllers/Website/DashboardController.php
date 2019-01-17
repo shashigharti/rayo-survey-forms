@@ -30,8 +30,7 @@ class DashboardController extends Controller
         $this->request = $request;
         $this->ui = 'Robust\Core\UI\Dashboard';
         $this->package_name = 'core';
-        $this->view = 'admin.dashboards';
-        $this->ajax_view = 'admin.ajax.dashboards';
+        $this->view = 'website.dashboards';
         $this->title = 'Dashboards';
     }
 }
