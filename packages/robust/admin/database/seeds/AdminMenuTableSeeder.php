@@ -11,20 +11,6 @@ class AdminMenuTableSeeder extends Seeder
      */
     public function run()
     {
-
-        DB::table('menus')->insert([
-            [
-                'display_name' => 'Contacts',
-                'name' => 'contacts',
-                'url' => route('admin.contacts.index'),
-                'permission' => 'admin.contacts.manage',
-                'package_name' => 'core',
-                'parent_id' => 0,
-                'type' => 'secondary',
-                'icon' => 'md-account-box-phone'
-            ]
-        ]);
-
         DB::table('menus')->insert([
             [
                 'display_name' => 'User Management',
