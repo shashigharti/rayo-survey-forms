@@ -27,31 +27,37 @@ class SettingTableSeeder extends Seeder
             'slug' => "general-setting",
             'display_name' => 'General',
             'package_name' => 'core',
+            'values' => '{}'
         ]);
         \Robust\Core\Models\Setting::create([
             'slug' => "email-setting",
             'display_name' => 'Email',
             'package_name' => 'core',
+            'values' => '{}'
         ]);
         \Robust\Core\Models\Setting::create([
             'slug' => "app-setting",
             'display_name' => 'Application',
             'package_name' => 'core',
+            'values' => '{}'
         ]);
         \Robust\Core\Models\Setting::create([
             'slug' => "contact-setting",
             'display_name' => 'Contact',
             'package_name' => 'core',
+            'values' => '{}'
         ]);
         \Robust\Core\Models\Setting::create([
             'slug' => "ga-analytics",
             'display_name' => 'G-Analytics',
             'package_name' => 'core',
+            'values' => '{}'
         ]);
         \Robust\Core\Models\Setting::create([
             'slug' => "fb-analytics",
             'display_name' => 'FB-Analytics',
             'package_name' => 'core',
+            'values' => '{}'
         ]);
     }
 }
