@@ -11,7 +11,7 @@
                 <div class="panel-box panel-default">
                     <div class="form__wrapper system-settings">
                         @include("core::admin.partials.messages.info")
-                        @if($setting->package_name && View::exists("{$setting->package_name}::admin.settings.{$slug}"))
+                        @if(isset($setting->package_name) && View::exists("{$setting->package_name}::admin.settings.{$slug}"))
                             @include("{$setting->package_name}::admin.settings.{$slug}")
                         @endif
                     </div>
