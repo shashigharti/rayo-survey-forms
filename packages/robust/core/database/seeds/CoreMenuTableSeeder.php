@@ -87,19 +87,6 @@ class CoreMenuTableSeeder extends Seeder
         ]);
         DB::table('menus')->insert([
             [
-                'display_name' => 'Contacts',
-                'name' => 'core.contacts',
-                'url' => route('admin.contacts.index'),
-                'permission' => 'core.contacts.manage',
-                'package_name' => 'core',
-                'parent_id' => 0,
-                'type' => 'primary',
-                'icon' => 'md-phone'
-
-            ],
-        ]);
-        DB::table('menus')->insert([
-            [
                 'display_name' => 'Database Management',
                 'name' => 'core.backup',
                 'url' => route('admin.backup.index'),
