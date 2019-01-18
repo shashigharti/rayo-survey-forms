@@ -57,5 +57,21 @@
 <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Nestable/2012-10-15/jquery.nestable.min.js" async></script>
+
+{{--Register SW--}}
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log(`Service Worker registered! Scope: ${registration.scope}`);
+                })
+                .catch(err => {
+                    console.log(`Service Worker registration failed: ${err}`);
+                });
+        });
+    }
+</script>
 </body>
 </html>
