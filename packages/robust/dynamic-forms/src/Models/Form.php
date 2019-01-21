@@ -34,10 +34,9 @@ class Form extends BaseModel
     protected $fillable = [
         'title',
         'slug',
-        'display',
         'pages',
         'status',
-        'components',
+        'properties',
         'field_for_user_email',
         'notify_to_user',
         'single_submit',
@@ -50,22 +49,6 @@ class Form extends BaseModel
     public function datas()
     {
         return $this->hasMany('Robust\DynamicForms\Models\Data');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function roles()
-    {
-        return $this->belongsToMany('Robust\Admin\Models\Role', 'dynform_form_role');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function users()
-    {
-        return $this->belongsToMany('Robust\Admin\Models\User', 'dynform_form_user');
     }
 
 }

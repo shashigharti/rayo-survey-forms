@@ -16,7 +16,7 @@ trait CrudTrait
     /**
      * @var string
      */
-    private $table = 'core::website.layouts.sub-layouts.dashboard';
+    private $table = 'core::admin.layouts.sub-layouts.table';
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -114,8 +114,10 @@ trait CrudTrait
         }
 
         $data = $request->all();
-        $request->validate(with(new $this->ui)->addrules);
-
+        $rules = with(new $this->ui)->addrules;
+        $this->validate($request,
+            $rules
+        );
         $model = $this->model->store($data);
         if (isset($this->events['store'])) {
             $event = $this->events['store'];

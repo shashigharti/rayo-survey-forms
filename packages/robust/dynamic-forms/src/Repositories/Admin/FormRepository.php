@@ -32,11 +32,11 @@ class FormRepository
      * @param $data
      * @return mixed
      */
-    public function store($data)
+   /* public function store($data)
     {
         $data['components'] = json_encode($data['components']);
         return $this->model->create($data);
-    }
+    }*/
 
 
     /**
@@ -44,37 +44,11 @@ class FormRepository
      * @param $data
      * @return mixed
      */
-    public function update($id, $data)
+   /* public function update($id, $data)
     {
         $data['components'] = json_encode($data['components']);
         return $this->model->find($id)->update($data);
-    }
+    }*/
 
-    /**
-     * @param $id
-     * @param $roles
-     */
-    public function roles($id, $roles)
-    {
-        $roles = is_array($roles) ? $roles : [];
-        $this->model->find($id)->roles()->sync($roles);
-        if ($this->model->find($id)->roles->count() == 0 && $this->model->find($id)->users->count() == 0) {
-            $this->model->find($id)->users()->sync([\Auth::user()->id]);
-        }
-    }
-
-    /**
-     * @param $id
-     * @param $users
-     */
-    public function users($id, $users)
-    {
-        $users = is_array($users) ? $users : [];
-        $this->model->find($id)->users()->sync($users);
-
-        if ($this->model->find($id)->roles->count() == 0 && $this->model->find($id)->users->count() == 0) {
-            $this->model->find($id)->users()->sync([\Auth::user()->id]);
-        }
-    }
 
 }
