@@ -4,6 +4,7 @@ namespace Robust\DynamicForms\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Robust\DynamicForms\Helpers\FormHelper;
 use Robust\DynamicForms\Models\Data;
 use Robust\DynamicForms\Models\Form;
@@ -54,6 +55,32 @@ class FormController extends Controller
         $all = Form::all();
         return $all;
     }
+
+    /**
+     * Syncs offline data to live db
+     * @param \Illuminate\Http\Request $request
+     * @param \Robust\DynamicForms\Models\Data $dynform_tbl
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function sync(Request $request, Data $dynform_tbl)
+    {
+        // Add to db
+        $mis_surveys = $request->all();
+        foreach($mis_surveys as $mis_survey) {
+            $json_survey = json_encode($mis_survey, true);
+            $data = [
+                'form_id' => 1,
+                'values' => $json_survey,
+                'completed' => 1,
+                'user_id' => Auth::id()
+            ];
+            $dynform_tbl->insert($data);
+        }
+
+        return response('success');
+    }
+
+
 
     /**
      * @param Request $request
