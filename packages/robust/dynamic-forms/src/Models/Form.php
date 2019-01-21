@@ -51,4 +51,12 @@ class Form extends BaseModel
         return $this->hasMany('Robust\DynamicForms\Models\Data');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany('Robust\Admin\Models\User', 'dynform_form_user');
+    }
+
 }

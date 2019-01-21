@@ -53,43 +53,6 @@ class FormController extends Controller
         ]);
     }
 
-
-    /**
-     * @param $id
-     * @return $this
-     */
-    public function permissions($id)
-    {
-        $model = $this->model->find($id);
-        return $this->display('dynamic-forms::admin.forms.permissions', [
-            'title' => 'Permissions',
-            'model' => $model,
-            'ui' => 'Robust\DynamicForms\UI\Form'
-        ]);
-
-    }
-
-
-    /**
-     * @param $element
-     * @param $name
-     * @param $type
-     * @return string
-     */
-    public function getDuplicateName($element, $name, $type)
-    {
-        $flag = 0;
-        $temp = $name;
-        $elementNull = clone $element;
-        while ($element->where($type, $name)->count() != 0) {
-            ++$flag;
-            $name = $temp . '-copy' . $flag;
-            $elementNull = clone $element;
-        }
-
-        return $name;
-    }
-
     /**
      * @param $form_id
      * @return mixed
@@ -112,45 +75,7 @@ class FormController extends Controller
         $new_data['slug'] = $this->getDuplicateName(with(new Form()), $new_data['slug'] == '' ? \Str::slug($new_data['title']) : $new_data['slug'], 'slug');
         $new_data['title'] = $this->getDuplicateName(with(new Form()), $new_data['title'], 'title');
         $new_form = $this->model->store($new_data);
-        if ($form->fields->count()) {
-            foreach ($form->fields as $each_field) {
-                $new_field_data = array_merge($each_field->toArray(), ['form_id' => $new_form->id]);
-
-                $this->form_field->duplicateByRelation($new_field_data);
-            }
-        }
         return \Redirect::back()->with(['message' => 'You have successfully duplicated a form']);
-    }
-
-
-    /**
-     * @param Request $request
-     * @param FormRepository $form
-     * @param $id
-     * @return string
-     */
-    public function postPermissions(Request $request, FormRepository $form, $id)
-    {
-        $roles = $request->get('roles');
-        $users = $request->get('users');
-        $form->roles($id, $roles);
-        $form->users($id, $users);
-
-        return 'successfully updated!';
-    }
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function theme($id)
-    {
-        $form = $this->model->find($id);
-        $form->theme = $this->request->get('cls');
-        $form->update();
-        return \Response::json(
-            'Theme successfully applied.'
-        );
     }
 
     /**
@@ -161,25 +86,8 @@ class FormController extends Controller
     {
         $form = $this->model->find($id);
         $form->datas()->delete();
-        $form->fields()->delete();
         $form->delete($id);
         return redirect()->back()->with('message', 'Record was successfully deleted!');
-    }
-
-
-    /**
-     * @param $id
-     * @return $this
-     */
-    public function print_($id)
-    {
-        $form = $this->model->find($id);
-        return $this->display('core::admin.layouts.print',
-            [
-                'template' => 'dynamic-forms::admin.forms.print',
-                'model' => $form,
-            ]
-        );
     }
 
 
