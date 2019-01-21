@@ -59,4 +59,25 @@ module.exports = function () {
         .pipe(flatten())
         .pipe(gulp.dest('public/assets/website/images'))
         .pipe(notify({message: 'Website Images task complete'}));
+
+    gulp.src(['packages/robust/dynamic-forms/public/js/modules/website/pwa.js'])
+        .pipe(browserify({transform: ['babelify']}))
+        .pipe(gulp.dest('public/assets/website/js'))
+        .pipe(notify({message: 'PWA Scripts task complete'}));
+
+    gulp.src(['packages/robust/dynamic-forms/public/js/modules/website/worker.js'])
+        .pipe(browserify({transform: ['babelify']}))
+        .pipe(gulp.dest('public/assets/website/js'))
+        .pipe(notify({message: 'PWA Scripts task complete'}));
+
+
+    gulp.src(['node_modules/idb/lib/idb.js'])
+        .pipe(uglify({mangle: false}))
+        .pipe(gulp.dest('public/assets/website/js'))
+        .pipe(notify({message: 'IDB Scripts task complete'}));
+
+    gulp.src(['node_modules/jquery/dist/jquery.min.js'])
+        .pipe(uglify({mangle: false}))
+        .pipe(gulp.dest('public/assets/website/js'))
+        .pipe(notify({message: 'IDB Scripts task complete'}));
 }
