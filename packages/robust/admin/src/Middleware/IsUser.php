@@ -39,7 +39,7 @@ class IsUser
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && !Auth::user()->can('admin.view'))
+        if (!Auth::user()->can('admin.view'))
             return $next($request);
 
         return redirect()->route('website.home');

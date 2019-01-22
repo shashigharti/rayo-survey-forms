@@ -39,10 +39,11 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->can('admin.view'))
+        if (Auth::user()->can('admin.view'))
             return $next($request);
+
         return $request->expectsJson()
             ? abort(403,  __('messages.no_access_to_page'))
-            : redirect()->route('website.home');
+            : redirect()->route('admin.user.dashboards.index');
     }
 }

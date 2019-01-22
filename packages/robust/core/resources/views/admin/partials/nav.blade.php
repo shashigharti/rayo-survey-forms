@@ -2,7 +2,7 @@
      role="navigation">
     <div class="navbar-header">
 
-        <a class="navbar-brand" href="{{ route('admin.home') }}">
+        <a class="navbar-brand" href="{{--{{ route('admin.home') }}--}}">
             <img class="navbar-brand-logo navbar-brand-logo-normal"
                  src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png')  }}"
                  title="Rayo forms">

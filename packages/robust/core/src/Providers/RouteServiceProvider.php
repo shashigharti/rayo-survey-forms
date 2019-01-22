@@ -64,7 +64,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::group([
-            'middleware' => ['web', 'admin'],
+            'middleware' => ['web', 'auth', 'admin'],
         ], function ($router) {
             foreach (glob(base_path() . '/packages/robust/core/routes/admin/*') as $file) {
                 if (!is_dir($file)) {
@@ -80,7 +80,7 @@ class RouteServiceProvider extends ServiceProvider
             }
         });
         Route::group([
-            'middleware' => ['web', 'admin'],
+            'middleware' => ['web', 'auth'],
         ], function ($router) {
             foreach (glob(base_path() . '/packages/robust/core/routes/admin/users/*') as $file) {
                 require $file;

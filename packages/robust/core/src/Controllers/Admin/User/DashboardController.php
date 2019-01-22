@@ -3,6 +3,7 @@
 namespace Robust\Core\Controllers\Admin\User;
 
 use Illuminate\Http\Request;
+use Robust\Core\Controllers\Admin\Controller;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Repositories\DashboardRepository;
