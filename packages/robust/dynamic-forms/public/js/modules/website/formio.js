@@ -10,6 +10,7 @@
      */
     $(function () {
         let online = navigator.onLine;
+
         // Storing offline form data - cannot retrieve from url when offline
         let offlineForm = {
             "_id": "57aa1d2a5b7a477b002717fe",
