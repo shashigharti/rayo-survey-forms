@@ -27,4 +27,11 @@ Route::group(['prefix' => config('core.frw.api'), 'as' => 'api.', 'group' => 'Fo
         'uses' => 'Robust\DynamicForms\Controllers\API\FormController@generateForm',
     ]);
 
+    // Form show for front end
+    Route::get('/forms/show/{id}', [
+        'as' => 'form.show',
+        'uses' => 'Robust\DynamicForms\Controllers\API\FormController@displayForm',
+    ]);
+
+
 });

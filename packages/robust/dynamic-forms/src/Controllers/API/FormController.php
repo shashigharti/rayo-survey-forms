@@ -36,4 +36,36 @@ class FormController extends Controller
         return [];
     }
 
+    /**
+     * Retrieves the form by its id and returns a JSON value
+     * @param $id
+     * @param \Robust\DynamicForms\Models\Form $form
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function displayForm($id, Form $form)
+    {
+        $data = $form->where('id', $id)->get();
+        return response()->json($data);
+    }
+
+    /**
+     * Submission function for form data
+     * @param \Illuminate\Http\Request $request
+     * @param \Robust\DynamicForms\Models\Data $dynform_tbl
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function submitForm(Request $request, Data $dynform_tbl)
+    {
+        $mis_survey = $request->except('id');
+        $json_survey = json_encode($mis_survey, true);
+        $data = [
+            'form_id' => $request->get('id'),
+            'values' => $json_survey,
+            'completed' => 1,
+            'user_id' => Auth::id()
+        ];
+        $dynform_tbl->insert($data);
+
+        return response('success');
+    }
 }
