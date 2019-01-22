@@ -15,6 +15,7 @@ Route::group(['prefix' => config('core.frw.uri'), 'as' => 'admin.', 'group' => '
 
     // FORM
     Route::resource('forms', 'Robust\DynamicForms\Controllers\Admin\FormController');
+
     Route::post('/forms/{id}/status', [
         'as' => 'forms.status',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\FormController@changeStatus',

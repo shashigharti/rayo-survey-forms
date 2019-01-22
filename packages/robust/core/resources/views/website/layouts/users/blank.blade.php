@@ -50,13 +50,8 @@
  </head>
  <body>
     {!! settings('ga-analytics','code') !!}
-    @section('body')
-        @yield('body')
-    @show
-
-    @section('footer')
-        @yield('footer')
-    @show
+    @yield('body')
+    @yield('footer')
     <script src="{{ url('assets/website/js/app.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJOS3FodOcmBc-PXI5rX57VhjnMx_7Uc" async defer></script>
 

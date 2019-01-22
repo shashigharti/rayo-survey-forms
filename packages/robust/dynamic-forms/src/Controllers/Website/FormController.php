@@ -1,5 +1,6 @@
 <?php
-namespace Robust\DynamicForms\Controllers\User;
+
+namespace Robust\DynamicForms\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
@@ -11,17 +12,22 @@ use Robust\DynamicForms\Repositories\Admin\FormRepository;
  */
 class FormController extends Controller
 {
+    /**
+     * FormController constructor.
+     * @param FormRepository $model
+     */
     public function __construct(FormRepository $model)
     {
         $this->model = $model;
     }
 
+    /**
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($slug)
     {
         $model = $this->model->where('slug', $slug)->first();
-        if ($model->make_public == 1 && $model->status == 1)
-            return view('dynamic-forms::user.form.view', compact('model'));
-        else
-            return view('core::user.404');
+        return view('dynamic-forms::website.users.forms.view', compact('model'));
     }
 }
