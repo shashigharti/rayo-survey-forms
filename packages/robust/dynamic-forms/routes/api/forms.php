@@ -33,5 +33,11 @@ Route::group(['prefix' => config('core.frw.api'), 'as' => 'api.', 'group' => 'Fo
         'uses' => 'Robust\DynamicForms\Controllers\API\FormController@displayForm',
     ]);
 
+    // Form submission from front end
+    Route::get('/forms/submit', [
+        'as' => 'form.submit',
+        'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForm',
+    ]);
+
 
 });
