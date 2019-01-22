@@ -25,6 +25,7 @@
                 formData['title'] = 'Test Form';
                 formData['slug'] = 'test-form';
                 formData['id'] = $('.design--form :input[name="id"]').val();
+                formData['_method'] = 'PUT';
 
                 form.on('change', (elem) => {
                     if(elem.components){

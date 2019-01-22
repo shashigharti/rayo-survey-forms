@@ -78,9 +78,11 @@ class FormController extends Controller
         return \Redirect::back()->with(['message' => 'You have successfully duplicated a form']);
     }
 
+
     /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy($id)
     {
@@ -105,6 +107,21 @@ class FormController extends Controller
                 'query_params' => $query_params
             ]
         );
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \Robust\DynamicForms\Models\Form $form
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, Form $form)
+    {
+        $data = $request->except('_method');
+        $id = (int)$data['id'];
+        $this->model->update($id, [
+            'properties' => json_encode($data)
+        ]);
+        return response()->json(['message' => 'success']);
     }
 
 }
