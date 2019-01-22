@@ -67,6 +67,22 @@ class RouteServiceProvider extends ServiceProvider
             'middleware' => ['web', 'admin'],
         ], function ($router) {
             foreach (glob(base_path() . '/packages/robust/core/routes/admin/*') as $file) {
+                if (!is_dir($file)) {
+                    require $file;
+                }
+            }
+        });
+        Route::group([
+            'middleware' => ['web'],
+        ], function ($router) {
+            foreach (glob(base_path() . '/packages/robust/core/routes/admin/auth/*') as $file) {
+                require $file;
+            }
+        });
+        Route::group([
+            'middleware' => ['web', 'admin'],
+        ], function ($router) {
+            foreach (glob(base_path() . '/packages/robust/core/routes/admin/users/*') as $file) {
                 require $file;
             }
         });
@@ -86,12 +102,6 @@ class RouteServiceProvider extends ServiceProvider
             }
         });
 
-        Route::group([
-            'middleware' => ['web'],
-        ], function ($router) {
-            foreach (glob(base_path() . '/packages/robust/core/routes/auth/*') as $file) {
-                require $file;
-            }
-        });
+
     }
 }

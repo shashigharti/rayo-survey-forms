@@ -9,10 +9,10 @@
      |--------------------------------------------------------------------------
      */
     $(function () {
-        alert('testing');
-        if ($('#form__content--display').length > 0) {
-            Formio.createForm(document.getElementById('form__content--display'),
-                'https://examples.form.io/example');
+        if ($('#form__show').length > 0) {
+            Formio.createForm(document.getElementById('form__show'), 'https://examples.form.io/example', {
+                readOnly: true
+            });
         }
     });
 }(jQuery, FRW, window, document));

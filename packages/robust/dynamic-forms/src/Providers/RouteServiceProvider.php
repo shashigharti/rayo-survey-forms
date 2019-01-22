@@ -66,5 +66,12 @@ class RouteServiceProvider extends ServiceProvider
                 require $file;
             }
         });
+        Route::group([
+            'middleware' => ['api'],
+        ], function ($router) {
+            foreach (glob(base_path() . '/packages/robust/dynamic-forms/routes/admin/users/*') as $file) {
+                require $file;
+            }
+        });
     }
 }

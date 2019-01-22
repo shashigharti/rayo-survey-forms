@@ -21,6 +21,6 @@ class Controller extends BaseController
      */
     function home()
     {
-        return redirect()->route('website.user.dashboards.index');
+        return redirect()->route('admin.dashboards.index');
     }
 }

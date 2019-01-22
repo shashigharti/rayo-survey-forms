@@ -34,7 +34,6 @@ class DashboardController extends Controller
         $this->view = 'admin.dashboards';
         $this->ajax_view = 'admin.ajax.dashboards';
         $this->title = 'Dashboards';
-        $this->previous_url = route('admin.home');
     }
 
 
