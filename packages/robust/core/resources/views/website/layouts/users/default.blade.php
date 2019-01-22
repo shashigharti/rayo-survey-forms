@@ -22,9 +22,8 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     @set('secure', (env('APP_ENV') == 'production') ? true : false)
 
-    {{ \Site::assets('assets/css/app.min.css', 'style', $secure) }}
-    {{ \Site::assets('assets/css/app-1.min.css', 'style', $secure) }}
-
+    <link href="{{ URL::asset('assets/website/css/app.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/website/css/app-1.min.css') }}" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -39,14 +38,14 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
-    {!! settings('contact-setting', 'g-analytics') !!}
-
 </head>
 <body class="default-theme">
+
 @include("core::admin.partials.nav")
 @include("core::admin.partials.menus.left-menu")
+
 @yield('content')
+
 @include("core::admin.partials.footer")
 @include("core::admin.medias.ajax.media")
 @include("core::admin.partials.modals.modal")

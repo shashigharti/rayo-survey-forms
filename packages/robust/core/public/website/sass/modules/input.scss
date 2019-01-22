@@ -1,0 +1,55 @@
+.form-material .form-control{
+  background-image: none;
+  border:1px solid #ccc;
+  padding: 3px 10px 4px;
+}
+.form-control{
+  height: 30px;
+}
+
+.form-material select.form-control {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    height:auto;
+    padding: 3px 10px 3px;
+}
+
+.form-material .form-control:focus, .form-material .form-control.focus {
+  background-image: none;
+  border:1px solid $theme_color;
+}
+
+.form-control.tokenfield{
+  border:1px solid #ccc;
+}
+
+.tokenfield.focus{
+  border-color:$theme_color !important;
+}
+
+.form-material .form-control:invalid {
+  background-image: none;
+}
+.input-group-btn .btn{
+  padding:3px 10px;
+}
+input[type="file"] {
+  height:36px;
+}
+.input-group{
+  select{
+    height: 30px;
+  }
+}
+.v-select input[type=search], .v-select input[type=search]:focus{
+  height: 28px !important;
+}
+.v-select .dropdown-toggle{
+  border-radius: 0px !important;
+}
+.product_table {
+    margin-top: 15px;
+}
+.result td{
+  padding-top: 8px;
+}

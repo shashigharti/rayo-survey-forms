@@ -1,0 +1,137 @@
+$theme_color: #6b4994;
+$hover_color: #b098cd;
+.left-menu {
+  position: fixed;
+  top: 56px;
+  display: block;
+  transition: width 0.25s ease 0s, opacity 0.25s ease 0s, transform 0.25s ease 0s;
+  z-index: 1400;
+  background:$theme_color;
+  box-shadow: 3px 0 6px 0 rgba(0, 0, 0, 0.05), 3px 0 15px 0 rgba(0, 0, 0, 0.1);
+  color: rgba(117, 117, 117, 0.9);
+  font-family: Roboto, sans-serif;
+  height:100%;
+
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+  .menu_item {
+    width: 170px;
+    display: inline-block;
+  }
+  .left {
+    float: left;
+    height:85%;
+    padding-left: 0px;
+    overflow: hidden;
+    &:hover{
+      overflow: auto;
+    }
+  }
+
+  .left {
+    background: $theme_color;
+    display: inline-block;
+    white-space: nowrap;
+    width: 50px;
+    transition: width 0.3s ease;
+  }
+  .menu-nav {    
+        font-size: 30px;
+        color: #fff;
+        padding: 0px 10px 0px;   
+        overflow: hidden;
+        transition: width 1s; 
+  }
+  .left-change{
+    width: 250px;
+  }
+
+  .item:hover {
+    background-color: $hover_color;
+  }
+
+  .left .icon {
+    margin: 15px;
+    width: 20px;
+    color: #fff;
+  }
+
+  .item {
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+    z-index: 9;
+    background: #6b4994;
+  }
+
+  .sub-menu{
+    list-style:none;
+    width: 100%;
+    padding-left: 0px;
+    li{
+        padding: 5px 0px 5px 75px;
+    background: $theme_color;
+    width: 100%;
+    &:hover{
+      background: $hover_color;
+    }
+    }
+  }
+}
+::-webkit-scrollbar {
+        width: 5px;
+    }
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(166, 179, 196,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+ background: rgba(166, 179, 196,0.4); 
+}
+
+.tooltiptext {
+    visibility: hidden;
+    background-color:$theme_color;
+    color: #fff;
+    min-width: 120px;
+    text-align: center;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.tooltip-right {
+    margin-top: -38px;
+    left: 58px;
+    &:after{
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent $theme_color transparent transparent;
+    }
+}
+
+.item-tooltip{
+  &:hover {
+    .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  }  
+}    
+   
+

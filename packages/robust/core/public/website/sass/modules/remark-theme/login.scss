@@ -1,0 +1,122 @@
+//colors
+$color_governor_bay_approx: #3949ab;
+$color_bay_of_many_approx: #283593;
+$white: #fff;
+$color_hit_gray_approx: #a3afb7;
+$theme_color: #6b4994;
+$hover_color: #7461BC;
+$url_0: url('../../assets/images/meeting.jpeg');
+
+.page-login-v3 {
+    background: $url_0;
+    background-size: cover !important;
+    background-repeat:no-repeat !important;
+    &:before{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    // z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: '';
+     // background-image: $url_0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3949ab', endColorstr='#ff283593', GradientType=0);
+    background-repeat:no-repeat !important;
+    background-position: center top;
+    background-size: cover !important;
+    
+  }
+
+
+  .panel {
+    width: 400px;
+    background: $white;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    .panel-body {
+      padding: 50px 40px 0px;
+    }
+    .brand-text {
+      margin-top: 8px;
+    }
+  }
+  form {
+    margin: 45px 0 30px;
+    a {
+      margin-left: 20px;
+    }
+    .form-material {
+      label {
+        font-weight: 300;
+        color: $color_hit_gray_approx;
+        margin:-24px 7px;
+      }
+      &.floating + .page-login-v3 form .form-material.floating {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+.sign-in {
+  background-color: $theme_color;
+  border-color: $theme_color;
+  color: #fff;
+  &:hover {
+    background-color: $hover_color;
+    border-color: $hover_color;
+    color: #fff;
+
+  }
+}
+
+.page-dark.layout-full::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-position: center top;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.responsive-logo {
+  display: none;
+}
+
+.page-dark.layout-full .brand {
+  margin-bottom: 0px;
+}
+
+.social-icon {
+  width: 40px;
+}
+
+.social-share {
+  margin-bottom: 20px;
+}
+
+.brand-txt{
+  background: rgba(255,255,255,0.75);
+    padding: 30px 38px;
+}
+
+.brand-info{
+  position:absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  padding-top: 380px !important;
+  padding-left:60px !important;
+  padding-right:89px !important;
+    p{
+      font-size:20px !important;
+      color:#0f0f0a !important;
+      font-family:'roboto';
+      padding-left: 116px;
+    }
+
+}

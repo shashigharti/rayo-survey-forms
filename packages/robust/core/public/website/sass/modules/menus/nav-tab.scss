@@ -1,0 +1,12 @@
+$theme_color: #6b4994;
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: $theme_color;
+  border-bottom-color: $theme_color;
+  color:#fff;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: $theme_color !important;
+  color: #fff;
+}
+

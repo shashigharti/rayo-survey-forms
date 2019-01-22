@@ -1,0 +1,74 @@
+$theme_color: #6b4994;
+$white: #fff;
+.navbar-mega{
+	.dropdown-mega{
+		padding: 17px 15px;
+		&:hover{
+			background: $theme_color;
+			span{
+				a{
+				color: $white;
+				}
+			}
+			
+			i{
+			color: $white;
+			}
+			
+		}
+		.dropdown-menu{
+				padding:0px;
+				right: 280px !important;
+				left:auto !important;
+    			width: 230px;
+    			li{
+    				margin: 0px 0px;
+    				a{
+	    				&:hover{
+	    					background-color:$theme_color;
+	    					color:#fff; 
+	    				}
+    				}
+    			}
+			}
+		span {
+    		float: left;
+    		a{
+    			color: #777;
+    		}
+    		
+		}
+		a.dropdown-toggle {
+		    padding: 0px !important;
+		    margin-left: 6px;
+		    float: right;
+		    margin-top: 3px;
+		    &:focus{
+		    	background-color:transparent !important;
+		    	color: #777;
+		    }
+		}
+	}
+
+}
+.rayo-nav{
+	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+		background-color: $theme_color;
+		color: #fff;
+	}
+	.navbar-toolbar .dropdown-menu{
+		padding:0px;
+		.divider{
+			margin: 3px;
+		}
+	}
+	.dropdown-menu-media > .dropdown-menu-footer {
+    	 background-color:$theme_color;
+    	 a{
+    	 	color:#fff !important;
+    	 	&:hover{
+    	 		color: #fff !important;
+    	 	}
+    	 }
+    }
+}
