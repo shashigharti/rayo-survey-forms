@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{settings('general-setting','company_name')}}</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
 
     <!-- Fonts -->
