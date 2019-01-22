@@ -16,7 +16,7 @@ trait CrudTrait
     /**
      * @var string
      */
-    private $table = 'core::admin.layouts.sub-layouts.table';
+    private $table = 'core::website.layouts.sub-layouts.table';
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

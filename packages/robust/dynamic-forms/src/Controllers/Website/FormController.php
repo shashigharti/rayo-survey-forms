@@ -3,6 +3,8 @@
 namespace Robust\DynamicForms\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use Robust\Core\Controllers\Website\Traits\CrudTrait;
+use Robust\Core\Controllers\Website\Traits\ViewTrait;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
 
 
@@ -12,6 +14,7 @@ use Robust\DynamicForms\Repositories\Admin\FormRepository;
  */
 class FormController extends Controller
 {
+    use CrudTrait, ViewTrait;
     /**
      * FormController constructor.
      * @param FormRepository $model
