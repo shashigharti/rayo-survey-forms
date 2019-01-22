@@ -3,6 +3,7 @@
 namespace Robust\DynamicForms\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Mockery\Exception;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Illuminate\Http\Request;
@@ -111,12 +112,35 @@ class FormController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \Robust\DynamicForms\Models\Form $form
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Form $form)
+    public function update(Request $request)
     {
-        $data = $request->except('_method');
+        $datas = $request->except('_method');
+        $x = [];
+        $x['components'] = [];
+        foreach ($datas['components'] as $key => $data) {
+            foreach ($data as $k => $d) {
+//                if (is_array($d)) {
+//                    foreach ($d as $xx => $yy) {
+//                        if ($yy == "true" || $yy == "false") {
+//                            $x['components'][$xx] = filter_var($yy, FILTER_VALIDATE_BOOLEAN);
+//                        } else {
+//                            $x['components'][$xx] = $yy;
+//                        }
+//                    }
+//                } else {
+                    if ($d == "true" || $d == "false") {
+                        $x['components'][$k] = filter_var($d, FILTER_VALIDATE_BOOLEAN);
+                    } else {
+                        $x['components'][$k] = $d;
+                    }
+//                }
+            }
+        }
+
+
+        dd($x);
         $id = (int)$data['id'];
         $this->model->update($id, [
             'properties' => json_encode($data)

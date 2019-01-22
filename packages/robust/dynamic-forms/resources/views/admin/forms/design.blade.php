@@ -1,7 +1,7 @@
 @extends('core::admin.layouts.sub-layouts.blank')
 @section('custom_design')
     @inject('form_helper', 'Robust\DynamicForms\Helpers\FormHelper')
-    <div class="design--form" data-url="{{isset($model->id)?route('admin.forms.update', $model->id):route('admin.forms.store')}}" data-type="{{isset($model->id)?"PUT":"POST"}}">
+    <div class="design--form" data-form-components="{{$model->properties}}" data-url="{{isset($model->id)?route('admin.forms.update', $model->id):route('admin.forms.store')}}" data-type="{{isset($model->id)?"PUT":"POST"}}">
         <input type="hidden" name="id" value="{{$model->id}}}">
         <div class="design--form--header">
             <a href="javascript:void(0)" class="dynamic-form__save btn-success btn btn-no-radius pull-right">
