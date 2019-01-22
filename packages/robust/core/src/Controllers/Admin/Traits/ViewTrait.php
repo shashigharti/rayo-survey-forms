@@ -27,6 +27,11 @@ trait ViewTrait
         return view($view, $data);
     }
 
+    /**
+     * @param Collection $collection
+     * @param int $perPage
+     * @return LengthAwarePaginator
+     */
     public function customPagination(Collection $collection, $perPage = 0)
     {
         if ($perPage == 0 && settings('app-setting', 'pagination'))

@@ -12,9 +12,6 @@
                         ])
                     </span>
             </div>
-            @foreach($dashboard->widgets as  $widget)
-                @include("core::admin.dashboard-widgets.{$widget->name}")
-            @endforeach
         </div>
     </div>
     @include("core::admin.partials.modals.modal")
