@@ -1,4 +1,4 @@
-@extends('core::website.layouts.users.sub-layouts.blank')
+@extends('core::admin.layouts.default')
 @section('content')
     <div class="user--form" data-save-url="">
         <div class="user--form__header">

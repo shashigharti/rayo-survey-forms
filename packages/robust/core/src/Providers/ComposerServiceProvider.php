@@ -13,7 +13,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['core::admin.layouts.default','core::website.layouts.users.default'], 'Robust\Core\Composers\ProfileComposer');
+        View::composer(['core::admin.layouts.default'], 'Robust\Core\Composers\ProfileComposer');
 
     }
 

@@ -31,6 +31,6 @@ class FormController extends Controller
     public function show($slug)
     {
         $model = $this->model->where('slug', $slug)->first();
-        return view('dynamic-forms::website.users.forms.view', compact('model'));
+        return view('dynamic-forms::admin.users.forms.view', compact('model'));
     }
 }
