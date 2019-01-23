@@ -620,5 +620,12 @@
                 readOnly: true
             });
         }
+
+        if ($('#form__show').length > 0) {
+            let formComponents = $('#form__show').data('form-components');
+            Formio.createForm(document.getElementById('form__show'), formComponents, {
+                readOnly: true
+            });
+        }
     });
 }(jQuery, FRW, window, document));
