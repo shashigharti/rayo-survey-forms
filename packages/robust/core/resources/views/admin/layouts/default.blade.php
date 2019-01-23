@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{settings('general-setting','company_name')}}</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
 
     <!-- Fonts -->
@@ -57,5 +58,24 @@
 <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Nestable/2012-10-15/jquery.nestable.min.js" async></script>
+
+{{--Register SW--}}
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log(`Service Worker registered! Scope: ${registration.scope}`);
+                })
+                .catch(err => {
+                    console.log(`Service Worker registration failed: ${err}`);
+                });
+        });
+    }
+</script>
+{{--PWA Dependencies--}}
+<script src="{{ url('assets/website/js/idb.js') }}"></script>
+<script src="{{ url('assets/website/js/pwa.js') }}"></script>
 </body>
 </html>
