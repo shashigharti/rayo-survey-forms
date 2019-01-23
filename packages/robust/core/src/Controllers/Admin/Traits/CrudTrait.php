@@ -93,7 +93,6 @@ trait CrudTrait
             return response()->json(['view' => $view]);
         }
 
-
         return $this->display(Site::templateResolver("{$this->package_name}::{$this->view}.create"), [
                 'model' => $model,
                 'query_params' => $query_params

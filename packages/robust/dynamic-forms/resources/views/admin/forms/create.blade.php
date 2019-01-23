@@ -33,14 +33,6 @@
                         ]) }}
                     {{ Form::label('single_submit', 'Single submit', ['class' => 'control-label' ]) }}
                 </div>
-                <div class="col-sm-3">
-                    {{ Form::checkbox('make_public', $model->make_public, null, [
-                       ($model->make_public== 1)? 'Checked' : '', 'class' => 'make-public'
-                       ]) }}
-                    {{ Form::label('make_public', 'Make Public', ['class' => 'control-label' ]) }} &nbsp;&nbsp;&nbsp;
-                    <span class="public-link"
-                          style="display:none">{{ route('user.form', $model->slug) }}</span>
-                </div>
             </div>
             <div class="form-group form-material row">
                 <div class="col-sm-12 user_email_field">

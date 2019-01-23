@@ -20,13 +20,13 @@ return [
         'forms.form.delete' => 'Delete Form',
         'forms.form.duplicate' => 'Duplicate Form',
         'forms.form.show' => 'Show Form',
-
         'forms.data.edit' => 'Edit Data',
         'forms.data.print' => 'Print Data',
         'forms.data.delete' => 'Delete Data',
         'forms.data.export' => 'Export Data',
-
         'forms.report.advance' => 'Advance Report',
-        'forms.report.individual' => 'Advance Report'
+        'forms.report.individual' => 'Advance Report',
+        'user.form.manage' => 'Form (User View)',
+        'user.form.show' => 'Show Form (User View)'
     ]
 ];
