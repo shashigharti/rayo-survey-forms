@@ -109,18 +109,4 @@ class FormController extends Controller
         );
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function update(Request $request)
-    {
-        $data = $request->except('_method');
-        $id = (int)$data['id'];
-        $this->model->update($id, [
-            'properties' => json_encode($data)
-        ]);
-        return response()->json(['message' => 'success']);
-    }
-
 }

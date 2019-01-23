@@ -9,20 +9,6 @@
      |--------------------------------------------------------------------------
      */
     $(function () {
-        // Get slug of the form
-        let url = window.location.href;
-        let urlArray = url.split("/");
-        let slug = urlArray[urlArray.length - 1];
-        fetch('/admin/user/form-json/' + slug).then((data) => {
-            return data.json();
-        }).then((jsonString) => {
-            let jsonData = JSON.parse(jsonString);
-
-            // Render the form
-            Formio.createForm(document.getElementById('form__show'), jsonData);
-        });
-
-
         let display = 'form';
         let builder = null;
         let frm = null;
@@ -31,25 +17,17 @@
 
         if ($('#designer').length > 0) {
             let formElement = document.getElementById('designer');
-            let formComponents = $('.design--form').data('form-components') !== "" ? $('.design--form').data('form-components') : 'https://examples.form.io/example';
-
-            let data = JSON.stringify(formComponents);
-            console.log("Parseddata:");
-            console.log(JSON.parse(data));
-            builder = Formio.builder(formElement, JSON.parse(data), {
+            builder = Formio.builder(formElement, 'https://examples.form.io/example', {
                 readOnly: false
             }).then(function (form) {
-                console.log(formData['components']);
                 formData['title'] = 'Test Form';
-                formData['name'] = 'Test Form';
-                formData['path'] = 'test-form';
-                formData['type'] = 'form';
+                formData['slug'] = 'test-form';
                 formData['display'] = "form";
-                formData['components'] = form.component.components;
-
+                formData['_method'] = 'PUT';
                 formData['slug'] = 'test-form';
                 formData['id'] = $('.design--form :input[name="id"]').val();
-                formData['_method'] = 'PUT';
+                formData['properties'] = form.component.components;
+
 
                 form.on('change', (elem) => {
                     if (elem.components) {
@@ -66,13 +44,11 @@
         }
         $('.dynamic-form__save').on('click', function () {
             let url = $('.design--form').data("url");
-            let type = $('.design--form').data("type");
-            console.log(url);
-            formData = Object.assign({}, formData);
-            console.log(formData);
+            formData['properties'] = JSON.stringify(formData['properties']);
             $.ajax({
                 url: url,
                 type: 'POST',
+                dataType: 'json',
                 data: formData,
                 success: function (result) {
                     console.log(result);

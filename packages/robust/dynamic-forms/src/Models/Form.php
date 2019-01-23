@@ -34,6 +34,7 @@ class Form extends BaseModel
     protected $fillable = [
         'title',
         'slug',
+        'display',
         'pages',
         'status',
         'properties',
