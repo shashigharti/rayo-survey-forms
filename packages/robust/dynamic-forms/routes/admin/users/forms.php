@@ -6,4 +6,9 @@ Route::group(['prefix' => 'admin/user', 'as' => 'admin.user', 'group' => 'User F
         'as' => 'form',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@show',
     ]);
+
+    Route::get('/form-json/{slug}', [
+        'as' => 'form.json',
+        'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@getFormJson',
+    ]);
 });

@@ -115,31 +115,7 @@ class FormController extends Controller
      */
     public function update(Request $request)
     {
-        $datas = $request->except('_method');
-        $x = [];
-        $x['components'] = [];
-        foreach ($datas['components'] as $key => $data) {
-            foreach ($data as $k => $d) {
-//                if (is_array($d)) {
-//                    foreach ($d as $xx => $yy) {
-//                        if ($yy == "true" || $yy == "false") {
-//                            $x['components'][$xx] = filter_var($yy, FILTER_VALIDATE_BOOLEAN);
-//                        } else {
-//                            $x['components'][$xx] = $yy;
-//                        }
-//                    }
-//                } else {
-                    if ($d == "true" || $d == "false") {
-                        $x['components'][$k] = filter_var($d, FILTER_VALIDATE_BOOLEAN);
-                    } else {
-                        $x['components'][$k] = $d;
-                    }
-//                }
-            }
-        }
-
-
-        dd($x);
+        $data = $request->except('_method');
         $id = (int)$data['id'];
         $this->model->update($id, [
             'properties' => json_encode($data)

@@ -33,4 +33,14 @@ class FormController extends Controller
         $model = $this->model->where('slug', $slug)->first();
         return view('dynamic-forms::admin.users.forms.view', compact('model'));
     }
+
+    /**
+     * @param $slug
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getFormJson($slug)
+    {
+        $model = $this->model->where('slug', $slug)->first()['properties'];
+        return response()->json($model);
+    }
 }

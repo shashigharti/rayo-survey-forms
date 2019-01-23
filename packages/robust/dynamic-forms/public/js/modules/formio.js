@@ -9,6 +9,20 @@
      |--------------------------------------------------------------------------
      */
     $(function () {
+        // Get slug of the form
+        let url = window.location.href;
+        let urlArray = url.split("/");
+        let slug = urlArray[urlArray.length - 1];
+        fetch('/admin/user/form-json/' + slug).then((data) => {
+            return data.json();
+        }).then((jsonString) => {
+            let jsonData = JSON.parse(jsonString);
+
+            // Render the form
+            Formio.createForm(document.getElementById('form__show'), jsonData);
+        });
+
+
         let display = 'form';
         let builder = null;
         let frm = null;
@@ -17,7 +31,12 @@
 
         if ($('#designer').length > 0) {
             let formElement = document.getElementById('designer');
-            builder = Formio.builder(formElement, 'https://examples.form.io/example', {
+            let formComponents = $('.design--form').data('form-components') !== "" ? $('.design--form').data('form-components') : 'https://examples.form.io/example';
+
+            let data = JSON.stringify(formComponents);
+            console.log("Parseddata:");
+            console.log(JSON.parse(data));
+            builder = Formio.builder(formElement, JSON.parse(data), {
                 readOnly: false
             }).then(function (form) {
                 console.log(formData['components']);
@@ -50,10 +69,9 @@
             let type = $('.design--form').data("type");
             console.log(url);
             formData = Object.assign({}, formData);
-            formData.test = true;
+            console.log(formData);
             $.ajax({
                 url: url,
-                dataType: "json",
                 type: 'POST',
                 data: formData,
                 success: function (result) {
