@@ -46,6 +46,20 @@ class RouteServiceProvider extends ServiceProvider
             }
         });
         Route::group([
+            'middleware' => ['web'],
+        ], function ($router) {
+            foreach (glob(base_path() . '/packages/robust/dynamic-forms/routes/admin/ajax/*') as $file) {
+                require $file;
+            }
+        });
+        Route::group([
+            'middleware' => ['web'],
+        ], function ($router) {
+            foreach (glob(base_path() . '/packages/robust/dynamic-forms/routes/admin/users/*') as $file) {
+                require $file;
+            }
+        });
+        Route::group([
             'middleware' => 'web',
         ], function ($router) {
             foreach (glob(base_path() . '/packages/robust/dynamic-forms/routes/website/*') as $file) {
@@ -59,19 +73,6 @@ class RouteServiceProvider extends ServiceProvider
                 require $file;
             }
         });
-        Route::group([
-            'middleware' => ['api'],
-        ], function ($router) {
-            foreach (glob(base_path() . '/packages/robust/dynamic-forms/routes/admin/ajax/*') as $file) {
-                require $file;
-            }
-        });
-        Route::group([
-            'middleware' => ['api'],
-        ], function ($router) {
-            foreach (glob(base_path() . '/packages/robust/dynamic-forms/routes/admin/users/*') as $file) {
-                require $file;
-            }
-        });
+
     }
 }
