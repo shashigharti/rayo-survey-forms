@@ -13,13 +13,15 @@ self.addEventListener('message', function (e) {
         });
     } else if (message[0] === "syncToLive") {
         fns.syncToLive(fns.dbPromise, message[1]);
+    } else if (message[0] === "syncForms") {
+        fns.syncForms(fns.dbPromise);
     }
 
 });
 
 const fns = {
     dbPromise: null,
-    options : {
+    options: {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json, text-plain, */*",
@@ -32,7 +34,7 @@ const fns = {
     },
     init: () => {
         // Create Indexed DB / Get Instance if exists
-        fns.dbPromise = idb.open('mis', 3, function (upgradeDb) {
+        fns.dbPromise = idb.open('mis', 5, function (upgradeDb) {
             switch (upgradeDb.oldVersion) {
                 case 0:
                 // a placeholder case so that the switch block will
@@ -42,9 +44,15 @@ const fns = {
                     console.log("Case 1");
                     upgradeDb.createObjectStore('mis_surveys', {keyPath: 'key', autoIncrement: true});
                 case 2:
-                    console.log('Creating a name index');
+                    console.log('Creating mis_surveys object store');
                     var store = upgradeDb.transaction.objectStore('mis_surveys');
                     store.createIndex('id', 'id', {unique: true});
+                case 3:
+                    console.log('Creating mis_forms object store');
+                    upgradeDb.createObjectStore('mis_forms', {keyPath: 'id'});
+                case 4:
+                    var store = upgradeDb.transaction.objectStore('mis_forms');
+                // store.createIndex('id', 'id');
             }
         });
     },
@@ -62,7 +70,7 @@ const fns = {
             }
         });
     },
-    getLocalData : (dbPromise) => {
+    getLocalData: (dbPromise) => {
         return new Promise(function (resolve, reject) {
             dbPromise.then(function (db) {
                 var tx = db.transaction('mis_surveys', 'readonly');
@@ -75,11 +83,11 @@ const fns = {
             });
         })
     },
-    addIndexedData: (dbPromise, newData) => {
+    addIndexedData: (dbPromise, newData, objectStore = 'mis_surveys') => {
         return new Promise(function (resolve, reject) {
             dbPromise.then(function (db) {
-                var tx = db.transaction('mis_surveys', 'readwrite');
-                var store = tx.objectStore('mis_surveys');
+                var tx = db.transaction(objectStore, 'readwrite');
+                var store = tx.objectStore(objectStore);
                 return store.put(newData).catch((e) => {
                     tx.abort();
                     reject(e);
@@ -89,7 +97,26 @@ const fns = {
             });
         });
     },
-    syncToLive : (dbPromise, token) => {
+    // Add Data to Indexed DB
+    addBulkIndexedData: (dbPromise, newData, objectStore = 'mis_surveys') => {
+        return new Promise(function (resolve, reject) {
+            dbPromise.then(function (db) {
+                var tx = db.transaction(objectStore, 'readwrite');
+                var store = tx.objectStore(objectStore);
+                return Promise.all(newData.map(function (item) {
+                        console.log('Syncing item: ', item);
+                        return store.add(item);
+                    })
+                ).catch((e) => {
+                    tx.abort();
+                    reject(e);
+                }).then(() => {
+                    resolve('Synced to local successfully');
+                });
+            });
+        });
+    },
+    syncToLive: (dbPromise, token) => {
 
         fns.getLocalData(dbPromise).then((data) => {
             fns.options.body = JSON.stringify(data);
@@ -108,5 +135,23 @@ const fns = {
         }).catch((err) => {
             console.log("Failed to sync " + err);
         })
+    },
+    syncForms: (dbPromise) => {
+        fns.getForms().then((data) => {
+            console.log("Syncing forms");
+            console.log(data);
+            fns.addBulkIndexedData(dbPromise, data, 'mis_forms');
+        })
+    },
+    getForms: () => {
+        return new Promise(function (resolve, reject) {
+            fetch('/admin/user/getAllForms').then((data) => {
+                return data.json();
+            }).then((jsonString) => {
+                resolve(jsonString);
+            })
+        })
+
     }
+
 };

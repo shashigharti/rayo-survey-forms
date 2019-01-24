@@ -15,6 +15,9 @@ $(window).on('load', function () {
         // Sync to live
         // Request web worker to sync data to live db
         worker.postMessage(['syncToLive', token]);
+
+        // Sync forms from live to local
+        worker.postMessage(['syncForms']);
     }
 
     worker.addEventListener('message', function(e) {
@@ -36,7 +39,7 @@ $(window).on('load', function () {
 
 const fns = {
     init : () => {
-        return new Worker('../assets/website/js/worker.js');
+        return new Worker('/assets/website/js/worker.js');
     },
     serializeToJson : (serializedArray) => {
         let keyValue = [];
