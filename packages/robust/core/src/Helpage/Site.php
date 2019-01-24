@@ -6,6 +6,10 @@ namespace Robust\Core\Helpage;
  * Class Site
  * @package Robust\Core\Helpage
  */
+/**
+ * Class Site
+ * @package Robust\Core\Helpage
+ */
 class Site
 {
     /**
@@ -21,6 +25,9 @@ class Site
         return $view;
     }
 
+    /**
+     * @return mixed
+     */
     public static function getClientIP()
     {
         $request = \Request::instance();
@@ -28,6 +35,13 @@ class Site
         return $request->getClientIp();
     }
 
+    /**
+     * @param $asset
+     * @param $type
+     * @param bool $secure
+     * @param array $attributes
+     * @return mixed
+     */
     public static function assets($asset, $type, $secure = false, $attributes = [])
     {
         $new_url = sprintf($asset);

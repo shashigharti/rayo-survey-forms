@@ -4,10 +4,18 @@ namespace Robust\Core\Helpage;
 
 use Robust\Core\Helpage\Traits\SingletonTrait;
 
+/**
+ * Class Meta
+ * @package Robust\Core\Helpage
+ */
 class Meta
 {
     use SingletonTrait;
 
+    /**
+     * @param null $model
+     * @return string
+     */
     public function render($model = null)
     {
         if ($model != '') {
@@ -87,6 +95,11 @@ class Meta
         return $paginate->url($next);
     }
 
+    /**
+     * @param $if
+     * @param $else
+     * @return mixed
+     */
     private function iif($if, $else)
     {
         return isset($this->settings[$if]) && $this->settings[$if]
