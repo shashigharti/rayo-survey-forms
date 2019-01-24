@@ -15,6 +15,15 @@ self.addEventListener('message', function (e) {
         fns.syncToLive(fns.dbPromise, message[1]);
     } else if (message[0] === "syncForms") {
         fns.syncForms(fns.dbPromise);
+    } else if (message[0] === "getForm") {
+        let slug = message[1];
+        console.log("Getting form with slug: " + slug);
+        fns.getItem(fns.dbPromise, slug, 'mis_forms').then(function (data) {
+            console.log("Got data:");
+            console.log(data);
+            self.postMessage({type: 'getForm', data: data});
+        });
+
     }
 
 });
@@ -49,7 +58,7 @@ const fns = {
                     store.createIndex('id', 'id', {unique: true});
                 case 3:
                     console.log('Creating mis_forms object store');
-                    upgradeDb.createObjectStore('mis_forms', {keyPath: 'id'});
+                    upgradeDb.createObjectStore('mis_forms', {keyPath: 'slug'});
                 case 4:
                     var store = upgradeDb.transaction.objectStore('mis_forms');
                 // store.createIndex('id', 'id');
@@ -97,6 +106,33 @@ const fns = {
             });
         });
     },
+    getItem: (dbPromise, key, objectStore = 'mis_surveys') => {
+        return new Promise(function (resolve, reject) {
+            dbPromise.then(function (db) {
+                var tx = db.transaction(objectStore, 'readonly');
+                var store = tx.objectStore(objectStore);
+                return store.get(key).catch((e) => {
+                    tx.abort();
+                    reject(e);
+                }).then((data) => {
+                    resolve(data);
+                });
+            });
+        });
+    },
+    // Delete all data from object store
+    truncateObjectStore: (dbPromise, objectStore = 'mis_surveys') => {
+        dbPromise.then(function (db) {
+            var tx = db.transaction(objectStore, 'readwrite');
+            var store = tx.objectStore(objectStore);
+            return store.clear().catch((e) => {
+                tx.abort();
+                console.log(e);
+            }).then(() => {
+                console.log('All Data from Object store: ' + objectStore + ' have been truncated.');
+            });
+        });
+    },
     // Add Data to Indexed DB
     addBulkIndexedData: (dbPromise, newData, objectStore = 'mis_surveys') => {
         return new Promise(function (resolve, reject) {
@@ -104,14 +140,13 @@ const fns = {
                 var tx = db.transaction(objectStore, 'readwrite');
                 var store = tx.objectStore(objectStore);
                 return Promise.all(newData.map(function (item) {
-                        console.log('Syncing item: ', item);
-                        return store.add(item);
+                        return store.put(item);
                     })
                 ).catch((e) => {
                     tx.abort();
-                    reject(e);
+                    console.log(e);
                 }).then(() => {
-                    resolve('Synced to local successfully');
+                    console.log('Synced to local successfully');
                 });
             });
         });
@@ -119,14 +154,15 @@ const fns = {
     syncToLive: (dbPromise, token) => {
 
         fns.getLocalData(dbPromise).then((data) => {
+            delete data.id; // Don't include id used by indexed db
             fns.options.body = JSON.stringify(data);
             fns.options.headers['X-CSRF-TOKEN'] = token;
             fetch('/api/sync', fns.options)
                 .then((response) => {
-                    return response.json();
-                })
-                .then((jsonObject) => {
-                    console.log(jsonObject);
+                    console.log("sync op:");
+                    console.log(response);
+                    // Delete local data after successful sync
+                    fns.truncateObjectStore(dbPromise);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -138,9 +174,13 @@ const fns = {
     },
     syncForms: (dbPromise) => {
         fns.getForms().then((data) => {
-            console.log("Syncing forms");
-            console.log(data);
             fns.addBulkIndexedData(dbPromise, data, 'mis_forms');
+
+            fns.getItem(dbPromise, 'test-form', 'mis_forms').then(function (data) {
+                console.log(data);
+            }).catch(function (err) {
+                console.log(err);
+            });
         })
     },
     getForms: () => {

@@ -9,20 +9,6 @@
      |--------------------------------------------------------------------------
      */
     $(function () {
-        // Get slug of the form
-        let url = window.location.href;
-        let urlArray = url.split("/");
-        let slug = urlArray[urlArray.length - 1];
-        fetch('/admin/user/form-json/' + slug).then((data) => {
-            return data.json();
-        }).then((jsonString) => {
-            let jsonData = JSON.parse(jsonString);
-
-            // Render the form
-            Formio.createForm(document.getElementById('form__show'), jsonData);
-        });
-
-
         let display = 'form';
         let builder = null;
         let frm = null;

@@ -13,6 +13,11 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
+        /.*\/admin\/user\/form\/.*/,
+        workbox.strategies.networkFirst()
+    );
+
+    workbox.routing.registerRoute(
         /.*\/user\/dashboards.*/,
         workbox.strategies.networkFirst()
     );
