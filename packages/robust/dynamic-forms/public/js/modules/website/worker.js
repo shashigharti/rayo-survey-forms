@@ -159,8 +159,6 @@ const fns = {
             fns.options.headers['X-CSRF-TOKEN'] = token;
             fetch('/api/sync', fns.options)
                 .then((response) => {
-                    console.log("sync op:");
-                    console.log(response);
                     // Delete local data after successful sync
                     fns.truncateObjectStore(dbPromise);
                 })

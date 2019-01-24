@@ -40,7 +40,7 @@ class FormController extends Controller
      */
     public function getFormJson($slug)
     {
-        $model = $this->model->where('slug', $slug)->first()['properties'];
+        $model = $this->model->where('slug', $slug)->first();
         return response()->json($model);
     }
 

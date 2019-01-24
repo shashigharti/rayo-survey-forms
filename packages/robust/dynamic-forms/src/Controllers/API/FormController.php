@@ -94,6 +94,7 @@ class FormController extends Controller
      */
     public function submitForm(Request $request, Data $dynform_tbl)
     {
+        $slug = $request->get('slug');
         $mis_survey = $request->except('id');
         $json_survey = json_encode($mis_survey, true);
         $data = [

@@ -17,14 +17,42 @@ $(window).on('load', function () {
         worker.postMessage(['getForm', fns.slug]);
 
     } else {
-        // Display the form
-        fetch('/admin/user/form-json/' + fns.slug).then((data) => {
+        // Handle online form submission
+        // Get form with the slug on request
+        fetch('/admin/user/form-json/' + fns.slug).then(function (data) {
             return data.json();
-        }).then((jsonString) => {
-            let jsonData = JSON.parse(jsonString);
+        }).then(function (jsonString) {
+            // We get all values from dynform_values table
+            let jsonData = jsonString;
+            var formProperties = JSON.parse(jsonData.properties);
 
-            // Render the form
-            Formio.createForm(document.getElementById('form__show'), jsonData);
+            // Render the form, then listen for submit btn click
+            Formio.createForm(document.getElementById('form__show'), formProperties).then(function () {
+                $('[name="data[submit]"]').on('click', function () {
+                    var formData = $('#dynamicForm').serializeArray();
+
+                    // Serialize form to json format
+                    var jsonValue = fns.serializeToJson(formData);
+                    jsonValue.id = jsonData.id;
+                    let options = {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json, text-plain, */*",
+                            "X-Requested-With": "XMLHttpRequest",
+                            "X-CSRF-TOKEN": token
+                        },
+                        method: 'post',
+                        credentials: "same-origin",
+                        body: JSON.stringify(jsonValue)
+                    };
+
+                    // Submit the form via API
+                    fetch('/api/forms/submit', options).then(function(data) {
+                        console.log(data);
+                    })
+                });
+            });
+
         });
         // Sync to live
         // Request web worker to sync data to live db
