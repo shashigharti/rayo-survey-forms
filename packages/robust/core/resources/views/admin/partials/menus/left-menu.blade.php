@@ -31,7 +31,7 @@
             @endif
         @endforeach
 
-        // Test purpose only
+        {{--Test purpose only--}}
 
         @foreach($menu_helper->getAllForms() as $form)
             <div class="item-tooltip">
