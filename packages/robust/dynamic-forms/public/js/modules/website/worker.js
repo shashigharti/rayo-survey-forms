@@ -19,11 +19,13 @@ self.addEventListener('message', function (e) {
         let slug = message[1];
         console.log("Getting form with slug: " + slug);
         fns.getItem(fns.dbPromise, slug, 'mis_forms').then(function (data) {
-            console.log("Got data:");
-            console.log(data);
             self.postMessage({type: 'getForm', data: data});
         });
-
+    } else if (message[0] === "getAllForms") {
+        console.log("Getting All Forms");
+        fns.getLocalData(fns.dbPromise, 'mis_forms').then(function(data) {
+            self.postMessage({type: 'getAllForms', data: data});
+        })
     }
 
 });
@@ -79,11 +81,11 @@ const fns = {
             }
         });
     },
-    getLocalData: (dbPromise) => {
+    getLocalData: (dbPromise, objectStore = 'mis_surveys') => {
         return new Promise(function (resolve, reject) {
             dbPromise.then(function (db) {
-                var tx = db.transaction('mis_surveys', 'readonly');
-                var store = tx.objectStore('mis_surveys');
+                var tx = db.transaction(objectStore, 'readonly');
+                var store = tx.objectStore(objectStore);
                 return store.getAll();
             }).then(data => {
                 resolve(data);

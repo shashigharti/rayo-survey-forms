@@ -16,6 +16,9 @@ $(window).on('load', function () {
         // Get form from local db
         worker.postMessage(['getForm', fns.slug]);
 
+        // Get all forms
+        worker.postMessage(['getAllForms']);
+
     } else {
         // Handle online form submission
         // Get form with the slug on request
@@ -65,8 +68,6 @@ $(window).on('load', function () {
     // Receive messages from web worker
     worker.addEventListener('message', function(e) {
         let resp = e.data;
-        console.log('Response:');
-        console.log(resp);
         if(resp.type === "storeInLocal") {
             // If store successful
             if(resp.status) {
@@ -91,6 +92,10 @@ $(window).on('load', function () {
                     worker.postMessage(['storeInLocal', jsonValue]);
                 });
             });
+        } else if (resp.type === "getAllForms") {
+            let menus = resp.data;
+            let leftMenu = fns.getLeftMenu(menus);
+            $('#theMenu').html(leftMenu);
         }
     });
 });
@@ -114,5 +119,20 @@ const fns = {
         let url = window.location.href;
         let urlArray = url.split("/");
         fns.slug = urlArray[urlArray.length - 1];
+    },
+    getLeftMenu : (menus) => {
+        let el = '';
+        menus.forEach((menu) => {
+            el += '<div class="item-tooltip">' +
+                '            <li class="item">' +
+                '                <a href="javascript:void(0)"><i class="icon md-assignment-o" aria-hidden="true"></i></a>' +
+                '                <span class="btn-class">' +
+                '                        <a class="menu_item" href="/admin/user/form/' + menu.slug + '">' + menu.title + '</a>' +
+                '                    </span>' +
+                '            </li>' +
+                '            <span class="tooltiptext tooltip-right">' + menu.title + '</span>' +
+                '        </div>';
+        });
+        return el;
     }
 }
