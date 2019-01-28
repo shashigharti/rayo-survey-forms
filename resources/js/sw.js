@@ -2,7 +2,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox
 
 if (workbox) {
     let online = navigator.onLine;
-    console.log(online);
+
     // Debug mode set to true
     workbox.setConfig({ debug: true });
 
@@ -13,16 +13,17 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
-        /.*\/admin\/user\/form\/.*/,
-        function() {
-            return online ? false : caches.match('/assets/website/html/layout.html');
-        }
+       '/admin/user/dashboards',
+        workbox.strategies.networkFirst()
     );
 
     workbox.routing.registerRoute(
-        /.*\/user\/dashboards.*/,
-        workbox.strategies.networkFirst()
+        /\/admin\/user\/form\/.*/,
+        function() {
+            return !online ? caches.match('/assets/website/html/layout.html') : false;
+        }
     );
+
 
     workbox.routing.registerRoute(
         /.*\/assets\/css\/app.min.*/,
