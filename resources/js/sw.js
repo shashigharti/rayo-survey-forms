@@ -14,7 +14,7 @@ if (workbox) {
 
     workbox.routing.registerRoute(
         /.*\/admin\/user\/form\/.*/,
-        workbox.strategies.networkFirst()
+        workbox.strategies.cacheFirst()
     );
 
     workbox.routing.registerRoute(
