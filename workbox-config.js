@@ -9,6 +9,7 @@ module.exports = {
         "**/*.ttf",
         "**/*.ico",
         "**/*.html",
+        "manifest.json"
     ],
     "swDest": "public/sw.js",
     "swSrc": "resources/js/sw.js",
