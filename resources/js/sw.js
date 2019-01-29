@@ -19,9 +19,7 @@ if (workbox) {
 
     workbox.routing.registerRoute(
         /\/admin\/user\/form\/.*/,
-        function() {
-            return !online ? caches.match('/assets/website/html/layout.html') : false;
-        }
+        workbox.strategies.cacheFirst()
     );
 
 
