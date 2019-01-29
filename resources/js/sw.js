@@ -18,8 +18,10 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
-        /\/admin\/user\/form\/.*/,
-        workbox.strategies.cacheFirst()
+        new RegExp('^https://agri.robuststaging.biz/admin/user/'),
+        function() {
+            return !online ? caches.match('/assets/website/html/layout.html') : false;
+        }
     );
 
 
