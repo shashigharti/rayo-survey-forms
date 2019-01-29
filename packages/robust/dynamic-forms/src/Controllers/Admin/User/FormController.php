@@ -43,4 +43,15 @@ class FormController extends Controller
         $model = $this->model->where('slug', $slug)->first()['properties'];
         return response()->json($model);
     }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getFormById($id)
+    {
+        $model = $this->model->where('id', $id)->first();
+        return response()->json($model);
+    }
 }

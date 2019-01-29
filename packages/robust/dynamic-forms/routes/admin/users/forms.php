@@ -11,4 +11,9 @@ Route::group(['prefix' => 'admin/user', 'as' => 'admin.user', 'group' => 'User F
         'as' => 'form.json',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@getFormJson',
     ]);
+
+    Route::get('/get-form/{slug}', [
+        'as' => 'form.get.properties',
+        'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@getFormById',
+    ]);
 });
