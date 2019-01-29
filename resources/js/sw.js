@@ -18,9 +18,9 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
-        new RegExp('^https://agri.robuststaging.biz/admin/user/'),
+        new RegExp('/admin/user/form/.*'),
         function() {
-            return !online ? caches.match('/assets/website/html/layout.html') : false;
+            return caches.match('/assets/website/html/layout.html');
         }
     );
 
