@@ -65,12 +65,12 @@
                 }
             });
         });
-        if ($('#preview--container__form').length > 0) {
-            let formComponents = $('#preview--container__form').data('form-components');
-            Formio.createForm(document.getElementById('preview--container__form'), formComponents, {
-                readOnly: true
-            });
-        }
+        // if ($('#preview--container__form').length > 0) {
+        //     let formComponents = $('#preview--container__form').data('form-components');
+        //     Formio.createForm(document.getElementById('preview--container__form'), formComponents, {
+        //         readOnly: true
+        //     });
+        // }
 
         // if ($('#form__show').length > 0) {
         //     let formComponents = $('#form__show').data('form-components');

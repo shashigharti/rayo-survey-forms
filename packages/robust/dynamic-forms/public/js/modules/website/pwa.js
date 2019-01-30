@@ -125,7 +125,7 @@ const fns = {
         menus.forEach((menu) => {
             el += '<div class="item-tooltip">' +
                 '            <li class="item">' +
-                '                <a href="javascript:void(0)"><i class="icon md-assignment-o" aria-hidden="true"></i></a>' +
+                '                <a href="javascript:void(0)"><i class="icon fa fa-home" aria-hidden="true"></i></a>' +
                 '                <span class="btn-class">' +
                 '                        <a class="menu_item" href="/admin/user/form/' + menu.slug + '">' + menu.title + '</a>' +
                 '                    </span>' +
