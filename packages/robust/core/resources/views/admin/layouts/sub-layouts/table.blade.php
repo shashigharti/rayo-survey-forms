@@ -2,7 +2,7 @@
 
 @section('content')
     @set('ui', new $ui)
-    <div class="page {{ $title }}">
+    <div class="page dashboard-content">
         <div class="page-content">
             <div class="container">
                 <div class="page-title">

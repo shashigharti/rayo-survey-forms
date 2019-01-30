@@ -23,8 +23,8 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     @set('secure', (env('APP_ENV') == 'production') ? true : false)
 
-    {{ \Site::assets('assets/css/app.min.css', 'style', $secure) }}
-    {{ \Site::assets('assets/css/app-1.min.css', 'style', $secure) }}
+    {{ \Site::assets('assets/website/css/app-v2.min.css', 'style', $secure) }}
+    {{--{{ \Site::assets('assets/css/app-1.min.css', 'style', $secure) }}--}}
 
 
     <!--[if lt IE 9]>
@@ -45,9 +45,12 @@
 
 </head>
 <body class="default-theme">
-@include("core::admin.partials.nav")
-@include("core::admin.partials.menus.left-menu")
-@yield('content')
+@include("core::admin.partials.nav-new")
+<section class="dashboard">
+    @include("core::admin.partials.menus.left-menu-new")
+    @yield('content')
+</section>
+
 @include("core::admin.partials.footer")
 @include("core::admin.medias.ajax.media")
 @include("core::admin.partials.modals.modal")
@@ -77,5 +80,6 @@
 {{--PWA Dependencies--}}
 <script src="{{ url('assets/website/js/idb.js') }}"></script>
 <script src="{{ url('assets/website/js/pwa.js') }}"></script>
+<script src="{{ url('assets/website/js/app.min.js') }}"></script>
 </body>
 </html>
