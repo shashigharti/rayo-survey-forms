@@ -44,7 +44,7 @@ if (workbox) {
         new RegExp('/admin/user/form/.*'),
         async ({event}) => {
             try {
-                return await workbox.strategies.cacheFirst().handle({event});
+                return await workbox.strategies.networkFirst().handle({event});
             } catch (error) {
                 return caches.match('/assets/website/html/layout.html');
             }
@@ -54,24 +54,6 @@ if (workbox) {
     workbox.routing.registerRoute(new RegExp('/admin/user/form/.*'), args => {
         return articleHandler.handle(args);
     });
-
-
-    workbox.routing.registerRoute(
-        new RegExp('/admin/user/form/.*'),
-        workbox.strategies.staleWhileRevalidate({
-            cacheName: 'form-cache',
-            plugins: [
-                new workbox.cacheableResponse.Plugin({
-                    statuses: [200, 404],
-                    headers: {
-                        'X-Is-Cacheable': 'true',
-                    },
-                })
-            ]
-        })
-    );
-
-
 
     workbox.routing.registerRoute(
         /.*\/assets\/css\/app.min.*/,
