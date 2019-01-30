@@ -8,22 +8,36 @@ if (workbox) {
     workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
 
     workbox.precaching.precacheAndRoute([]);
-    workbox.routing.registerRoute(
-       '/',
-        workbox.strategies.networkFirst()
-    );
+
+
+    const customHandler = async (args) => {
+        try {
+            return await workbox.strategies.networkFirst({
+                cacheName: 'pages'
+            }).handle(args) || caches.match('/assets/website/html/layout.html')
+        } catch (error) {
+            return caches.match('/assets/website/html/layout.html')
+        }
+    }
+
+    const navigationRoute = new workbox.routing.NavigationRoute(customHandler, {
+        // dont cache this urls
+        blacklist: [
+            new RegExp('/(login|register|password|auth)'),
+        ]
+    });
+
+    workbox.routing.registerRoute(navigationRoute)
 
     workbox.routing.registerRoute(
        '/admin/user/dashboards',
         workbox.strategies.networkFirst()
     );
 
-    // workbox.routing.registerRoute(
-    //     new RegExp('/admin/user/form/.*'),
-    //     function() {
-    //         return caches.match('/assets/website/html/layout.html');
-    //     }
-    // );
+    workbox.routing.registerRoute(
+        new RegExp('/admin/user/form/.*'),
+        customHandler
+    );
 
     // const handlerCb = ({url, event, params}) => {
     //     return fetch(event.request)
@@ -39,56 +53,54 @@ if (workbox) {
     //    return !online ? new Response(caches.match('/assets/website/html/layout.html')) : ;
     // };
 
+    //
+    //
+    // workbox.routing.registerRoute(
+    //     new RegExp('/admin/user/form/.*'),
+    //     async ({event}) => {
+    //         try {
+    //             return await handle({event});
+    //         } catch (error) {
+    //             return caches.match('/assets/website/html/layout.html');
+    //         }
+    //     }
+    // );
 
-    workbox.routing.registerRoute(
-        new RegExp('/admin/user/form/.*'),
-        async ({event}) => {
-            try {
-                return await workbox.strategies.networkFirst().handle({event});
-            } catch (error) {
-                return caches.match('/assets/website/html/layout.html');
-            }
-        }
-    );
+    //
+    // workbox.routing.registerRoute(
+    //     /.*\/assets\/css\/app.min.*/,
+    //     function() {
+    //         return online ? false : caches.match('/assets/css/app.min.css');
+    //     }
+    // );
 
-    workbox.routing.registerRoute(new RegExp('/admin/user/form/.*'), args => {
-        return articleHandler.handle(args);
-    });
+    // workbox.routing.registerRoute(
+    //     /.*\/assets\/css\/app-1.min.*/,
+    //     function() {
+    //         return online ? false : caches.match('/assets/css/app-1.min.css');
+    //     }
+    // );
 
-    workbox.routing.registerRoute(
-        /.*\/assets\/css\/app.min.*/,
-        function() {
-            return online ? false : caches.match('/assets/css/app.min.css');
-        }
-    );
-
-    workbox.routing.registerRoute(
-        /.*\/assets\/css\/app-1.min.*/,
-        function() {
-            return online ? false : caches.match('/assets/css/app-1.min.css');
-        }
-    );
-
-    workbox.routing.registerRoute(
-        /.*\/assets\/js\/app.min.js.*/,
-        function() {
-            return online ? false : caches.match('/assets/js/app.min.js');
-        }
-    );
-
-    workbox.routing.registerRoute(
-        /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff.*/,
-        function() {
-            return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff');
-        }
-    );
-
-    workbox.routing.registerRoute(
-        /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff2.*/,
-        function() {
-            return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2');
-        }
-    );
+    // workbox.routing.registerRoute(
+    //     /.*\/assets\/js\/app.min.js.*/,
+    //     function() {
+    //         return online ? false : caches.match('/assets/js/app.min.js');
+    //     }
+    // );
+    //
+    // workbox.routing.registerRoute(
+    //     /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff.*/,
+    //     function() {
+    //         return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff');
+    //     }
+    // );
+    //
+    // workbox.routing.registerRoute(
+    //     /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff2.*/,
+    //     function() {
+    //         return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2');
+    //     }
+    // );
 } else {
     console.log(`Boo! Workbox didn't load 😬`);
 }
