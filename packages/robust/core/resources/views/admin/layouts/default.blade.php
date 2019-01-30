@@ -51,7 +51,7 @@
     @yield('content')
 </section>
 
-@include("core::admin.partials.footer")
+{{--@include("core::admin.partials.footer")--}}
 @include("core::admin.medias.ajax.media")
 @include("core::admin.partials.modals.modal")
 @include("core::admin.partials.modals.crud")

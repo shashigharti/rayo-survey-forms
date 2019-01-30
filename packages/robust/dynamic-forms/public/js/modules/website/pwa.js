@@ -30,7 +30,7 @@ $(window).on('load', function () {
             var formProperties = JSON.parse(jsonData.properties);
 
             // Render the form, then listen for submit btn click
-            Formio.createForm(document.getElementById('form__show'), formProperties).then(function () {
+            Formio.createForm(document.getElementById('form__view'), formProperties).then(function () {
                 $('[name="data[submit]"]').on('click', function () {
                     var formData = $('#dynamicForm').serializeArray();
 
@@ -83,7 +83,7 @@ $(window).on('load', function () {
             let item = resp.data;
 
             // Render the form
-            Formio.createForm(document.getElementById('form__show'), JSON.parse(item.properties)).then(function(){
+            Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function(){
                 $('[name="data[submit]"]').on('click', function () {
                     let formData = $('#dynamicForm').serializeArray();
                     let jsonValue = fns.serializeToJson(formData);
