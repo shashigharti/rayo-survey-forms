@@ -32,6 +32,7 @@ $(window).on('load', function () {
             // Render the form, then listen for submit btn click
             Formio.createForm(document.getElementById('form__view'), formProperties).then(function () {
                 $('[name="data[submit]"]').on('click', function () {
+                    console.log($('#dynamicForm').serializeJSON());
                     var formData = $('#dynamicForm').serializeArray();
 
                     // Serialize form to json format

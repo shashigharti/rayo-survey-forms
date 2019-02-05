@@ -53,5 +53,11 @@ class FormController extends Controller
         return response()->json($model);
     }
 
+    public function showAllForms()
+    {
+        $data = $this->model->all();
+        return view('dynamic-forms::admin.users.forms.all-forms', compact('data'));
+    }
+
 
 }

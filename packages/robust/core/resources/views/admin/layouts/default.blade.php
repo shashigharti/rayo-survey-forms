@@ -40,7 +40,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
     {!! settings('contact-setting', 'g-analytics') !!}
 
 </head>
@@ -78,8 +77,16 @@
     }
 </script>
 {{--PWA Dependencies--}}
+<script src="https://cdn.jsdelivr.net/npm/jquery-serializejson@2.9.0/jquery.serializejson.js"></script>
+<script>
+    $(function() {
+        console.log($('#dynamicForm'));
+        console.log($('#dynamicForm').serializeJSON());
+    });
+</script>
+<script src="{{ url('assets/website/js/app.min.js') }}"></script>
 <script src="{{ url('assets/website/js/idb.js') }}"></script>
 <script src="{{ url('assets/website/js/pwa.js') }}"></script>
-<script src="{{ url('assets/website/js/app.min.js') }}"></script>
+
 </body>
 </html>
