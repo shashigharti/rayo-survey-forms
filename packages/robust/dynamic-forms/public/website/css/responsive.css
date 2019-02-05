@@ -1,0 +1,46 @@
+@media (max-width:480px){
+    .login__container--left {
+        display: none;
+    }
+    .login__container{
+        width: 90%;
+        height: 375px;
+    }
+    .login__container--right {
+        padding-left: 30px;
+    }
+    .right--section {
+        padding-top: 4px;
+    }
+    .left-smallmenu-bar {
+        display: inline-block;
+        color: #49a7a1 !important;
+        font-size: 20px;
+    }
+
+    .site__logo h1{
+        font-size: 20px;
+    }
+    .site__header .right--section a{
+        font-size: 12px;
+    }
+    .left-menu-bar{
+        display:none;
+    }
+    .left-menu .left{
+        width:240px;
+    }
+    .left-menu{
+        top:42px;
+    }
+    .left-menu .left-change {
+        width:0px;
+    }
+
+    .page {
+        padding-left: 15px;
+        top: 60px;
+        width: 100%;
+        padding-right: 15px;
+    }
+}

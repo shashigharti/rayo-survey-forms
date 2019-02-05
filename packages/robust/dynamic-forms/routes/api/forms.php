@@ -18,4 +18,17 @@ Route::group(['prefix' => config('core.frw.api'), 'as' => 'api.', 'group' => 'Fo
         'uses' => 'Robust\DynamicForms\Controllers\API\FormController@sync',
     ]);
 
+    // Form submission from front end
+    Route::post('/forms/submit', [
+        'as' => 'form.submit',
+        'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForm',
+    ]);
+
+
+    // Route for Syncronization of local data to live for PWA
+    Route::post('/sync', [
+        'as' => 'offline.sync',
+        'uses' => 'Robust\DynamicForms\Controllers\API\FormController@sync',
+    ]);
+
 });

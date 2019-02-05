@@ -61,7 +61,7 @@ class FormController extends Controller
         foreach($mis_surveys as $mis_survey) {
             $json_survey = json_encode($mis_survey, true);
             $data = [
-                'form_id' => 1,
+                'form_id' => $mis_survey['formId'],
                 'values' => $json_survey,
                 'completed' => 1,
                 'user_id' => Auth::id()
@@ -94,6 +94,7 @@ class FormController extends Controller
      */
     public function submitForm(Request $request, Data $dynform_tbl)
     {
+        $slug = $request->get('slug');
         $mis_survey = $request->except('id');
         $json_survey = json_encode($mis_survey, true);
         $data = [

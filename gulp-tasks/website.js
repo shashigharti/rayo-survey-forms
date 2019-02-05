@@ -80,4 +80,17 @@ module.exports = function () {
         .pipe(uglify({mangle: false}))
         .pipe(gulp.dest('public/assets/website/js'))
         .pipe(notify({message: 'IDB Scripts task complete'}));
+
+
+    // Design V2 CSS:
+    gulp.src(['packages/robust/dynamic-forms/public/website/css/style.css', 'packages/robust/dynamic-forms/public/website/css/responsive.css'])
+        .pipe(cssimport().on('error', util.log))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('app-v2.min.css'))
+        .pipe(uglifycss({
+            "maxLineLen": 80,
+            "uglyComments": true
+        }))
+        .pipe(gulp.dest('public/assets/website/css'))
+        .pipe(notify({message: 'Scripts Website CSS task complete'}));
 }

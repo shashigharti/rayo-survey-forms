@@ -16,4 +16,14 @@ Route::group(['prefix' => 'admin/user', 'as' => 'admin.user', 'group' => 'User F
         'as' => 'form.get.properties',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@getFormById',
     ]);
+
+    Route::get('/getAllForms', [
+        'as' => 'form.allforms',
+        'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@getAllForms',
+    ]);
+
+    Route::get('/showAllForms', [
+        'as' => 'form.show.all',
+        'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@showAllForms',
+    ]);
 });

@@ -45,7 +45,7 @@ class Site
     public static function assets($asset, $type, $secure = false, $attributes = [])
     {
         $new_url = sprintf($asset);
-        $new_url = $new_url . "?v=" . filemtime(public_path($new_url));
+//        $new_url = $new_url . "?v=" . filemtime(public_path($new_url));
         return \Html::$type($new_url, $attributes, $secure);
     }
 }
