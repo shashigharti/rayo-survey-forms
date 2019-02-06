@@ -32,11 +32,8 @@ $(window).on('load', function () {
             // Render the form, then listen for submit btn click
             Formio.createForm(document.getElementById('form__view'), formProperties).then(function () {
                 $('[name="data[submit]"]').on('click', function () {
-                    console.log($('#dynamicForm').serializeJSON());
-                    var formData = $('#dynamicForm').serializeArray();
-
                     // Serialize form to json format
-                    var jsonValue = fns.serializeToJson(formData);
+                    var jsonValue = $('#dynamicForm').serializeJSON();
                     jsonValue.id = jsonData.id;
                     let options = {
                         headers: {
@@ -86,8 +83,7 @@ $(window).on('load', function () {
             // Render the form
             Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function(){
                 $('[name="data[submit]"]').on('click', function () {
-                    let formData = $('#dynamicForm').serializeArray();
-                    let jsonValue = fns.serializeToJson(formData);
+                    let jsonValue = $('#dynamicForm').serializeJSON();
                     jsonValue.formId = item.id;
                     // Request web worker to add data to local db
                     worker.postMessage(['storeInLocal', jsonValue]);

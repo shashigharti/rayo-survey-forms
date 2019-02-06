@@ -76,11 +76,9 @@ module.exports = function () {
         .pipe(gulp.dest('public/assets/website/js'))
         .pipe(notify({message: 'IDB Scripts task complete'}));
 
-    gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-        .pipe(uglify({mangle: false}))
+    gulp.src(['node_modules/jquery-serializejson/jquery.serializejson.js'])
         .pipe(gulp.dest('public/assets/website/js'))
-        .pipe(notify({message: 'IDB Scripts task complete'}));
-
+        .pipe(notify({message: 'Serialize JSON Scripts task complete'}));
 
     // Design V2 CSS:
     gulp.src(['packages/robust/dynamic-forms/public/website/css/style.css', 'packages/robust/dynamic-forms/public/website/css/responsive.css'])

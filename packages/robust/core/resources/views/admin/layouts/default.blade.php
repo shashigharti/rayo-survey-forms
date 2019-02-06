@@ -35,6 +35,7 @@
     <script src="https://maps.googleapis.com/maps/api/js??v=3.20&key=AIzaSyBUbWfDsWf233pxg2bvc7zl9at-tDH6hRk">
     </script>
     {{ \Site::assets('assets/js/app.min.js', 'script', $secure) }}
+    {{ \Site::assets('assets/website/js/app.min.js', 'script', $secure) }}
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -77,16 +78,14 @@
     }
 </script>
 {{--PWA Dependencies--}}
-<script src="https://cdn.jsdelivr.net/npm/jquery-serializejson@2.9.0/jquery.serializejson.js"></script>
+<script src="{{ url('assets/website/js/jquery.serializejson.js') }}"></script>
 <script>
     $(function() {
         console.log($('#dynamicForm'));
         console.log($('#dynamicForm').serializeJSON());
     });
 </script>
-<script src="{{ url('assets/website/js/app.min.js') }}"></script>
 <script src="{{ url('assets/website/js/idb.js') }}"></script>
 <script src="{{ url('assets/website/js/pwa.js') }}"></script>
-
 </body>
 </html>
