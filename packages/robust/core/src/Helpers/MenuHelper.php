@@ -76,7 +76,11 @@ class MenuHelper
      */
     public function getAllForms()
     {
-        return Form::select('title', 'slug')->get();
+        $userId = \Auth::user()->id;
+
+        return $forms = Form::whereHas('users', function($query) use($userId) {
+            $query->where('users.id', $userId);
+        })->get();
     }
 
 

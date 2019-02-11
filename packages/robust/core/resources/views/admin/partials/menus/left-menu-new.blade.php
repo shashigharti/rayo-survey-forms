@@ -32,21 +32,6 @@
                     @endcan
                 @endif
             @endforeach
-
-
-            {{-- Static menu for testing --}}
-            @foreach($menu_helper->getAllForms() as $form)
-                <div class="item-tooltip">
-                    <li class="item">
-                        <a href="{{route('admin.userform', $form['slug'])}}"><i class="icon fa fa-home" aria-hidden="true"></i></a>
-                        <span class="btn-class">
-                        <a class="menu_item" href="{{route('admin.userform', $form['slug'])}}">{{$form['title']}}</a>
-                    </span>
-                    </li>
-                    <span class="tooltiptext tooltip-right">{{$form['title']}}</span>
-                </div>
-            @endforeach
-
             <div class="item-tooltip">
                 <li class="item">
                     <a href="{{route('admin.userform.show.all')}}"><i class="icon fa fa-edit" aria-hidden="true"></i></a>
