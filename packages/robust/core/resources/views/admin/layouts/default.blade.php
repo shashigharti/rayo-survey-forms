@@ -23,8 +23,8 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     @set('secure', (env('APP_ENV') == 'production') ? true : false)
 
-    {{ \Site::assets('assets/website/css/app-v2.min.css', 'style', $secure) }}
-    {{--{{ \Site::assets('assets/css/app-1.min.css', 'style', $secure) }}--}}
+    {{ \Site::assets('assets/css/app.min.css', 'style', $secure) }}
+    {{ \Site::assets('assets/css/app-1.min.css', 'style', $secure) }}
 
 
     <!--[if lt IE 9]>
@@ -35,23 +35,20 @@
     <script src="https://maps.googleapis.com/maps/api/js??v=3.20&key=AIzaSyBUbWfDsWf233pxg2bvc7zl9at-tDH6hRk">
     </script>
     {{ \Site::assets('assets/js/app.min.js', 'script', $secure) }}
-    {{ \Site::assets('assets/website/js/app.min.js', 'script', $secure) }}
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
     {!! settings('contact-setting', 'g-analytics') !!}
 
 </head>
 <body class="default-theme">
-@include("core::admin.partials.nav-new")
-<section class="dashboard">
-    @include("core::admin.partials.menus.left-menu-new")
-    @yield('content')
-</section>
-
-{{--@include("core::admin.partials.footer")--}}
+@include("core::admin.partials.nav")
+@include("core::admin.partials.menus.left-menu")
+@yield('content')
+@include("core::admin.partials.footer")
 @include("core::admin.medias.ajax.media")
 @include("core::admin.partials.modals.modal")
 @include("core::admin.partials.modals.crud")
