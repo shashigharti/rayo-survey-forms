@@ -135,7 +135,7 @@ class CoreMenuTableSeeder extends Seeder
             ],
 
         ]);
-        DB::table('menus')->insert([
+       /* DB::table('menus')->insert([
 
             [
                 'display_name' => 'Theme',
@@ -149,8 +149,8 @@ class CoreMenuTableSeeder extends Seeder
 
             ]
 
-        ]);
-        DB::table('menus')->insert([
+        ]);*/
+      /*  DB::table('menus')->insert([
             [
                 'display_name' => 'Redirects',
                 'name' => 'core.redirects',
@@ -161,9 +161,9 @@ class CoreMenuTableSeeder extends Seeder
                 'type' => 'primary',
                 'icon' => 'md-rotate-ccw'
             ],
-        ]);
+        ]);*/
 
-        DB::table('menus')->insert([
+        /*DB::table('menus')->insert([
             [
                 'display_name' => 'Reports Manager',
                 'name' => 'core.report-manager',
@@ -175,8 +175,8 @@ class CoreMenuTableSeeder extends Seeder
                 'icon' => 'md-labels'
 
             ],
-        ]);
-        $report_id = DB::table('menus')->max('id');
+        ]);*/
+       /* $report_id = DB::table('menus')->max('id');
         $reports = \Robust\Core\Models\Report::all();
         foreach ($reports as $report) {
             \Robust\Core\Models\Menu::create(
@@ -192,7 +192,7 @@ class CoreMenuTableSeeder extends Seeder
 
                 ]
             );
-        }
+        }*/
 
         DB::table('menus')->insert([
             [
