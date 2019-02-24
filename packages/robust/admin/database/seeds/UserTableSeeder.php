@@ -35,31 +35,29 @@ class UserTableSeeder extends Seeder
             }
         }
 
-        $users = [
-            [
-                'id' => 1,
-                'email' => 'info@robustitconcepts.com',
-                'password' => Hash::make('12345678'),
-                'first_name' => 'Super',
-                'last_name' => ' User',
-                'user_name' => 'super_user',
-                'created_at' => Carbon\Carbon::now()
-            ],
-            [
-                'id' => 2,
-                'email' => 'user@robustitconcepts.com',
-                'password' => Hash::make('12345678'),
-                'first_name' => 'User',
-                'user_name' => 'user',
-                'created_at' => Carbon\Carbon::now()
-            ]
-        ];
+        //Create Admin User
+        $user = User::create([
+            'id' => 1,
+            'email' => 'info@robustitconcepts.com',
+            'password' => Hash::make('12345678'),
+            'first_name' => 'Super',
+            'last_name' => ' User',
+            'user_name' => 'super_user',
+            'created_at' => Carbon\Carbon::now()
+        ]);
+        $user->roles()->attach($role->id);
 
-        foreach ($users as $user) {
-            $user = User::create($user);
-            $user->roles()->attach($role->id);
-        }
 
-        Role::create(['name' => 'User']);
+        //Create Normal User
+        $role = Role::create(['name' => 'User']);
+        $user = User::create([
+            'id' => 2,
+            'email' => 'user@robustitconcepts.com',
+            'password' => Hash::make('12345678'),
+            'first_name' => 'User',
+            'user_name' => 'user',
+            'created_at' => Carbon\Carbon::now()
+        ]);
+        $user->roles()->attach($role->id);
     }
 }
