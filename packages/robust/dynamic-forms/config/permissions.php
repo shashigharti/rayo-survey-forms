@@ -14,7 +14,7 @@ return [
     */
     /* {package-name}.{model or object}.{action}*/
     'actions' => [
-        'forms.manage' => 'Forms',
+        'forms.manage' => 'Form Manager',
         'forms.form.add' => 'Add Form and Design',
         'forms.form.edit' => 'Edit Form',
         'forms.form.delete' => 'Delete Form',
@@ -26,7 +26,8 @@ return [
         'forms.data.export' => 'Export Data',
         'forms.report.advance' => 'Advance Report',
         'forms.report.individual' => 'Advance Report',
-        'user.form.manage' => 'Form (User View)',
-        'user.form.show' => 'Show Form (User View)'
+
+        'user.form.manage' => 'Forms',
+        'user.form.show' => 'Show User Form'
     ]
 ];

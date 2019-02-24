@@ -110,58 +110,58 @@ class CoreMenuTableSeeder extends Seeder
             ],
 
         ]);
-        DB::table('menus')->insert([
-            [
-                'display_name' => 'Server Management',
-                'name' => 'core.commands',
-                'url' => route('admin.commands.index'),
-                'permission' => 'core.commands.manage',
-                'package_name' => 'core',
-                'parent_id' => 0,
-                'type' => 'primary',
-                'icon' => 'md-home'
-            ],
-        ]);
-        $id = DB::table('menus')->max('id');
-        DB::table('menus')->insert([
-            [
-                'display_name' => 'Commands',
-                'name' => 'core.commands',
-                'url' => route('admin.commands.index'),
-                'permission' => 'core.commands.manage',
-                'package_name' => 'core',
-                'parent_id' => $id,
-                'type' => 'primary',
-            ],
+        /* DB::table('menus')->insert([
+             [
+                 'display_name' => 'Server Management',
+                 'name' => 'core.commands',
+                 'url' => route('admin.commands.index'),
+                 'permission' => 'core.commands.manage',
+                 'package_name' => 'core',
+                 'parent_id' => 0,
+                 'type' => 'primary',
+                 'icon' => 'md-home'
+             ],
+         ]);
+         $id = DB::table('menus')->max('id');
+         DB::table('menus')->insert([
+             [
+                 'display_name' => 'Commands',
+                 'name' => 'core.commands',
+                 'url' => route('admin.commands.index'),
+                 'permission' => 'core.commands.manage',
+                 'package_name' => 'core',
+                 'parent_id' => $id,
+                 'type' => 'primary',
+             ],
 
-        ]);
-       /* DB::table('menus')->insert([
+         ]);
+         DB::table('menus')->insert([
 
-            [
-                'display_name' => 'Theme',
-                'name' => 'core.themes',
-                'package_name' => 'core',
-                'url' => 'javascript:void(0)',
-                'permission' => 'core.themes.manage',
-                'parent_id' => 0,
-                'type' => 'primary',
-                'icon' => 'md-collection-item-8'
+             [
+                 'display_name' => 'Theme',
+                 'name' => 'core.themes',
+                 'package_name' => 'core',
+                 'url' => 'javascript:void(0)',
+                 'permission' => 'core.themes.manage',
+                 'parent_id' => 0,
+                 'type' => 'primary',
+                 'icon' => 'md-collection-item-8'
 
-            ]
+             ]
 
-        ]);*/
-      /*  DB::table('menus')->insert([
-            [
-                'display_name' => 'Redirects',
-                'name' => 'core.redirects',
-                'url' => route('admin.redirects.index'),
-                'permission' => 'core.redirects.manage',
-                'package_name' => 'core',
-                'parent_id' => 0,
-                'type' => 'primary',
-                'icon' => 'md-rotate-ccw'
-            ],
-        ]);*/
+         ]);
+         DB::table('menus')->insert([
+             [
+                 'display_name' => 'Redirects',
+                 'name' => 'core.redirects',
+                 'url' => route('admin.redirects.index'),
+                 'permission' => 'core.redirects.manage',
+                 'package_name' => 'core',
+                 'parent_id' => 0,
+                 'type' => 'primary',
+                 'icon' => 'md-rotate-ccw'
+             ],
+         ]);*/
 
         /*DB::table('menus')->insert([
             [
@@ -175,8 +175,8 @@ class CoreMenuTableSeeder extends Seeder
                 'icon' => 'md-labels'
 
             ],
-        ]);*/
-       /* $report_id = DB::table('menus')->max('id');
+        ]);
+        $report_id = DB::table('menus')->max('id');
         $reports = \Robust\Core\Models\Report::all();
         foreach ($reports as $report) {
             \Robust\Core\Models\Menu::create(
@@ -192,8 +192,7 @@ class CoreMenuTableSeeder extends Seeder
 
                 ]
             );
-        }*/
-
+        }
         DB::table('menus')->insert([
             [
                 'display_name' => 'Task Schedules',
@@ -206,8 +205,7 @@ class CoreMenuTableSeeder extends Seeder
                 'order' => 7,
                 'icon' => 'md-file-text'
             ]
-        ]);
-
+        ]);*/
 
 
         DB::table('menus')->insert([

@@ -47,10 +47,10 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'email' => 'suraj.gharti@robustitconcepts.com',
+                'email' => 'user@robustitconcepts.com',
                 'password' => Hash::make('12345678'),
-                'first_name' => 'Admin',
-                'user_name' => 'admin',
+                'first_name' => 'User',
+                'user_name' => 'user',
                 'created_at' => Carbon\Carbon::now()
             ]
         ];

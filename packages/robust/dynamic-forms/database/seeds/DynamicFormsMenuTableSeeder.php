@@ -11,13 +11,29 @@ class DynamicFormsMenuTableSeeder extends Seeder
      */
     public function run()
     {
-        //Design Menu
+        //Form Designer
+        DB::table('menus')->insert([
+            [
+                'display_name' => 'Form Manager',
+                'name' => 'forms',
+                'url' => route('admin.forms.index'),
+                'permission' => 'forms.manage',
+                'package_name' => 'dynamic-forms',
+                'parent_id' => 0,
+                'type' => 'primary',
+                'order' => 2,
+                'icon' => 'md-assignment-o'
+
+            ]
+        ]);
+
+        //User Form Menu
         DB::table('menus')->insert([
             [
                 'display_name' => 'Forms',
                 'name' => 'forms',
                 'url' => route('admin.forms.index'),
-                'permission' => 'forms.manage',
+                'permission' => 'user.form.manage',
                 'package_name' => 'dynamic-forms',
                 'parent_id' => 0,
                 'type' => 'primary',
