@@ -8,6 +8,8 @@ use Robust\Admin\UI\User;
 use Robust\Core\Controllers\Admin\Controller;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
+use Robust\Core\Helpers\MenuHelper;
+use Robust\Core\Models\Menu;
 use Robust\Core\Repositories\DashboardRepository;
 use Robust\Core\Repositories\WidgetRepository;
 
@@ -36,6 +38,24 @@ class DashboardController extends Controller
         $this->package_name = 'core';
         $this->view = 'admin.users.dashboards';
         $this->title = 'Dashboards';
+    }
+
+
+    /**
+     * @param Request $request
+     * @return DashboardController
+     */
+    public function index(Request $request)
+    {
+        $records = $this->model->where('user_id', \Auth::user()->id)->paginate();
+        return $this->display($this->table,
+            [
+                'records' => $records,
+                'primary_menu' => (new MenuHelper())->getPrimaryMenu($this->package_name),
+                'title' => (isset($this->title)) ? $this->title : '',
+                'package' => $this->package_name,
+            ]
+        );
     }
 
     /**
