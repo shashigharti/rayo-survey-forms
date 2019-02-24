@@ -32,7 +32,7 @@ class DynamicFormsMenuTableSeeder extends Seeder
             [
                 'display_name' => 'Forms',
                 'name' => 'forms',
-                'url' => route('admin.forms.index'),
+                'url' => route('admin.user.forms.index'),
                 'permission' => 'user.form.manage',
                 'package_name' => 'dynamic-forms',
                 'parent_id' => 0,

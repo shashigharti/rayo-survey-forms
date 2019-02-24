@@ -1,8 +1,10 @@
 <?php
 
-Route::group(['prefix' => 'admin/user', 'as' => 'admin.user', 'group' => 'User Forms'], function () {
+Route::group(['prefix' => 'admin/user', 'as' => 'admin.user.', 'group' => 'User Forms'], function () {
+    // FORM
+    Route::resource('forms', 'Robust\DynamicForms\Controllers\Admin\User\FormController');
 
-    Route::get('/form/{slug}', [
+   /* Route::get('/form/{slug}', [
         'as' => 'form',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@show',
     ]);
@@ -25,5 +27,5 @@ Route::group(['prefix' => 'admin/user', 'as' => 'admin.user', 'group' => 'User F
     Route::get('/showAllForms', [
         'as' => 'form.show.all',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@showAllForms',
-    ]);
+    ]);*/
 });
