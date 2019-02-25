@@ -42,7 +42,12 @@
                     <h2 class="">{{ $model->title }}</h2>
                 </div>
                 <div class="form__field clearfix col-md-12">
-                    {!! Shortcode::compile("[dyn-form preview = false data_id = {$data->id}]{$model->title}[/dyn-form]")  !!}
+                  <ul>
+                      @foreach($form_data['data'] as $key=>$data)
+                          <li>{{$key}} : {{$data}}</li>
+                      @endforeach
+                  </ul>
+{{--                    {!! Shortcode::compile("[dyn-form preview = false data_id = {$data->id}]{$model->title}[/dyn-form]")  !!}--}}
                 </div>
             </div>
             <br>

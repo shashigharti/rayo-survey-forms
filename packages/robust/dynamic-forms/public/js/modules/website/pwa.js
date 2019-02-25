@@ -35,6 +35,7 @@ $(window).on('load', function () {
                     // Serialize form to json format
                     var jsonValue = $('#dynamicForm').serializeJSON();
                     jsonValue.id = jsonData.id;
+                    jsonValue.updated_at = fns.getYMD();
                     let options = {
                         headers: {
                             "Content-Type": "application/json",
@@ -113,9 +114,15 @@ const fns = {
         return Object.assign({}, keyValue);
     },
     getSlug: () => {
-        let url = window.location.href;
-        let urlArray = url.split("/");
-        fns.slug = urlArray[urlArray.length - 1];
+        fns.slug = $('#form__view').data('slug');
+    },
+    getYMD: () => {
+        let dateObj = new Date();
+        let month = dateObj.getUTCMonth() + 1; //months from 1-12
+        let day = dateObj.getUTCDate();
+        let year = dateObj.getUTCFullYear();
+
+        return(year + "-" + month + "-" + day);
     },
     getLeftMenu : (menus) => {
         let el = '';

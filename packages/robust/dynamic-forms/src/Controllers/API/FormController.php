@@ -95,13 +95,14 @@ class FormController extends Controller
     public function submitForm(Request $request, Data $dynform_tbl)
     {
         $slug = $request->get('slug');
-        $mis_survey = $request->except('id');
+        $mis_survey = $request->except(['id', '_token', 'updated_at']);
         $json_survey = json_encode($mis_survey, true);
         $data = [
             'form_id' => $request->get('id'),
             'values' => $json_survey,
             'completed' => 1,
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'updated_at' => $request->get('updated_at')
         ];
         $dynform_tbl->insert($data);
 

@@ -91,7 +91,7 @@
                 fetch('/admin/user/get-form/' + id).then(function (data) {
                     return data.json();
                 }).then(function (form) {
-                    form.properties !== "" ? resolve(JSON.parse(form.properties)) : resolve('https://examples.form.io/example');
+                    form.properties !== null ? resolve(JSON.parse(form.properties)) : resolve('https://examples.form.io/example');
                 }).catch(function (err) {
                     reject(err);
                 });
