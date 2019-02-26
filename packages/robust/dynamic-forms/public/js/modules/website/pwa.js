@@ -12,6 +12,8 @@ $(window).on('load', function () {
 
     if(!online) {
         console.log("Offline mode.");
+        // Get offline slug
+        fns.getOfflineSlug();
 
         // Get form from local db
         worker.postMessage(['getForm', fns.slug]);
@@ -86,6 +88,7 @@ $(window).on('load', function () {
                 $('[name="data[submit]"]').on('click', function () {
                     let jsonValue = $('#dynamicForm').serializeJSON();
                     jsonValue.formId = item.id;
+                    jsonValue.updated_at = fns.getYMD();
                     // Request web worker to add data to local db
                     worker.postMessage(['storeInLocal', jsonValue]);
                 });
@@ -116,6 +119,11 @@ const fns = {
     getSlug: () => {
         fns.slug = $('#form__view').data('slug');
     },
+    getOfflineSlug: () => {
+        let url = window.location.href;
+        let urlArray = url.split("/");
+        fns.slug = urlArray[urlArray.length - 1];
+    },
     getYMD: () => {
         let dateObj = new Date();
         let month = dateObj.getUTCMonth() + 1; //months from 1-12
@@ -131,7 +139,7 @@ const fns = {
                 '            <li class="item">' +
                 '                <a href="javascript:void(0)"><i class="icon fa fa-home" aria-hidden="true"></i></a>' +
                 '                <span class="btn-class">' +
-                '                        <a class="menu_item" href="/admin/user/form/' + menu.slug + '">' + menu.title + '</a>' +
+                '                        <a class="menu_item" href="/admin/forms/' + menu.slug + '">' + menu.title + '</a>' +
                 '                    </span>' +
                 '            </li>' +
                 '            <span class="tooltiptext tooltip-right">' + menu.title + '</span>' +

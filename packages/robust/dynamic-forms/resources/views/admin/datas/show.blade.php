@@ -60,6 +60,7 @@
                                         <td>{{$d}}</td>
                                     @endforeach
                                 @else
+                                    {{--Use base64 img if signature is being displayed--}}
                                     @if($key == "signature")
                                             <td><img width="200px" height="40px" src="{{$data}}" alt="signature"></td>
                                     @else

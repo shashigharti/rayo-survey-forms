@@ -35,7 +35,7 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
-        new RegExp('/admin/user/form/.*'),
+        new RegExp('/admin/forms/.*'),
         customHandler
     );
 

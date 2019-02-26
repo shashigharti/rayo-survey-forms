@@ -64,6 +64,7 @@ class FormController extends Controller
                 'form_id' => $mis_survey['formId'],
                 'values' => $json_survey,
                 'completed' => 1,
+                'updated_at' => $mis_survey['updated_at'],
                 'user_id' => Auth::id()
             ];
             $dynform_tbl->insert($data);
