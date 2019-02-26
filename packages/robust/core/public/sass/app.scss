@@ -14,9 +14,6 @@
 @import 'modules/form.scss';
 @import 'modules/image_upload.scss';
 @import 'modules/media.scss';
-@import 'modules/responsive/media-responsive.scss';
-@import 'modules/responsive/login-responsive.scss';
-@import 'modules/responsive/top_nav-responsive.scss';
 @import 'modules/cropper.scss';
 @import 'modules/menus/left-menu.scss';
 @import 'modules/menus/top-nav.scss';
@@ -32,6 +29,11 @@
 @import 'modules/input.scss';
 @import "modules/toggle-switch.scss";
 @import "modules/spinner.scss";
+@import 'modules/remark-theme/site-responsive.scss';
+@import 'modules/responsive/media-responsive.scss';
+@import 'modules/responsive/login-responsive.scss';
+@import 'modules/responsive/top_nav-responsive.scss';
+@import 'modules/responsive/left_menu-responsive.scss';
 
 
 

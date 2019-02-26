@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+ 	.navbar-mega .dropdown-mega .dropdown-menu {
+    	right: 250px !important;
+	}
+	.navbar-header {
+    	float: none;
+    	text-align:left;
+	}
+	.site-navbar {
+    	padding: 8px 20px 0px;
+	}
+	.page{
+		top:30px;
+		height: 100%;
+		padding-left: 0px;
+	}
+}
+@media (max-width: 480px) {
+	.page-content {
+    	padding: 0px 10px 15px;
+    	.panel-body {
+		    padding: 10px 10px;
+		    overflow:auto;
+		    .table{
+		    	min-height: .01%;
+    			overflow-x: auto;
+    			width: 100%;
+		    }
+		}
+	}	
+}

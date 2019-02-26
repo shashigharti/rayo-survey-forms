@@ -1,0 +1,34 @@
+@media (max-width: 768px) {
+ 	.left-menu{
+ 		top:85px;
+ 		.left{
+ 			width:0px;
+ 		}
+ 		.left-change,#theMenu{ 			
+		    padding-left: 0px;
+		    -webkit-transition: all .3s ease-in-out;
+		       -moz-transition: all .3s ease-in-out;
+		        -ms-transition: all .3s ease-in-out;
+		         -o-transition: all .3s ease-in-out;
+		            transition: all .3s ease-in-out;
+		    .icon{
+		    	margin: 15px;
+    			width: 20px;
+    			color: #fff;
+		    }
+ 		}
+ 	}
+ 	a.left-smallmenu-bar {
+    	display: inline-block;
+    	width: 50%;
+    	font-size: 18px;
+	}
+}
+@media (max-width: 480px) {
+	.left-menu {
+    	top: 92px;
+	}
+	a.left-smallmenu-bar{
+    	width: 47%;
+  	}
+}

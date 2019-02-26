@@ -1,7 +1,9 @@
 <nav class="site-navbar navbar rayo-nav navbar-inverse navbar-fixed-top navbar-mega navbar-inverse"
      role="navigation">
     <div class="navbar-header">
-
+        <a class="left-smallmenu-bar">
+            <i class="fa fa-bars"></i>
+        </a>
         <a class="navbar-brand" href="{{--{{ route('admin.home') }}--}}">
             <img class="navbar-brand-logo navbar-brand-logo-normal"
                  src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png')  }}"
