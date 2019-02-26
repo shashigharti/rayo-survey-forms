@@ -9,6 +9,9 @@
 }
 @media(max-width: 480px) {
   .page-login-v3 {
+    .page{
+      top:0px;
+    }
     .page-content {
       padding: 30px 20px;
     }

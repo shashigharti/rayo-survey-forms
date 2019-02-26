@@ -1,5 +1,5 @@
 <div class="left-menu" id="left_menu">
-    <ul class="left scrollable scrollable-vertical" id="theMenu">
+    <ul class="left scrollable scrollable-vertical left" id="theMenu">
 
         @inject('menu_helper', 'Robust\Core\Helpers\MenuHelper')
         @foreach($menu_helper->getMenus() as $index => $menu)

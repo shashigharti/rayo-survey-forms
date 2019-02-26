@@ -1,20 +1,69 @@
-@media (max-width: 767px) {
-  .navbar-header {
-    float: left;
+@media (max-width: 768px) {
+  .site-navbar{
+    .navbar-header {
+      float: none;
+      text-align:left;
+      .navbar-brand-logo {
+        height: 35px;
+      }
+    }
+    .navbar-brand{
+      float:none;
+      width: 49%;
+      text-align: right;
+      display: inline-block;
+      padding: 0px 0px 0px 0px !important;
+      height: 30px !important;
+    }
+    .navbar-toolbar > li {
+      float: none;
+      display: inline-block;      
+        > a {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            line-height: 26px;
+            &.navbar-avatar{
+              padding-top: 5px !important;
+              padding-bottom: 5px !important;
+            }
+        
+        }
+    }
+    .navbar-toolbar-right {
+      float: none !important;
+      text-align: center;
+      padding-left:0px;
+    }
+    &.navbar-mega{
+      .dropdown-mega {
+        padding: 1px 15px;
+      }
+    }
   }
 }
 @media (max-width: 480px) {
   .navbar-header {
     left: 50%;
     float: none;
-    display: block;
-      a.navbar-brand {
-      width: 100%;
-      text-align: center;
-      }      
+    display: block;     
   }
   .site-notifications{
     float:left !important;
     padding-left: 20%;
   }
+  .site-navbar{
+    &.navbar-mega{
+      .dropdown-mega{
+        display: none;
+      }
+    }
+    .site-notifications{
+      > li{
+        > a{
+          padding: 10px 5px;
+        }
+      }
+    }
+  }
+ 
 }

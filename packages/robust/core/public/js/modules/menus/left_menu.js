@@ -13,7 +13,13 @@
             $(".left .fa").addClass('fa-plus');
         }); 
         $(".btn-class").on("click", function(){
-            $(this).find($(".fa")).toggleClass('fa-plus fas-minus');
+            $(this).find($(".fa")).toggleClass('fa-plus fa-minus');
+        });
+        $(".left-smallmenu-bar").click(function(){
+            $("#theMenu").toggleClass("left left-change"); 
+            $('.sub-menu').removeClass('in');
+            $(".left .fa").removeClass('fa-minus');
+            $(".left .fa").addClass('fa-plus');          
         });
 
     });
