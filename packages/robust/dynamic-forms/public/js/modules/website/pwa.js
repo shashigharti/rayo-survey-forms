@@ -82,7 +82,8 @@ $(window).on('load', function () {
             console.log(resp.status);
         } else if (resp.type === "getForm") {
             let item = resp.data;
-
+            // Set title of the form page
+            $('#form-title').html(item.title);
             // Render the form
             Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function(){
                 $('[name="data[submit]"]').on('click', function () {
