@@ -42,10 +42,36 @@
                     <h2 class="">{{ $model->title }}</h2>
                 </div>
                 <div class="form__field clearfix col-md-12">
+                    <table class="table">
+                        @foreach($form_data['data'] as $key=>$data)
+                            @if(is_array($data))
+                                @foreach($data as $key=>$d)
+                                    <th class="text-uppercase font-weight-bold">{{$key}}</th>
+                                @endforeach
+                            @else
+                                <th class="text-uppercase font-weight-bold">{{$key}}</th>
+                            @endif
+
+                        @endforeach
+                            <tr>
+                            @foreach($form_data['data'] as $key=>$data)
+                                @if(is_array($data))
+                                    @foreach($data as $d)
+                                        <td>{{$d}}</td>
+                                    @endforeach
+                                @else
+                                    @if($key == "signature")
+                                            <td><img width="200px" height="40px" src="{{$data}}" alt="signature"></td>
+                                    @else
+                                            <td>{{$data}}</td>
+                                    @endif
+
+                                @endif
+                            @endforeach
+                        </tr>
+                    </table>
                   <ul>
-                      @foreach($form_data['data'] as $key=>$data)
-                          <li>{{$key}} : {{$data}}</li>
-                      @endforeach
+
                   </ul>
 {{--                    {!! Shortcode::compile("[dyn-form preview = false data_id = {$data->id}]{$model->title}[/dyn-form]")  !!}--}}
                 </div>

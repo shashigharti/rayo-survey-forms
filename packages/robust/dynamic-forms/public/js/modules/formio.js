@@ -23,11 +23,8 @@
                 builder = Formio.builder(formElement, fData, {
                     readOnly: false
                 }).then(function (form) {
-                    formData['title'] = 'Test Form';
-                    formData['slug'] = 'test-form';
                     formData['display'] = "form";
                     formData['_method'] = 'PUT';
-                    formData['slug'] = 'test-form';
                     formData['type'] = 'form';
                     formData['id'] = $('.design--form :input[name="id"]').val();
                     formData['components'] = form.component.components;
