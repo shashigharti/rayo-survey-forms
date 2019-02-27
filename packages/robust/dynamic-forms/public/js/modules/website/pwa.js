@@ -1,6 +1,4 @@
 $(window).on('load', function () {
-    let token = $('meta[name="csrf-token"]').attr('content');
-
     // Init web worker
     let worker = fns.init();
     // Get slug for form operations
@@ -29,38 +27,24 @@ $(window).on('load', function () {
         }).then(function (jsonString) {
             // We get all values from dynform_values table
             let jsonData = jsonString;
-            var formProperties = JSON.parse(jsonData.properties);
+            let formProperties = JSON.parse(jsonData.properties);
 
             // Render the form, then listen for submit btn click
-            Formio.createForm(document.getElementById('form__view'), formProperties).then(function () {
-                $('[name="data[submit]"]').on('click', function () {
-                    // Serialize form to json format
-                    var jsonValue = $('#dynamicForm').serializeJSON();
-                    jsonValue.id = jsonData.id;
-                    jsonValue.updated_at = fns.getYMD();
-                    let options = {
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json, text-plain, */*",
-                            "X-Requested-With": "XMLHttpRequest",
-                            "X-CSRF-TOKEN": token
-                        },
-                        method: 'post',
-                        credentials: "same-origin",
-                        body: JSON.stringify(jsonValue)
-                    };
+            Formio.createForm(document.getElementById('form__view'), formProperties).then(function (form) {
+                form.on('submit', (submission) => {
+                    submission.id = jsonData.id;
+                    submission.updated_at = fns.getYMD();
+                    fns.submitData(submission);
+                });
+                form.on('error', (errors) => {
 
-                    // Submit the form via API
-                    fetch('/api/forms/submit', options).then(function(data) {
-                        console.log(data);
-                    })
                 });
             });
 
         });
         // Sync to live
         // Request web worker to sync data to live db
-        worker.postMessage(['syncToLive', token]);
+        worker.postMessage(['syncToLive', fns.token]);
 
         // Sync forms from live to local
         worker.postMessage(['syncForms']);
@@ -85,13 +69,15 @@ $(window).on('load', function () {
             // Set title of the form page
             $('#form-title').html(item.title);
             // Render the form
-            Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function(){
-                $('[name="data[submit]"]').on('click', function () {
-                    let jsonValue = $('#dynamicForm').serializeJSON();
-                    jsonValue.formId = item.id;
-                    jsonValue.updated_at = fns.getYMD();
+            Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function(form){
+                form.on('submit', (submission) => {
+                    submission.formId = item.id;
+                    submission.updated_at = fns.getYMD();
                     // Request web worker to add data to local db
-                    worker.postMessage(['storeInLocal', jsonValue]);
+                    worker.postMessage(['storeInLocal', submission]);
+                });
+                form.on('error', (errors) => {
+
                 });
             });
         } else if (resp.type === "getAllForms") {
@@ -104,18 +90,31 @@ $(window).on('load', function () {
 
 const fns = {
     slug: '',
+    token: $('meta[name="csrf-token"]').attr('content'),
     init : () => {
         return new Worker('/assets/website/js/worker.js');
     },
-    serializeToJson : (serializedArray) => {
-        let keyValue = [];
-        serializedArray.forEach((k) => {
-            if(k.name !== "_token") {
-                keyValue[k.name] = k.value;
-            }
+    submitData: (data) => {
+        let options = {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json, text-plain, */*",
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-TOKEN": fns.token
+            },
+            method: 'post',
+            credentials: "same-origin",
+            body: JSON.stringify(data)
+        };
+
+        // Submit the form via API
+        fetch('/api/forms/submit', options).then(function (data) {
+            // Set submit button as form submitted
+            $('.glyphicon-refresh.glyphicon-spin').remove();
+            $('[name="data[submit]"]').attr('class', 'btn btn-primary btn-md btn-success submit-success');
+
+            console.log(data);
         });
-        keyValue['slug'] = fns.slug;
-        return Object.assign({}, keyValue);
     },
     getSlug: () => {
         fns.slug = $('#form__view').data('slug');
@@ -130,8 +129,9 @@ const fns = {
         let month = dateObj.getUTCMonth() + 1; //months from 1-12
         let day = dateObj.getUTCDate();
         let year = dateObj.getUTCFullYear();
+        let time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
 
-        return(year + "-" + month + "-" + day);
+        return(year + "-" + month + "-" + day + " " + time);
     },
     getLeftMenu : (menus) => {
         let el = '';

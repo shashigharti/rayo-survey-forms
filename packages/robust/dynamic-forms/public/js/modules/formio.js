@@ -64,6 +64,7 @@
                 dataType: 'json',
                 data: formData,
                 success: function (result) {
+                    $(this).html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
                     console.log(result);
                 }
             });

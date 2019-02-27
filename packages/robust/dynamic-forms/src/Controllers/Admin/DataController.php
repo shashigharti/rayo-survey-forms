@@ -58,6 +58,7 @@ class DataController extends Controller
         $form = $form->find($data->form_id);
         Breadcrumb::getInstance()->setParameters('admin.forms.data.index', $form->id);
         $form_data = json_decode($data['values'], true);
+        unset($form_data['data']['submit']);
         return $this->display('dynamic-forms::admin.datas.show',
             [
                 'model' => $form,
