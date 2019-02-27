@@ -68,7 +68,7 @@ const fns = {
                     store.createIndex('id', 'id', {unique: true});
                 case 3:
                     console.log('Creating mis_forms object store');
-                    upgradeDb.createObjectStore('mis_forms', {keyPath: 'slug'});
+                    upgradeDb.createObjectStore('mis_forms', {keyPath: 'id'});
                 case 4:
                     var store = upgradeDb.transaction.objectStore('mis_forms');
                 // store.createIndex('id', 'id');
