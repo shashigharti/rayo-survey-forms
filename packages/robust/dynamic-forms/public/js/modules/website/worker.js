@@ -16,10 +16,18 @@ self.addEventListener('message', function (e) {
     } else if (message[0] === "syncForms") {
         fns.syncForms(fns.dbPromise);
     } else if (message[0] === "getForm") {
-        let slug = message[1];
-        console.log("Getting form with slug: " + slug);
-        fns.getItem(fns.dbPromise, slug, 'mis_forms').then(function (data) {
-            self.postMessage({type: 'getForm', data: data});
+        let id = message[1];
+        console.log("Getting form with slug: " + id);
+        // fns.getItem(fns.dbPromise, slug, 'mis_forms').then(function (data) {
+        //     self.postMessage({type: 'getForm', data: data});
+        // });
+        let dbPromise = idb.open('mis', 5);
+        dbPromise.then(db => {
+            return db.transaction('mis_forms')
+                .objectStore('mis_forms').get(parseInt(id));
+        }).then(obj =>
+        {
+            self.postMessage({ type: 'getForm', data: obj });
         });
     } else if (message[0] === "getAllForms") {
         console.log("Getting All Forms");

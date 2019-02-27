@@ -140,7 +140,7 @@ const fns = {
                 '            <li class="item">' +
                 '                <a href="javascript:void(0)"><i class="icon fa fa-home" aria-hidden="true"></i></a>' +
                 '                <span class="btn-class">' +
-                '                        <a class="menu_item" href="/admin/forms/' + menu.slug + '">' + menu.title + '</a>' +
+                '                        <a class="menu_item" href="/admin/forms/' + menu.id + '">' + menu.title + '</a>' +
                 '                    </span>' +
                 '            </li>' +
                 '            <span class="tooltiptext tooltip-right">' + menu.title + '</span>' +
