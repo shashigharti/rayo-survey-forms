@@ -24,15 +24,15 @@
         </span>
     @endif
 
-    <div class="{{ ($model->theme != '') ? $model->theme : 'default-theme' }}" id="theme_preview">
-        <div class="col-md-12 panel-body panel-box dynamic__form-container form__wrapper default-form">
+    <div id="theme_preview">
+        <div class="col-md-12 panel-body dynamic__form-container form__wrapper default-form">
 
-            <div class="row project-info">
+            <div class="project-info">
                 <h6>Client name : {{ Auth::user()->first_name }}</h6>
                 <h6>Form ID : {{ $model->id }}</h6>
             </div>
 
-            <div class="row text-right company-info">
+            <div class="text-right company-info">
                 <h6>{{ (isset($setting['company_name'])) ? $setting['company_name'] : '' }}</h6>
                 <h6>{{ (isset($setting['street_address'])) ? $setting['street_address'] : '' }}</h6>
                 <h6>{{ (isset($setting['phone_number'])) ? 'Tel no : '. $setting['phone_number'] : '' }}</h6>
@@ -41,7 +41,7 @@
                 <div class="text-center col-md-12 clearfix form_title">
                     <h2 class="">{{ $model->title }}</h2>
                 </div>
-                <div class="form__field clearfix col-md-12">
+                <div class="form__field clearfix">
                     <table class="table">
                         @foreach($form_data['data'] as $key=>$data)
                             @if(is_array($data))
