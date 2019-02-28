@@ -43,6 +43,7 @@
                 </div>
                 <div class="form__field clearfix">
                     <table class="table">
+
                         @foreach($form_data['data'] as $key=>$data)
                             @if(is_array($data))
                                 @foreach($data as $key=>$d)
@@ -56,9 +57,17 @@
                             <tr>
                             @foreach($form_data['data'] as $key=>$data)
                                 @if(is_array($data))
-                                    @foreach($data as $d)
-                                        <td>{{$d}}</td>
-                                    @endforeach
+                                    @if($key == "upload")
+                                        <td>
+                                            @foreach($data as $image)
+                                                <img width="200px" height="40px" src="{{$image['url']}}" alt="signature">
+                                            @endforeach
+                                        </td>
+                                    @else
+                                        @foreach($data as $d)
+                                            <td>{{$d}}</td>
+                                        @endforeach
+                                    @endif
                                 @else
                                     {{--Use base64 img if signature is being displayed--}}
                                     @if($key == "signature")

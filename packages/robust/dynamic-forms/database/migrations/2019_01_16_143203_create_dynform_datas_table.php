@@ -16,7 +16,7 @@ class CreateDynformDatasTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('form_id');
-			$table->text('values', 65535);
+			$table->longText('values');
 			$table->integer('completed')->default(0);
 			$table->integer('user_id');
 			$table->timestamps();
