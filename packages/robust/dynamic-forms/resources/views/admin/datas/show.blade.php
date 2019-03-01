@@ -42,47 +42,9 @@
                     <h2 class="">{{ $model->title }}</h2>
                 </div>
                 <div class="form__field clearfix">
-                    <table class="table">
+                    <div id = "form__view" data-id="{{$data->id}}" data-slug="{{$model->slug}}" data-mode="edit" data-values="{{$data['values']}}">
 
-                        @foreach($form_data['data'] as $key=>$data)
-                            @if(is_array($data))
-                                @foreach($data as $key=>$d)
-                                    <th class="text-uppercase font-weight-bold">{{$key}}</th>
-                                @endforeach
-                            @else
-                                <th class="text-uppercase font-weight-bold">{{$key}}</th>
-                            @endif
-
-                        @endforeach
-                            <tr>
-                            @foreach($form_data['data'] as $key=>$data)
-                                @if(is_array($data))
-                                    @if($key == "upload")
-                                        <td>
-                                            @foreach($data as $image)
-                                                <img width="200px" height="40px" src="{{$image['url']}}" alt="signature">
-                                            @endforeach
-                                        </td>
-                                    @else
-                                        @foreach($data as $d)
-                                            <td>{{$d}}</td>
-                                        @endforeach
-                                    @endif
-                                @else
-                                    {{--Use base64 img if signature is being displayed--}}
-                                    @if($key == "signature")
-                                            <td><img width="200px" height="40px" src="{{$data}}" alt="signature"></td>
-                                    @else
-                                            <td>{{$data}}</td>
-                                    @endif
-
-                                @endif
-                            @endforeach
-                        </tr>
-                    </table>
-                  <ul>
-
-                  </ul>
+                    </div>
 {{--                    {!! Shortcode::compile("[dyn-form preview = false data_id = {$data->id}]{$model->title}[/dyn-form]")  !!}--}}
                 </div>
             </div>

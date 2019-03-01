@@ -24,6 +24,12 @@ Route::group(['prefix' => config('core.frw.api'), 'as' => 'api.', 'group' => 'Fo
         'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForm',
     ]);
 
+    // Data edit
+    Route::post('/forms/update', [
+        'as' => 'form.update',
+        'uses' => 'Robust\DynamicForms\Controllers\API\FormController@updateForm',
+    ]);
+
 
     // Route for Syncronization of local data to live for PWA
     Route::post('/sync', [

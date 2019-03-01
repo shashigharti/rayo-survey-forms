@@ -109,4 +109,21 @@ class FormController extends Controller
 
         return response('success');
     }
+
+    public function updateForm(Request $request, Data $dynform_tbl)
+    {
+        $dynform_tbl = $dynform_tbl->find($request->get('update_id'));
+        $mis_survey = $request->except(['id', 'updated_at', 'update_id']);
+        $json_survey = json_encode($mis_survey, true);
+        $data = [
+            'form_id' => $request->get('id'),
+            'values' => $json_survey,
+            'completed' => 1,
+            'user_id' => Auth::id(),
+            'updated_at' => $request->get('updated_at')
+        ];
+        $dynform_tbl->update($data);
+
+        return response('success');
+    }
 }

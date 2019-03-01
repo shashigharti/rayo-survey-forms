@@ -30,11 +30,17 @@ $(window).on('load', function () {
             let formProperties = JSON.parse(jsonData.properties);
 
             // Render the form, then listen for submit btn click
-            Formio.createForm(document.getElementById('form__view'), formProperties).then(function (form) {
+            Formio.createForm(document.getElementById('form__view'), formProperties, {
+                readOnly: fns.readOnly
+            }).then(function (form) {
+                if(fns.editMode) {
+                    form.submission = $('#form__view').data('values');
+                }
                 form.on('submit', (submission) => {
                     submission.id = jsonData.id;
                     submission.updated_at = fns.getYMD();
-                    fns.submitData(submission);
+                    // Submit as new data if not in edit mode, else update the existing data
+                    fns.editMode ? fns.updateData(submission) : fns.submitData(submission);
                 });
                 form.on('error', (errors) => {
 
@@ -91,29 +97,51 @@ $(window).on('load', function () {
 const fns = {
     slug: '',
     token: $('meta[name="csrf-token"]').attr('content'),
+    readOnlyMode: false,
+    editMode: false,
+    options: {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": ''
+        },
+        method: 'post',
+        credentials: "same-origin",
+    },
     init : () => {
+        // Set token in options' header
+        fns.options.headers['X-CSRF-TOKEN'] = fns.token;
+        // Set modes for form if it's readonly / editable / new form etc.
+        fns.setFormMode();
         return new Worker('/assets/website/js/worker.js');
     },
+    setFormMode: () => {
+        let field = $('#form__view').data('mode');
+        if (typeof field !== 'undefined') {
+            fns.readOnly = field === "readonly";
+            fns.editMode = field === "edit";
+        }
+    },
     submitData: (data) => {
-        let options = {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json, text-plain, */*",
-                "X-Requested-With": "XMLHttpRequest",
-                "X-CSRF-TOKEN": fns.token
-            },
-            method: 'post',
-            credentials: "same-origin",
-            body: JSON.stringify(data)
-        };
-
+        fns.options.body = JSON.stringify(data);
         // Submit the form via API
-        fetch('/api/forms/submit', options).then(function (data) {
+        fetch('/api/forms/submit', fns.options).then(function (data) {
             // Set submit button as form submitted
             $('.glyphicon-refresh.glyphicon-spin').remove();
             $('[name="data[submit]"]').attr('class', 'btn btn-primary btn-md btn-success submit-success');
 
             console.log(data);
+        });
+    },
+    updateData : (data) => {
+        data.update_id = $('#form__view').data('id');
+        fns.options.body = JSON.stringify(data);
+        // Submit the form via API
+        fetch('/api/forms/update', fns.options).then(function (data) {
+            // Set submit button as form submitted
+            $('.glyphicon-refresh.glyphicon-spin').remove();
+            $('[name="data[submit]"]').attr('class', 'btn btn-primary btn-md btn-success submit-success');
         });
     },
     getSlug: () => {
