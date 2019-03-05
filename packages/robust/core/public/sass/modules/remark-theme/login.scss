@@ -2,7 +2,7 @@
 $color_governor_bay_approx: #3949ab;
 $color_bay_of_many_approx: #283593;
 $white: #fff;
-$color_hit_gray_approx: #a3afb7;
+$color_hit_gray_approx:#717375;
 $theme_color: #6b4994;
 $hover_color: #7461BC;
 $url_0: url('../../assets/images/meeting.jpeg');
@@ -27,14 +27,19 @@ $url_0: url('../../assets/images/meeting.jpeg');
     background-size: cover !important;
     
   }
-
+  .page{
+    top:0px;
+  }
+  h3{
+    margin-bottom: 70px;
+  }
 
   .panel {
     width: 400px;
     background: $white;
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     .panel-body {
-      padding: 50px 40px 0px;
+      padding:10px 40px 0px;
     }
     .brand-text {
       margin-top: 8px;
@@ -45,11 +50,14 @@ $url_0: url('../../assets/images/meeting.jpeg');
     a {
       margin-left: 20px;
     }
+    .form-group{
+      padding:0px;
+    }
     .form-material {
       label {
         font-weight: 300;
         color: $color_hit_gray_approx;
-        margin:-24px 7px;
+        margin:-24px 0px;
       }
       &.floating + .page-login-v3 form .form-material.floating {
         margin-top: 30px;
