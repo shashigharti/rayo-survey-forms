@@ -34,6 +34,7 @@
                         {!! session('success') !!}
                     </div>
                 @endif
+                <h3 class="text-center">LOGIN HERE</h3>
 
                 {{ Form::open(['route' => 'auth.check', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
                 <div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -75,13 +76,11 @@
                 </button>
                 {{ Form::close() }}
 
-               {{-- <p>Still no account? Please go to <a href="#">Sign up</a></p>
-                <a href="{{ route('frw.user.auth.facebook') }}" type="submit"
-                   class="btn btn-primary btn-block sign-in btn-lg margin-top-40"
-                   style="pointer-events: none; cursor: default;">Sign up wth Facebook</a>--}}
+               <p>Still no account? Please go to <a href="#">Register</a></p>
+                
 
             </div>
-           {{-- <footer class="page-copyright text-center">
+            <footer class="page-copyright text-center">
                 <div class="social-share">
                     <a href="https://www.facebook.com/robustitconcepts" target="_blank"><img class="social-icon"
                                                                                              src="{{ URL::asset('assets/images/fb.png') }}"
@@ -97,8 +96,8 @@
                 </div>
                 <p>Robust IT Concepts</p>
 
-                <p>© 2016. All RIGHT RESERVED.</p>
-            </footer>--}}
+                <p>© 2019. All RIGHT RESERVED.</p>
+            </footer>
         </div>
 
     </div>
