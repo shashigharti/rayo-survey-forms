@@ -1,0 +1,87 @@
+.inner-site-logo h2 {
+    text-align: left;
+    line-height: 42px;
+    color: #6b4994;
+    font-size: 23px;
+    font-family: 'Noto Sans',sans-serif;
+    font-weight: bold;
+    margin-top: 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.inner-site-logo {
+    padding-left: 0px;
+}
+.left-menu-bar {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 26px;
+    margin-right: 19px;
+    color: #752c93;
+}
+.navbar-avatar {
+    color: #75736f;
+}
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    white-space: nowrap;
+    vertical-align:middle;
+    border-radius: 1000px;
+}
+.avatar img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 0 none;
+    border-radius: 1000px;
+}
+.logout{
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 10px;
+}
+.sticky {
+    position: fixed!important;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    background: #fff;
+    margin: 0px;
+    padding-top: 10px;
+}
+.sticky {
+    display: block;
+}
+.dashboard-heading{
+    box-shadow: 0 1px 4px 0 #616161;
+    height: 53px;
+    padding-top: 0px;
+    position: relative;
+    z-index: 99;
+}
+.dashboard-footer {
+    -webkit-box-shadow: 0 1px 4px 0 #616161;
+    box-shadow: 0 1px 4px 0 #616161;
+    padding: 10px;
+    position:fixed;
+    bottom: 0;
+    z-index: 9999;
+    background: #fff;
+}
+.footer-logo span
+{
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+.footer-logo span.welcome-span {
+    font-weight: 500;
+    font-size: 14px;
+    color: #111;
+}
+.left-bar{
+    padding-top: 10px;
+}

@@ -1,0 +1,93 @@
+@media(max-width: 1200px){
+    .site-logo {
+        width: 230px;
+    }
+    .contact-links a{
+        font-size: 16px;
+        margin-left: 0px;
+    }
+}
+
+@media(max-width: 767px){
+    #navbarSupportedContent {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        background: #3a3a3c;
+        z-index: 9;
+        top: 60px;
+        border: 1px solid;
+    }
+    .contact-links a{
+        color:#FFF;
+    }
+    .login-btn {
+        color: #fff !important;
+    }
+    .navbar-toggler{
+        background: transparent;
+        border:0;
+        outline: 0;
+        visibility:visible;
+    }
+    .navbar-toggler i{
+        font-size: 30px;
+    }
+    .site-logo {
+        width: 159px;
+    }
+    .feature-container {
+	    width: 100%;
+	    text-align: center;
+	}
+	.feature h3:after{
+		margin: 20px auto 0;
+	}
+    .footer .social-links{
+        text-align: center;
+    }
+    .half-cta {
+    	padding: 40px 20px;
+	}
+	.half-cta h3{
+		font-size: 28px;
+	}
+    .footer p{
+        text-align: center;
+    }
+    .site-heading.sticky .site-logo {
+        width: 159px;
+    }
+    .site-heading.sticky .contact-links {
+    	padding: 20px 20px 0;
+	}
+}
+@media(max-width:480px){
+    .header-text h1{
+        font-size: 35px;
+    }
+    .half-cta input {
+        width: 100%;
+    }
+    .contact-links {
+        padding: 14px 20px !important;
+        width: 18%;
+        text-align: right;
+    }
+    .dynamic-section p {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .dynamic-section h2 {
+        width: 275px;
+        height: 50px;
+        margin: 50px auto;
+        font-size: 20px;
+    }
+    .navbar-nav{
+        text-align: center;
+    }
+    img.phone {
+    	width: 100%;
+	}
+}

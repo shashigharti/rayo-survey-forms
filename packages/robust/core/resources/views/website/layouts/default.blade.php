@@ -12,14 +12,14 @@
 @yield('before-banner')
 
 @section('banner')
-    <div class="banner--default">
-        <div class="container ">
-                    <span class="banner__caption">
-                        Lorem Ipsum is simply dummy text <br>
-                        <span>of the printing and typesetting industry</span>
-                    </span>
-        </div>
-    </div>
+    {{--<div class="banner--default">--}}
+        {{--<div class="container ">--}}
+                    {{--<span class="banner__caption">--}}
+                        {{--Lorem Ipsum is simply dummy text <br>--}}
+                        {{--<span>of the printing and typesetting industry</span>--}}
+                    {{--</span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @show
 
 @yield('after-banner')
