@@ -1,4 +1,4 @@
-//import("../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js");
+//import("../../../../../node_modules/bootstrap/dist/js/bootstrap.js");
 //import("../../../../../node_modules/daterangepicker/daterangepicker.js");
 //import("modules/jquery-sortable.js");
 //import("modules/menus/left_menu.js")
