@@ -29,12 +29,11 @@ class RegisterController extends Controller
     {
         $this->validate($this->request, [
             'first_name' => 'required',
-            'contact' => 'required',
+            'last_name' => 'required',
             'email' => 'required| unique:users',
             'password' => 'required | min:5',
-            'password_comfirmation' => 'same:password'
+            'confirm_pass' => 'same:password'
         ]);
-
         $user = $this->model->store($this->request->all());
         if ($user) {
             $event = $this->events['create'];

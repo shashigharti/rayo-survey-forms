@@ -76,7 +76,7 @@
                 </button>
                 {{ Form::close() }}
 
-               <p>Still no account? Please go to <a href="#">Register</a></p>
+               <p>Still no account? Please go to <a href="{{route('auth.register')}}">Register</a></p>
                 
 
             </div>
