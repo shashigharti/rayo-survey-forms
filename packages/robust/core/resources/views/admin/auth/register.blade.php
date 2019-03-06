@@ -26,14 +26,22 @@
                 </div>
                 <h3 class="text-center">REGISTER HERE</h3>
 
-                {{ Form::open(['route' => 'auth.check', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
-                <div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label class="floating-label">Full Name</label>
-                    {{ Form::email('email', null, [
+                {{ Form::open(['route' => 'auth.register', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
+                <div class="form-group form-material floating {{ $errors->has('first_name') ? ' has-error' : '' }}">
+                    <label class="floating-label">First Name</label>
+                    {{ Form::text('first_name', null, [
                      'class'       => 'form-control',
                      'required'    => 'required',
                  ]) }}
                     
+                </div>
+                <div class="form-group form-material floating {{ $errors->has('last_name') ? ' has-error' : '' }}">
+                    <label class="floating-label">Last Name</label>
+                    {{ Form::text('last_name', null, [
+                     'class'       => 'form-control',
+                     'required'    => 'required',
+                 ]) }}
+
                 </div>
                 <div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
                     <label class="floating-label">Email</label>
@@ -66,12 +74,12 @@
                 <div class="form-group form-material floating">
                     <label class="floating-label">Confirm Password</label>
 
-                    <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }} control-required">
-                        {{ Form::password('password', [
+                    <div class="form-group {{ $errors->has('confirm_pass') ? 'has-error' : '' }} control-required">
+                        {{ Form::password('confirm_pass', [
                             'class'       => 'form-control',
                             'required'    => 'required'
                         ]) }}
-                        @if ($errors->has('password'))
+                        @if ($errors->has('confirm_pass'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
@@ -83,7 +91,7 @@
                 </button>
                 {{ Form::close() }}
 
-               <p>Already Registered? Please go to <a href="#">Log in</a></p>               
+               <p>Already Registered? Please go to <a href="{{route('auth.login')}}">Log in</a></p>
 
             </div>
            <footer class="page-copyright text-center">
