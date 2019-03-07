@@ -2,6 +2,7 @@
 
 namespace Robust\Admin\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Robust\Core\Events\PasswordResetEvent;
@@ -11,7 +12,7 @@ use Robust\Core\Events\PasswordResetEvent;
  * Class User
  * @package Robust\Admin\Models
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 

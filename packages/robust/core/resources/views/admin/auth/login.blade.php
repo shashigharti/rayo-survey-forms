@@ -34,51 +34,65 @@
                         {!! session('success') !!}
                     </div>
                 @endif
-                <h3 class="text-center">LOGIN HERE</h3>
+                @if(isset($verification) && $verification == true)
+                    <h3 class="text-center">Verify Your Email Address</h3>
+                    <div class="container">
+                        @if (session('resent'))
+                            <div class="alert alert-success" role="alert">
+                                A fresh verification link has been sent to your email address.
+                            </div>
+                        @endif
 
-                {{ Form::open(['route' => 'auth.check', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
-                <div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label class="floating-label">Email</label>
-                    {{ Form::email('email', null, [
-                     'class'       => 'form-control',
-                     'required'    => 'required',
-                 ]) }}
+                        Before proceeding, please check your email for a verification link.
+                        If you did not receive the email, <a href="{{ route('verification.resend') }}">click here to
+                            request another</a>.
+                    </div>
+                @else
+                    <h3 class="text-center">LOGIN HERE</h3>
 
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                    @endif
-                </div>
-                <div class="form-group form-material floating">
-                    <label class="floating-label">Password</label>
+                    {{ Form::open(['route' => 'auth.check', 'role' => 'form', 'class' => 'form', 'autocomplete'=> 'off']) }}
+                    <div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
+                        <label class="floating-label">Email</label>
+                        {{ Form::email('email', null, [
+                         'class'       => 'form-control',
+                         'required'    => 'required',
+                     ]) }}
 
-                    <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }} control-required">
-                        {{ Form::password('password', [
-                            'class'       => 'form-control',
-                            'required'    => 'required'
-                        ]) }}
-                        @if ($errors->has('password'))
+                        @if ($errors->has('email'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                         @endif
                     </div>
-                </div>
-                <div class="form-group clearfix">
-                    <div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg pull-left">
-                        <input type="checkbox" id="inputCheckbox" name="remember">
-                        <label for="inputCheckbox">Remember me</label>
+                    <div class="form-group form-material floating">
+                        <label class="floating-label">Password</label>
+
+                        <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }} control-required">
+                            {{ Form::password('password', [
+                                'class'       => 'form-control',
+                                'required'    => 'required'
+                            ]) }}
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
                     </div>
-                    <a class="pull-right" href="#">Forgot password?</a>
-                </div>
-                <button type="submit" class="btn btn-primary sign-in btn-block btn-lg margin-top-40">Sign in
-                </button>
-                {{ Form::close() }}
+                    <div class="form-group clearfix">
+                        <div class="checkbox-custom checkbox-inline checkbox-primary checkbox-lg pull-left">
+                            <input type="checkbox" id="inputCheckbox" name="remember">
+                            <label for="inputCheckbox">Remember me</label>
+                        </div>
+                        <a class="pull-right" href="#">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary sign-in btn-block btn-lg margin-top-40">Sign in
+                    </button>
+                    {{ Form::close() }}
 
-               <p>Still no account? Please go to <a href="{{route('auth.register')}}">Register</a></p>
-                
+                    <p>Still no account? Please go to <a href="{{route('auth.register')}}">Register</a></p>
 
+                @endif
             </div>
             <footer class="page-copyright text-center">
                 <div class="social-share">
@@ -91,8 +105,8 @@
                                                                                        alt="facebook"
                                                                                        class="img-rounded"></a>
                     <a href="https://www.linkedin.com/company/robust-it-concepts-pvt-ltd" target="_blank"><img
-                                class="social-icon" src="{{ URL::asset('assets/images/in.png') }}" alt="facebook"
-                                class="img-rounded"></a>
+                            class="social-icon" src="{{ URL::asset('assets/images/in.png') }}" alt="facebook"
+                            class="img-rounded"></a>
                 </div>
                 <p>Robust IT Concepts</p>
 

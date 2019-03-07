@@ -1,6 +1,7 @@
 <?php
 namespace Robust\Core\Listeners;
 
+use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Config;
 use Robust\Admin\Helpers\UserHelper;
 use Robust\Core\Models\Dashboard;
@@ -14,6 +15,7 @@ use Robust\Core\Events\UserCreatedEvent;
  */
 class UserCreatedEventListener
 {
+    use MustVerifyEmail;
     /**
      * @param UserCreatedEvent $event
      */
@@ -29,12 +31,8 @@ class UserCreatedEventListener
             'user_id' => $event->user->id
         ]);
 
-//        $users = $user_helper->getAllAdminUsers();
         try {
-//            foreach ($users as $user) {
-//                $user->notify(new RegistrationNotification());
-//            }
-            $event->user->notify(new RegistrationNotification($event->user));
+            $event->user->sendEmailVerificationNotification();
 
         } catch (Exception $e) {
             Log::error($e->getMessage());
