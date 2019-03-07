@@ -46,6 +46,7 @@
             });
         }
         $('.dynamic-form__save').on('click', function () {
+            console.log("Save clicked");
             formData["properties"] = {};
             // Save pressed
             // Adjust form data properties column
@@ -65,9 +66,13 @@
                 data: formData,
                 success: function (result) {
                     $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
-                    console.log(result);
+                },
+                error: function(e, xhr) {
+                    $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
                 }
+
             });
+
         });
         // if ($('#preview--container__form').length > 0) {
         //     let formComponents = $('#preview--container__form').data('form-components');
