@@ -74,12 +74,12 @@
                 <div class="form-group form-material floating">
                     <label class="floating-label">Confirm Password</label>
 
-                    <div class="form-group {{ $errors->has('confirm_pass') ? 'has-error' : '' }} control-required">
-                        {{ Form::password('confirm_pass', [
+                    <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }} control-required">
+                        {{ Form::password('password_confirmation', [
                             'class'       => 'form-control',
                             'required'    => 'required'
                         ]) }}
-                        @if ($errors->has('confirm_pass'))
+                        @if ($errors->has('password_confirmation'))
                             <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>

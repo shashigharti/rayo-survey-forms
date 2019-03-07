@@ -1,8 +1,12 @@
 <?php
 namespace Robust\Admin\Controllers\Website;
 
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Robust\Admin\Models\User;
 use Robust\Admin\Repositories\Website\RegisterRepository;
 use Robust\Core\Controllers\Admin\Controller;
 
@@ -12,6 +16,7 @@ use Robust\Core\Controllers\Admin\Controller;
  */
 class RegisterController extends Controller
 {
+    use MustVerifyEmail;
     /**
      * UserController constructor.
      * @param UserRepository $user
@@ -25,7 +30,7 @@ class RegisterController extends Controller
         ];
     }
 
-    public function postRegister()
+    public function postRegister(User $user)
     {
         $this->validate($this->request, [
             'first_name' => 'required',
@@ -34,7 +39,13 @@ class RegisterController extends Controller
             'password' => 'required | min:5',
             'confirm_pass' => 'same:password'
         ]);
-        $user = $this->model->store($this->request->all());
+
+        $user = $user->create([
+            'first_name' => $this->request->get('first_name'),
+            'last_name' => $this->request->get('last_name'),
+            'email' => $this->request->get('email'),
+            'password' => Hash::make($this->request->get('password')),
+        ]);
         if ($user) {
             $event = $this->events['create'];
             event(new $event($user));
