@@ -16,7 +16,6 @@ use Robust\Core\Controllers\Admin\Controller;
  */
 class RegisterController extends Controller
 {
-    use MustVerifyEmail;
     /**
      * UserController constructor.
      * @param UserRepository $user
@@ -40,12 +39,7 @@ class RegisterController extends Controller
             'confirm_pass' => 'same:password'
         ]);
 
-        $user = $user->create([
-            'first_name' => $this->request->get('first_name'),
-            'last_name' => $this->request->get('last_name'),
-            'email' => $this->request->get('email'),
-            'password' => Hash::make($this->request->get('password')),
-        ]);
+        $user = $this->model->store($this->request->all());
         if ($user) {
             $event = $this->events['create'];
             event(new $event($user));
