@@ -47,19 +47,23 @@
                 }
 
 
-                let url = $('.design--form').data("url");
-                formData['properties'] = JSON.stringify(formData['properties']);
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: formData,
-                    success: function (result) {
-                        $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
-                        console.log(result);
-                    }
-                });
+            let url = $('.design--form').data("url");
+            formData['properties'] = JSON.stringify(formData['properties']);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                dataType: 'json',
+                data: formData,
+                success: function (result) {
+                    $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
+                },
+                error: function(e, xhr) {
+                    $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
+                }
+
             });
+
+        });
 
             if ($('#form__show').length > 0) {
                 let formComponents = $('#form__show').data('form-components');
