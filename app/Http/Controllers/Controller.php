@@ -21,6 +21,6 @@ class Controller extends BaseController
      */
     function home()
     {
-        return redirect()->route('admin.user.dashboards.index');
+        return view('packages.robust.core.website.home');
     }
 }

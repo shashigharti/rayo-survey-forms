@@ -15,8 +15,4 @@ Route::get('/', [
     'uses' => 'Controller@home'
 ]);
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Auth::routes(['verify' => true]);
