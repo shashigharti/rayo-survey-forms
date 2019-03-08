@@ -1,5 +1,5 @@
-//import("../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js");
-//import("../../../../../node_modules/daterangepicker/daterangepicker.js");
+//import("../../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js")
+//import("../../../../../node_modules/daterangepicker/daterangepicker.js")
 //import("modules/jquery-sortable.js");
 //import("modules/menus/left_menu.js")
 //import("modules/token.js")
@@ -17,3 +17,6 @@
 //import("modules/multiselect.js")
 //import("modules/autofill.js")
 //import("modules/checkboxes.js")
+
+
+
