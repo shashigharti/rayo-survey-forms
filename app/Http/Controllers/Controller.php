@@ -22,9 +22,6 @@ class Controller extends BaseController
      */
     function home()
     {
-        if(Auth::check()) {
-            return redirect('/admin/user/dashboards');
-        }
 
         return view('packages.robust.core.website.home');
     }
