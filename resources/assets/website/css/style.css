@@ -522,3 +522,7 @@ a.left-menu-bar {
     border-radius: 50%;
     box-shadow: 4px 1px 1px #111;
 }
+/*Disable lorem ipsum dummy text found on default blade file residing on core*/
+.banner--default {
+    display: none;
+}
