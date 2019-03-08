@@ -48,13 +48,12 @@ $(window).on('load', function () {
 
                 form.on('render', (rendered) => { 
                     setTimeout(function(){
-                        $('.form--slider').children(":first").addClass('my-slider');                   
+                        $('.form--slider').children(":first").addClass('mobile--slider');                   
                         if(window.innerWidth < 500){
-                         $('.form--slider .my-slider').slick({
-                           slidesToShow: 1,
-                             slidesToScroll: 1,
-                             arrows: true,
-                             autoPlay:true
+                         $('.form--slider .mobile--slider').slick({
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: true
                          });
                     }
                     }, 1000)
