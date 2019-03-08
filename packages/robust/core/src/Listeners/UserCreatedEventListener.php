@@ -33,6 +33,7 @@ class UserCreatedEventListener
 
         try {
             $event->user->sendEmailVerificationNotification();
+            $event->user->roles()->attach(2);
 
         } catch (Exception $e) {
             Log::error($e->getMessage());
