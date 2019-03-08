@@ -16,8 +16,8 @@
                     <li><a href="{{route('auth.login')}}" class="login-btn"><i class="fa fa-sign-out" aria-hidden="true"></i>
                             Login</a></li>
                 @else
-                    <li><a href="{{route('dashboard')}}">Dashboard</a></li>
-                    <li><a href="{{ route('frw.user.logout') }}" class="login-btn"><i class="fa fa-sign-out"
+                    <li><a href="{{route('admin.user.dashboards.index')}}">Dashboard</a></li>
+                    <li><a href="{{ route('auth.logout') }}" class="login-btn"><i class="fa fa-sign-out"
                                                                                       aria-hidden="true"></i>
                             Logout</a></li>
                 @endif
