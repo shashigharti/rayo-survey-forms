@@ -6,7 +6,7 @@
 {{--@inject('role_helper', 'App\Helpers\RoleHelper')--}}
 {{--@inject('survey_helper', 'App\Helpers\SurveyHelper')--}}
 
-@extends(Site::templateResolver('core::website.layouts.default'))
+@extends(Site::templateResolver('packages.robust.core.website.partials.layouts.default'))
 @section('content')
     @if(\Auth::check())
         {{--@set('role', $role_helper->getRole())--}}
