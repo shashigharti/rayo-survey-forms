@@ -81,13 +81,13 @@
 <section id="get_started" class="cta clearfix">
     <div class="cta-container clearfix">
         <div class="half-cta col-sm-6 col-xs-12">
-            <h3>HH SURVEY FORM</h3>
+            <h3>CONTACT US</h3>
             {{ Form::open(['url' => route('website.home'), 'method' => 'post', 'class' => 'form-horizontal']) }}
             @include("core::admin.partials.messages.info")
             {{ Form::text('name',null,['placeholder'=>'Full Name']) }}
             {{ Form::email('email',null,['placeholder'=>'Email Address']) }}
             {{ Form::text('phone',null,['placeholder'=>'Mobile Number']) }}
-            <button type="submit">Get a Quote</button>
+            <button type="submit">SUBMIT</button>
             {{ Form::close() }}
 
         </div>
