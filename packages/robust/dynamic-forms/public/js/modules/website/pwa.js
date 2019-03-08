@@ -45,6 +45,21 @@ $(window).on('load', function () {
                 form.on('error', (errors) => {
 
                 });
+
+                form.on('render', (rendered) => { 
+                    setTimeout(function(){
+                        $('.form--slider').children(":first").addClass('my-slider');                   
+                        if(window.innerWidth < 500){
+                         $('.form--slider .my-slider').slick({
+                           slidesToShow: 1,
+                             slidesToScroll: 1,
+                             arrows: true,
+                             autoPlay:true
+                         });
+                    }
+                    }, 1000)
+                    
+                });
             });
 
         });

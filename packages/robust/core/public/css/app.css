@@ -1,4 +1,6 @@
 @import 'modules/typeahead.css';
+@import '../../../../../node_modules/slick-carousel/slick/slick.css';
+@import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
 @import '../../../../../node_modules/bootstrap-tokenfield/dist/css/bootstrap-tokenfield.css';
 @import '../../../../../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
 @import '../../../../../node_modules/daterangepicker/daterangepicker.css';

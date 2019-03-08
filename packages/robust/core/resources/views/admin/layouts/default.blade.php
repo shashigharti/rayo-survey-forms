@@ -75,6 +75,8 @@
     }
 </script>
 {{--PWA Dependencies--}}
+@yield('js')
+
 <script src="{{ url('assets/website/js/idb.js') }}"></script>
 <script src="{{ url('assets/website/js/pwa.js') }}"></script>
 </body>

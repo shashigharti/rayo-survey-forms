@@ -2,6 +2,9 @@ import jquery from 'jquery';
 import Vue from 'vue/dist/vue.js';
 
 window.$ = window.jQuery = jquery;
+
+import Slick from 'slick-carousel';
+
 window.FRW = {
     fetch: function($params){
 
