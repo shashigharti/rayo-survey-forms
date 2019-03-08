@@ -7,7 +7,6 @@
     @set('ui', new $ui)
 
     <div class="page">
-
         <div class="container view-page">
             @include("core::admin.partials.messages.info")
             @set('setting', $setting_helper->get('general-setting'))
@@ -30,11 +29,10 @@
                         <div class="form__field clearfix col-md-12">
                             <form id="dynamicForm">
                                 @csrf
-                                <div id="form__view" data-slug="{{$model->slug}}">
+                                <div id="form__view" data-slug="{{$model->slug}}" class="form--slider">
 
                                 </div>
-                            </form>
-                            {{--{!! Shortcode::compile("[dyn-form preview = false]{$model->title}[/dyn-form]")  !!}--}}
+                            </form>                           
                         </div>
                     </div>
                     <br>
@@ -42,6 +40,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

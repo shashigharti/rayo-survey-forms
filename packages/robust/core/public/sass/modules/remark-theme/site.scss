@@ -11870,3 +11870,24 @@ a.left-smallmenu-bar {
 .mr-t-20{
   margin-top: 20px;
 }
+.mobile--slider .slick-prev,.mobile--slider .slick-next {
+  top:-26px;
+}
+.mobile--slider .slick-prev:before,.mobile--slider .slick-next:before{
+  background:#66499e;
+  font-size: 15px;
+  padding: 5px 10px;
+  opacity: 1;
+}
+.mobile--slider .slick-next:before{
+  content: 'Next';
+}
+.mobile--slider .slick-prev:before{
+  content: 'Prev';
+}
+.mobile--slider .slick-next {
+    right: -8px;
+}
+.form--slider{
+  margin-top: 20px;
+}
