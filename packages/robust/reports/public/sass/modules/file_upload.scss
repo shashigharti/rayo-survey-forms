@@ -1,0 +1,9 @@
+.elem__image {
+	&:hover .image-upload{
+       visibility: visible;
+	}
+	.image-upload{
+  	border: 1px dashed grey;
+  	visibility:hidden;
+	}
+}

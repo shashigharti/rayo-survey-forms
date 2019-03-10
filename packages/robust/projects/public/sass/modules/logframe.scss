@@ -1,0 +1,135 @@
+$theme_color: #6b4994;
+.log-frame-panel {
+  .col-lg-4{
+    padding:0px;
+  }
+  .col-md-4{
+    padding:0px;
+  }
+  .panel-heading{
+    position: relative;
+    padding: 2px 0px 2px;
+    border-bottom: 1px solid transparent;
+    background: #eee;
+    border-radius: 0px;
+    text-align: center;
+    h4{
+      margin: 0px;
+    }
+  }
+  .row {
+    margin: 0px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .add-btn {
+    margin: 10px 0px;
+    border: 1px dashed #ccc;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    &:hover{
+      background:$theme_color;
+      border:1px solid $theme_color;
+      a{
+        color:#fff;
+      }
+    }
+    a {
+      padding: 7px 20px;
+      color: #777;
+
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+  .table-box {
+    border-right: 3px solid #e0e0e0;
+    padding: 0px;
+    display: table-cell;
+    float: none;
+    height: 100%;
+    vertical-align: top;
+    h3 {
+      margin-top: 0px;
+    }
+  }
+  .panel-body {
+    padding: 15px 10px;
+    .list-group{
+      margin-bottom: 5px;
+    }
+  }
+  .list-group-item {
+    padding: 0px 3px;
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    font-size: 13px;
+    min-height: 22px;
+    border-radius: 0px;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    &:hover .del-btn {
+      display: block;
+
+    }
+    
+  }
+  .del-btn {
+    display: none;
+    padding:0px !important;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    a {
+      position: absolute;
+      top: -6px;
+      right: 14px;
+      color: #fff;
+      background: transparent;
+      i {
+        padding: 5px 6px;
+        background: #6b4994;
+        border-radius: 50%;
+      }
+    }
+    form {
+      position: absolute;
+      top: -6px;
+      right: 0px;
+      color: #fff;
+      background: transparent;
+      i {
+        padding: 0px 7px;
+        margin: 0px;
+      }
+      button {
+        background: #6b4994;
+        border: 1px solid;
+        padding: 2px 0px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.logframe-numbers{
+  width: 16%;
+  float: left;
+  border-right: 1px solid #ccc;
+  margin-right: 10px;
+  height: 100%;
+  position: absolute;
+}
+.logframe-names {
+    width: 77%;
+    float: right;
+}

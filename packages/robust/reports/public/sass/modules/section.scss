@@ -1,0 +1,80 @@
+.report-designer {
+  .right-box{
+    min-height: 500px;
+    margin-left: 3%;
+    .row{
+      margin:0px;
+    }
+    .designer__tools {
+      visibility: hidden;
+      position: absolute;
+      margin-top: -31px;
+      }
+    .section__column:hover .designer__tools{
+      visibility: visible;
+      
+    }
+    .report__section:hover .designer__tools{
+      visibility: visible;
+    }
+    .report__elem:hover .section__column{
+       border-color:#6b4994;
+    }
+  }
+  .section__column {
+    background: #fff;
+    padding: 9px;
+    border: 3px dashed #ccc;
+    position: relative;
+    min-height: 100px;
+    &:hover{
+       border-color:#6b4994;
+       background:#fafafa;
+    }
+  }
+  .left-box{
+    padding-left:0px;
+    .panel-box{
+      height:100vh;
+    }
+  }
+
+  .designer__tools {
+    .btn, .handle {
+      background: #6b4994 none repeat scroll 0 0;
+      border-radius: 50%;
+      color: #fff;
+      height: 25px;
+      line-height: 25px;
+      margin-left: 3px;
+      margin-top: 6px;
+      padding: 0;
+      width: 25px;
+      float: left;
+    }
+  }
+
+  .elem__image > img {
+    max-width: 100%;
+  }
+
+  .element__add-new {
+    border: 1px dashed grey;
+  }
+}
+.section-content{
+  padding-top:20px;
+}
+.ui-droppable-selected {
+    border-color:#6b4994 !important;
+}
+.element__section {
+    border: 3px dashed #ccc;
+    padding: 40px;
+    text-align: center;
+}
+.report-designer__control-box{
+   input[type="radio"]{
+        margin: 0px 6px 0px 10px;
+   }
+ }

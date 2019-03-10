@@ -1,0 +1,136 @@
+$theme_color:#6b4994;
+
+.app-projects {
+  .projects-sort-label {
+    margin-right: 3px;
+    cursor: default;
+  }
+
+  .dropdown-toggle {
+    cursor: pointer;
+  }
+
+  .projects-wrap {
+    padding-top: 30px;
+  }
+
+  .panel {
+    padding: 10px;
+    margin-bottom: 0;
+  }
+
+  .blocks > li {
+    margin-bottom: 30px;
+  }
+
+  .overlay {
+    margin-bottom: 12px;
+    overflow: visible;
+    border-radius: 4px;
+  }
+
+  .overlay .btn-group {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  .overlay .btn-icon {
+    color: #bdbdbd;
+  }
+
+  .overlay .btn-icon:hover {
+    color: white;
+  }
+
+  .overlay .dropdown .dropdown-menu > li > a {
+    padding: 6px 8px;
+  }
+
+  .overlay .dropdown:hover .dropdown-toggle {
+    color: #fff;
+  }
+
+  .overlay .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .overlay .dropdown-menu {
+    min-width: 110px;
+    margin-top: 0;
+    color: #757575;
+  }
+
+  .overlay .dropdown-menu a {
+    text-decoration: none;
+  }
+
+  .overlay-panel {
+    background: rgba(38, 50, 56, .8);
+  }
+}
+.project__group-btn{
+  top: 0;
+    position: absolute;
+    right: 10px;
+}
+
+.projects-wrap{
+    .panel {
+      padding: 10px;
+  }
+  .single-project{
+    figure{
+      height: 170px;
+      overflow: hidden;
+    }
+    .btn-group i {
+        font-size: 16px;
+    }
+    .btn-icon{
+      padding:10px 0px;
+      color: #fff;
+    }
+  } 
+  .project-title{
+    margin: 15px 0 5px;
+    width: 100%;
+    overflow: auto;
+      a {
+        font-size: 14px;
+        color: #777;
+        font-weight: 500;
+    }
+  }
+  .time.pull-right {
+        font-size: 10px;
+  }
+  .project-desc {
+      font-size: 12px;
+      word-break: break-all;
+  }
+  .project-status{
+    button{
+        float: right;
+        padding: 3px 10px;
+        font-size: 10px;
+        box-shadow: none;
+        border: none;
+    }
+    span {
+      color: #888;
+      }
+  }
+}
+
+.selected-filters_badge {
+  .badge{
+    background-color:$theme_color;
+    color:#fff;
+    padding: 6px 10px;
+    margin: 8px 8px 0px 0px;
+    i{
+      margin-left: 3px;
+    }
+  }
+}
