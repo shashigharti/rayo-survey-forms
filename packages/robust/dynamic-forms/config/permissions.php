@@ -14,7 +14,7 @@ return [
     */
     /* {package-name}.{model or object}.{action}*/
     'actions' => [
-        'forms.manage' => 'Form Manager',
+        'forms.manage' => 'Forms',
         'forms.form.add' => 'Add Form and Design',
         'forms.form.edit' => 'Edit Form',
         'forms.form.delete' => 'Delete Form',
@@ -26,8 +26,11 @@ return [
         'forms.data.export' => 'Export Data',
         'forms.report.advance' => 'Advance Report',
         'forms.report.individual' => 'Advance Report',
-
-        'user.form.manage' => 'Forms',
-        'user.form.show' => 'Show User Form'
+        'forms.form.view-all-submissions' => 'View all submissions',
+        'forms.form.view-own-submissions' => 'View own submissions',
+        'forms.form.delete-all-submissions' => 'Delete all submissions',
+        'forms.form.delete-own-submissions' => 'Delete own submissions',
+        'forms.form.edit-all-submissions' => 'Edit all submissions',
+        'forms.form.edit-own-submissions' => 'Edit own submissions',
     ]
 ];
