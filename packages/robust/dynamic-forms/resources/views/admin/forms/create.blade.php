@@ -51,6 +51,7 @@
             </div>
         @endif
         <div class="form-group form-material">
+            {{ Form::hidden('user_id', \Auth::user()->id) }}
             {{ Form::submit($ui->getSubmitText(), ['class' => 'btn btn-primary theme-btn']) }}
         </div>
         {{Form::close()}}

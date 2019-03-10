@@ -37,6 +37,7 @@ class Form extends BaseModel
         'display',
         'pages',
         'status',
+        'user_id',
         'properties',
         'field_for_user_email',
         'notify_to_user',
