@@ -36,6 +36,7 @@ class ReportController extends Controller
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -56,6 +57,7 @@ class ReportController extends Controller
     /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update($id)
     {
@@ -66,7 +68,7 @@ class ReportController extends Controller
             $rules
         );
 
-        $this->model->update($data, $id);
+        $this->model->update($id, $data);
         return redirect(route("admin.report-designer.reports.index"))->with('message', 'Report updated successfully!');
     }
 
