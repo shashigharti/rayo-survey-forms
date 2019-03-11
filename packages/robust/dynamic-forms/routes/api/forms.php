@@ -24,6 +24,11 @@ Route::group(['prefix' => config('core.frw.api'), 'as' => 'api.', 'group' => 'Fo
         'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForm',
     ]);
 
+    Route::get('/forms/form', [
+        'as' => 'forms.form',
+        'uses' => 'Robust\DynamicForms\Controllers\API\FormController@allForms',
+    ]);
+
     // Data edit
     Route::post('/forms/update', [
         'as' => 'form.update',

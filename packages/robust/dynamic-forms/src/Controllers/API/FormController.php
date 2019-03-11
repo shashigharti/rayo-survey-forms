@@ -58,7 +58,7 @@ class FormController extends Controller
     {
         // Add to db
         $mis_surveys = $request->all();
-        foreach($mis_surveys as $mis_survey) {
+        foreach ($mis_surveys as $mis_survey) {
             $json_survey = json_encode($mis_survey, true);
             $data = [
                 'form_id' => $mis_survey['formId'],
@@ -72,7 +72,6 @@ class FormController extends Controller
 
         return response('success');
     }
-
 
 
     /**
@@ -110,6 +109,11 @@ class FormController extends Controller
         return response('success');
     }
 
+    /**
+     * @param Request $request
+     * @param Data $dynform_tbl
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function updateForm(Request $request, Data $dynform_tbl)
     {
         $dynform_tbl = $dynform_tbl->find($request->get('update_id'));
@@ -125,5 +129,10 @@ class FormController extends Controller
         $dynform_tbl->update($data);
 
         return response('success');
+    }
+
+    public  function allForms(){
+        return response()->json(json_decode('{"_id":"5c84a07000b9d18c9e9c1943","type":"form","tags":[],"owner":null,"components":[{"type":"email","persistent":true,"unique":false,"protected":false,"defaultValue":"","suffix":"","prefix":"","placeholder":"Enter your email address","key":"email","lockKey":true,"label":"Email","inputType":"email","tableView":true,"input":true},{"type":"password","persistent":true,"protected":true,"suffix":"","prefix":"","placeholder":"Enter your password.","key":"password","lockKey":true,"label":"Password","inputType":"password","tableView":false,"input":true},{"theme":"primary","disableOnInvalid":true,"action":"submit","block":false,"rightIcon":"","leftIcon":"","size":"md","key":"submit","label":"Submit","input":true,"type":"button"}],"revisions":"","_vid":0,"title":"User Register","name":"userRegister","path":"user/register","access":[{"roles":["5c84a07000b9d166429c193f"],"type":"read_all"}],"submissionAccess":[{"roles":["5c84a07000b9d166429c193f"],"type":"create_own"}],"machineName":"oidsfffyigjdncg:userRegister","project":"5c84a07000b9d1fe669c193c","created":"2019-03-10T05:28:16.143Z","modified":"2019-03-10T05:28:16.146Z"}', true));
+
     }
 }
