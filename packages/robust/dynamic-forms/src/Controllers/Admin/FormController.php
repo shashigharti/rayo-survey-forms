@@ -119,6 +119,7 @@ class FormController extends Controller
         return $this->display("{$this->package_name}::{$this->view}.permissions", [
                 'all_users' => $all_users,
                 'permitted_users' => $permitted_users,
+                'form_id' => $id
             ]
         );
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Illuminate\Http\Request;
+use Robust\DynamicForms\Models\FormUser;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
 
 /**
@@ -69,6 +70,24 @@ class FormController extends Controller
     {
         $data = $this->model->all();
         return view('dynamic-forms::admin.users.forms.all-forms', compact('data'));
+    }
+
+    public function postPermission(Request $request, FormUser $formUser)
+    {
+        foreach($request->get('users') as $user) {
+            $form_id = $request->get('form_id');
+            $data = $formUser->where('user_id', $user)->where('form_id', $form_id)->get();
+            // insert if data doesnt exist
+            if(count($data) == 0) {
+                $formUser->create([
+                    'form_id' => $form_id,
+                    'user_id' => $user
+                ]);
+            }
+        }
+
+
+        return redirect()->back()->with('message', 'Success');
     }
 
 

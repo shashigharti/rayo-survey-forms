@@ -4,6 +4,11 @@ Route::group(['prefix' => 'admin/user', 'as' => 'admin.user.', 'group' => 'User 
     // FORM
     Route::resource('forms', 'Robust\DynamicForms\Controllers\Admin\User\FormController');
 
+    Route::post('form/permission', [
+        'as' => 'form.permission',
+        'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@postPermission'
+    ]);
+
     Route::get('/form-json/{slug}', [
         'as' => 'form.json',
         'uses' => 'Robust\DynamicForms\Controllers\Admin\User\FormController@getFormJson',
