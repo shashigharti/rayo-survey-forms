@@ -80,6 +80,7 @@
     "react": "^16.8.4",
     "redis": "^2.6.2",
     "require-dir": "^0.3.2",
+    "select2": "^4.0.6-rc.1",
     "slick-carousel": "^1.8.1",
     "socket.io": "^1.5.1",
     "sweetalert": "^1.1.3",

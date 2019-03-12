@@ -3,6 +3,7 @@
 namespace Robust\DynamicForms\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Illuminate\Http\Request;
@@ -105,6 +106,19 @@ class FormController extends Controller
         return $this->display("{$this->package_name}::{$this->view}.preview", [
                 'model' => $model,
                 'query_params' => $query_params
+            ]
+        );
+    }
+
+
+    public function permissions(Request $request, $id, Form $form, User $user)
+    {
+        parse_str($request->getQueryString(), $query_params);
+        $all_users = $user->all();
+        $permitted_users = $form->find($id)->users;
+        return $this->display("{$this->package_name}::{$this->view}.permissions", [
+                'all_users' => $all_users,
+                'permitted_users' => $permitted_users,
             ]
         );
     }
