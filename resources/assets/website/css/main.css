@@ -161,7 +161,7 @@ img.phone{
 .dynamic-section{
     background: #235177;
     color:#fff;
-    height: 430px;
+    height: 490px;
 }
 .cta-container{
     background: #ccc;
@@ -279,4 +279,16 @@ img.phone{
 }
 .pd-t-20{
     padding-top: 20px;
+}
+.half-cta input,.half-cta textarea{
+    width:100%;
+    margin-top: 20px;
+    height:30px;
+    padding: 20px;
+ }
+.half-cta .col-sm-12,.half-cta .col-sm-6{
+   padding-left: 0px;
+}
+.half-cta textarea{
+    height: 100px;
 }
