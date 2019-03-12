@@ -84,16 +84,25 @@
             <h3>CONTACT US</h3>
             {{ Form::open(['url' => route('website.home'), 'method' => 'post', 'class' => 'form-horizontal']) }}
             @include("core::admin.partials.messages.info")
-            {{ Form::text('name',null,['placeholder'=>'Full Name']) }}
-            {{ Form::email('email',null,['placeholder'=>'Email Address']) }}
-            {{ Form::text('phone',null,['placeholder'=>'Mobile Number']) }}
+            <div class="col-sm-12">
+                {{ Form::text('name',null,['placeholder'=>'Full Name']) }}
+            </div>
+            <div class="col-sm-6">
+                {{ Form::email('email',null,['placeholder'=>'Email Address']) }}
+            </div>
+            <div class="col-sm-6">
+                {{ Form::text('phone',null,['placeholder'=>'Mobile Number']) }}
+            </div>
+            <div class="col-sm-12">
+                <textarea placeholder="Your Message"></textarea>
+            </div>
             <button type="submit">SUBMIT</button>
             {{ Form::close() }}
 
         </div>
         <div class="half-cta dynamic-section text-center col-xs-12 col-sm-6">
             <h3>Rayo Forms</h3>
-            <p>Go Paperless!</p>
+            <p>Build your own form!</p>
             <p>Save time and cost by designing your own custom forms and go paperless.Easily Managable and
                 visualize
                 your data without extra effort and tool.
@@ -101,7 +110,7 @@
             <p> If you have any queries, please contact us at info@robustitconcepts.com or
                 9851113148(mobile)</p>
             <a href="{{route('auth.register')}}">
-                <h2>Build your own form</h2>
+                <h2>Register</h2>
             </a>
         </div>
     </div>
