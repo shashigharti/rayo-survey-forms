@@ -14,9 +14,12 @@ trait SearchRepositoryTrait
      * @param $value
      * @return mixed
      */
-    public function findBy($attr, $value)
+    public function findBy($attr, $value, $multiple = false)
     {
-        return $this->model->where($attr, $value)->paginate(settings('app-setting', 'pagination'));
+        if($multiple)
+            return $this->model->where($attr)->paginate(settings('app-setting', 'pagination'));
+        else
+            return $this->model->where($attr, $value)->paginate(settings('app-setting', 'pagination'));
     }
 
 

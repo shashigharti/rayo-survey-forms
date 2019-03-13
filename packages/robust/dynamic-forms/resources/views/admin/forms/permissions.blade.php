@@ -7,20 +7,19 @@
         <div id="form_permission">
             <input type="hidden" name="base_url" value="{{url('/')}}">
             <input type="hidden" name="form_id" value="{{$form_id}}">
-            {{--<fieldset>--}}
-            {{--<legend>Roles:</legend>--}}
-            {{--<select class="form-control js-example-basic-multiple" name="states[]" multiple="multiple">--}}
-            {{--<option value="AL">Alabama</option>--}}
-            {{--<option value="WY">Wyoming</option>--}}
-            {{--</select>--}}
-            {{--</fieldset>--}}
         </div>
         <div class="form-group">
             <label for="users">Users</label>
             <select class="form-control js-example-basic-multiple" id="users" name="users[]" multiple="multiple">
-                @foreach($all_users as $user)
-                    <option value="{{$user->id}}">{{$user->first_name . ' ' . $user->last_name}}</option>
+
+                @foreach($unpermitted_users as $user)
+                    <option value="{{$user[0]}}">{{$user[1] . ' ' . $user[2]}}</option>
                 @endforeach
+                @foreach($permitted_users as $user)
+                    <option value="{{$user['id']}}" selected>{{$user['first_name'] . ' ' . $user['last_name']}}</option>
+                @endforeach
+
+
             </select>
         </div>
         <div class="form-group">

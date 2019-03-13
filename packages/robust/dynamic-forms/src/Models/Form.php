@@ -42,7 +42,8 @@ class Form extends BaseModel
         'field_for_user_email',
         'notify_to_user',
         'single_submit',
-        'make_public'
+        'make_public',
+        'created_by'
     ];
 
     /**

@@ -5,6 +5,7 @@ namespace Robust\DynamicForms\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Helpage\Breadcrumb;
@@ -165,7 +166,10 @@ class DataController extends Controller
      * @return $this
      */
     public function showFormData(Request $request, $form_id){
-        $records = $this->model->findBy('form_id', $form_id);
+        $records = $this->model->findBy([
+            ['form_id', $form_id],
+            ['user_id', Auth::id()],
+        ], '');
         return $this->display($this->table,
             [
                 'records' => $records,
