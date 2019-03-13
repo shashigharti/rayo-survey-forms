@@ -74,16 +74,16 @@ class FormController extends Controller
 
     public function postPermission(Request $request, FormUser $formUser)
     {
+        $form_id = $request->get('form_id');
+        $formUser->where('form_id', $form_id)->delete();
         foreach($request->get('users') as $user) {
-            $form_id = $request->get('form_id');
+
             $data = $formUser->where('user_id', $user)->where('form_id', $form_id)->get();
-            // insert if data doesnt exist
-            if(count($data) == 0) {
-                $formUser->create([
-                    'form_id' => $form_id,
-                    'user_id' => $user
-                ]);
-            }
+            // Delete and create permissions
+            $formUser->create([
+                'form_id' => $form_id,
+                'user_id' => $user
+            ]);
         }
 
 
