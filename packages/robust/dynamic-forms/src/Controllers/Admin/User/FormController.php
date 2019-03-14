@@ -66,28 +66,36 @@ class FormController extends Controller
         return response()->json($model);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showAllForms()
     {
         $data = $this->model->all();
         return view('dynamic-forms::admin.users.forms.all-forms', compact('data'));
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \Robust\DynamicForms\Models\FormUser $formUser
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postPermission(Request $request, FormUser $formUser)
     {
         $form_id = $request->get('form_id');
-        $formUser->where('form_id', $form_id)->delete();
-        foreach($request->get('users') as $user) {
 
-            $data = $formUser->where('user_id', $user)->where('form_id', $form_id)->get();
-            // Delete and create permissions
+        // Remove all permissions for the form
+        $formUser->where('form_id', $form_id)->delete();
+
+        // Re apply users to the form
+        foreach($request->get('users') as $user) {
             $formUser->create([
                 'form_id' => $form_id,
                 'user_id' => $user
             ]);
         }
 
-
-        return redirect()->back()->with('message', 'Success');
+        return redirect()->back()->with('message', 'Successfully saved!');
     }
 
 

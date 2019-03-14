@@ -11,6 +11,7 @@ use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Helpage\Breadcrumb;
 use Robust\Core\Helpers\MenuHelper;
 use Robust\DynamicForms\Helpers\FormHelper;
+use Robust\DynamicForms\Models\Form;
 use Robust\DynamicForms\Repositories\Admin\DataRepository;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
 use League\Csv\Writer;
@@ -165,11 +166,18 @@ class DataController extends Controller
      * @param $form_id
      * @return $this
      */
-    public function showFormData(Request $request, $form_id){
-        $records = $this->model->findBy([
-            ['form_id', $form_id],
-            ['user_id', Auth::id()],
-        ], '');
+    public function showFormData(Request $request, $form_id, Form $form){
+        $owner = $form->find($form_id)->created_by === Auth::id();
+        // Display those data entered by the specific user unless the user is the owner of the form
+        if($owner) {
+            $records = $this->model->findBy('form_id', $form_id);
+        } else {
+            $records = $this->model->findBy([
+                ['form_id', $form_id],
+                ['user_id', Auth::id()],
+            ], '', true);
+        }
+
         return $this->display($this->table,
             [
                 'records' => $records,

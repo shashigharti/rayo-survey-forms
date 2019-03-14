@@ -41,18 +41,23 @@ class FormController extends Controller
     }
 
 
+    /**
+     * @param \Robust\DynamicForms\Models\FormUser $formUser
+     * @return \Robust\DynamicForms\Controllers\Admin\FormController
+     */
     public function index(FormUser $formUser)
     {
-
-        // Get accessible forms ids
+        // Get accessible forms ids for the current user
         $forms_available = $formUser->select('form_id')->where('user_id', Auth::id())->get();
 
         // If super user display all forms
         if(Auth::id() == 1) {
             $records = $this->model->paginate();
         } else {
+            // Display the forms the user has been given access to
             $records = $this->model->whereIn('id', $forms_available)->paginate();
         }
+
         return $this->display($this->table,
             [
                 'records' => $records,
@@ -138,14 +143,27 @@ class FormController extends Controller
     }
 
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param $id
+     * @param \Robust\DynamicForms\Models\Form $form
+     * @param \App\User $user
+     * @return \Robust\DynamicForms\Controllers\Admin\FormController
+     */
     public function permissions(Request $request, $id, Form $form, User $user)
     {
         parse_str($request->getQueryString(), $query_params);
+
+        // Array of all users except super admin
         $all_users = $user->where('id', '!=', 1)->get()->toArray();
+
+        // Array of permitted users to the form
         $permitted_users = [];
         foreach($form->find($id)->users as $user) {
             array_push($permitted_users, $user->toArray());
         }
+
+        // Mapping both all users and permitted users into an array
         $users = array_map(function($user) {
             return [$user['id'], $user['first_name'], $user['last_name']];
         }, $all_users);
@@ -153,9 +171,8 @@ class FormController extends Controller
             return [$user['id'], $user['first_name'], $user['last_name']];
         }, $permitted_users);
 
-        // Compare all values by a json_encode
+        // Get the difference between two array
         $unpermitted_users = array_diff(array_map('json_encode', $users), array_map('json_encode', $p_users));
-
         // Json decode the result
         $unpermitted_users = array_map('json_decode', $unpermitted_users);
 
