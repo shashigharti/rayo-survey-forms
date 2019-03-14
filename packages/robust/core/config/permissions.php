@@ -15,6 +15,7 @@ return [
     /* {package-name}.{model or object}.{action}*/
     'actions' => [
         'core.settings.edit' => "Edit Settings",
+        'admin.user.settings.edit' => "Edit User Settings",
         'core.contacts.manage' => 'Manage Contacts',
 
         'core.medias.manage' => "Manage Images",

@@ -221,5 +221,18 @@ class CoreMenuTableSeeder extends Seeder
                 'icon' => 'md-settings'
             ]
         ]);
+
+        DB::table('menus')->insert([
+            [
+                'display_name' => 'Settings',
+                'name' => 'admin.user.settings.edit',
+                'url' => route('admin.user.settings.edit', ['general']),
+                'permission' => 'admin.user.settings.edit',
+                'package_name' => 'core',
+                'parent_id' => 0,
+                'type' => 'secondary',
+                'icon' => 'md-settings'
+            ]
+        ]);
     }
 }

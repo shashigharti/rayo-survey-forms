@@ -43,7 +43,8 @@ class UserTableSeeder extends Seeder
             'first_name' => 'Super',
             'last_name' => ' User',
             'user_name' => 'super_user',
-            'created_at' => Carbon\Carbon::now()
+            'created_at' => Carbon\Carbon::now(),
+            'email_verified_at' => Carbon\Carbon::now()
         ]);
         $user->roles()->attach($role->id);
 
@@ -56,7 +57,8 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'first_name' => 'User',
             'user_name' => 'user',
-            'created_at' => Carbon\Carbon::now()
+            'created_at' => Carbon\Carbon::now(),
+            'email_verified_at' => Carbon\Carbon::now()
         ]);
         $user->roles()->attach($role->id);
     }
