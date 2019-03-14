@@ -58,7 +58,10 @@
                     $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
                 },
                 error: function(e, xhr) {
+                    // Temporary resolvement
+                    // Executes this because request gives out 302 which resolves into error closure. Need refactoring.
                     let saveElement= '<i aria-hidden="true" class="icon md-book"></i> Save';
+
                     // Notify that the form was saved for a second and revert back to original element.
                     $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
                     setTimeout(function() {
