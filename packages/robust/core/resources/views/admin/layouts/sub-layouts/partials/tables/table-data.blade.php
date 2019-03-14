@@ -29,7 +29,7 @@
                         @foreach($options as $key => $option)
                             @if(isset($row['created_by']))
                                 {{--If the formw as not created by the auth user--}}
-                                @if($row['created_by'] !== $id)
+                                @if($row['created_by'] !== $id && $id !== 1)
                                     @can($option['permission'])
                                         {{--Only allow to view data--}}
                                         @if($key == "data")
