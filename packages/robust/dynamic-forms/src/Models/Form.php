@@ -11,6 +11,9 @@ use Robust\Core\Models\BaseModel;
 class Form extends BaseModel
 {
 
+    /**
+     *
+     */
     const DEFAULT_PAGE = 1;
 
     /**
@@ -41,7 +44,8 @@ class Form extends BaseModel
         'field_for_user_email',
         'notify_to_user',
         'single_submit',
-        'make_public'
+        'make_public',
+        'created_by'
     ];
 
     /**
@@ -58,6 +62,14 @@ class Form extends BaseModel
     public function users()
     {
         return $this->belongsToMany('Robust\Admin\Models\User', 'dynform_form_user');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function createdBy()
+    {
+        return $this->created_by;
     }
 
 }

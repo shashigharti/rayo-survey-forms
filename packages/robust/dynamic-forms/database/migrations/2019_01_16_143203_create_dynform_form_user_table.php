@@ -14,8 +14,10 @@ class CreateDynformFormUserTable extends Migration {
 	{
 		Schema::create('dynform_form_user', function(Blueprint $table)
 		{
-			$table->integer('form_id');
-			$table->integer('user_id');
+			$table->unsignedInteger('form_id');
+			$table->unsignedInteger('user_id');
+			$table->foreign('form_id')->references('id')->on('dynform_forms');
+			$table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
 		});
 	}
@@ -30,5 +32,4 @@ class CreateDynformFormUserTable extends Migration {
 	{
 		Schema::drop('dynform_form_user');
 	}
-
 }

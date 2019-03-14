@@ -9,14 +9,20 @@ namespace Robust\Core\Repositories\Traits;
 trait SearchRepositoryTrait
 {
 
+
     /**
      * @param $attr
      * @param $value
+     * @param bool $multiple
      * @return mixed
      */
-    public function findBy($attr, $value)
+    public function findBy($attr, $value, $multiple = false)
     {
-        return $this->model->where($attr, $value)->paginate(settings('app-setting', 'pagination'));
+        // If want to find by multiple where clauses, value = null in such cases
+        if($multiple)
+            return $this->model->where($attr)->paginate(settings('app-setting', 'pagination'));
+        else
+            return $this->model->where($attr, $value)->paginate(settings('app-setting', 'pagination'));
     }
 
 

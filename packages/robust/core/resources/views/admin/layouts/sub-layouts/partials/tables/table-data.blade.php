@@ -1,3 +1,4 @@
+@set('id', Auth::id())
 <table class="table dataTables table-body form-table">
     <thead>
     <tr>
@@ -26,36 +27,106 @@
                     @set('options', $header)
                     <td class="text-nowrap text-right">
                         @foreach($options as $key => $option)
-                            @can($option['permission'])
-                                @if($package != '' && View::exists("{$package}::{$current_view}.tables.{$key}"))
-                                    @include("{$package}::{$current_view}.tables.{$key}",['extra_params' => (isset($option['params']))? $option['params'] : []])
-                                @elseif(View::exists("core::admin.layouts.sub-layouts.partials.tables.{$key}") )
-                                    @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
-                                @else
-                                    <a class='btn btn-info btn-{{$key}} btn-xs waves-effect waves-light'
-                                       @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
-                                       data-url="{{$ui->getTableRoute($option,
+                            @if(isset($row['created_by']))
+                                {{--If the formw as not created by the auth user--}}
+                                @if($row['created_by'] !== $id && $id !== 1)
+                                    @can($option['permission'])
+                                        {{--Only allow to view data--}}
+                                        @if($key == "data")
+                                            @if($package != '' && View::exists("{$package}::{$current_view}.tables.{$key}"))
+                                                @include("{$package}::{$current_view}.tables.{$key}",['extra_params' => (isset($option['params']))? $option['params'] : []])
+                                            @elseif(View::exists("core::admin.layouts.sub-layouts.partials.tables.{$key}") )
+                                                @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
+                                            @else
+                                                <a class='btn btn-info btn-{{$key}} btn-xs waves-effect waves-light'
+                                                   @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
+                                                   data-url="{{$ui->getTableRoute($option,
                                                [
                                                     'id' => $row['id'],
                                                     'params' => ['parent_id' => isset($model)?$model->id:0]
                                                ])
                                            }}"
-                                       data-toggle="modal"
-                                       data-modal="crudModal"
-                                       href='javascript:void(0)'
-                                       @else
-                                       href="{{$ui->getTableRoute($option,
+                                                   data-toggle="modal"
+                                                   data-modal="crudModal"
+                                                   href='javascript:void(0)'
+                                                   @else
+                                                   href="{{$ui->getTableRoute($option,
+                                               [
+                                                    'id' => $row['id'],
+                                                    'params' => ['parent_id' => isset($model)?$model->id:0]
+                                               ])
+                                           }}"
+                                                    @endif
+                                                >
+                                                    {!! $option['display_name'] !!}
+                                                </a>
+                                            @endif
+                                        @endif
+                                    @endcan
+
+                                    {{-- If the form was created by the auth user --}}
+                                @else
+                                    @if($package != '' && View::exists("{$package}::{$current_view}.tables.{$key}"))
+                                        @include("{$package}::{$current_view}.tables.{$key}",['extra_params' => (isset($option['params']))? $option['params'] : []])
+                                    @elseif(View::exists("core::admin.layouts.sub-layouts.partials.tables.{$key}") )
+                                        @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
+                                    @else
+                                        <a class='btn btn-info btn-{{$key}} btn-xs waves-effect waves-light'
+                                           @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
+                                           data-url="{{$ui->getTableRoute($option,
+                                               [
+                                                    'id' => $row['id'],
+                                                    'params' => ['parent_id' => isset($model)?$model->id:0]
+                                               ])
+                                           }}"
+                                           data-toggle="modal"
+                                           data-modal="crudModal"
+                                           href='javascript:void(0)'
+                                           @else
+                                           href="{{$ui->getTableRoute($option,
                                                [
                                                     'id' => $row['id'],
                                                     'params' => ['parent_id' => isset($model)?$model->id:0]
                                                ])
                                            }}"
                                             @endif
-                                    >
-                                        {!! $option['display_name'] !!}
-                                    </a>
+                                        >
+                                            {!! $option['display_name'] !!}
+                                        </a>
+                                    @endif
                                 @endif
-                            @endcan
+                            @else
+                                @can($option['permission'])
+                                    @if($package != '' && View::exists("{$package}::{$current_view}.tables.{$key}"))
+                                        @include("{$package}::{$current_view}.tables.{$key}",['extra_params' => (isset($option['params']))? $option['params'] : []])
+                                    @elseif(View::exists("core::admin.layouts.sub-layouts.partials.tables.{$key}") )
+                                        @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
+                                    @else
+                                        <a class='btn btn-info btn-{{$key}} btn-xs waves-effect waves-light'
+                                           @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
+                                           data-url="{{$ui->getTableRoute($option,
+                                               [
+                                                    'id' => $row['id'],
+                                                    'params' => ['parent_id' => isset($model)?$model->id:0]
+                                               ])
+                                           }}"
+                                           data-toggle="modal"
+                                           data-modal="crudModal"
+                                           href='javascript:void(0)'
+                                           @else
+                                           href="{{$ui->getTableRoute($option,
+                                               [
+                                                    'id' => $row['id'],
+                                                    'params' => ['parent_id' => isset($model)?$model->id:0]
+                                               ])
+                                           }}"
+                                            @endif
+                                        >
+                                            {!! $option['display_name'] !!}
+                                        </a>
+                                    @endif
+                                @endcan
+                            @endif
                         @endforeach
 
                     </td>

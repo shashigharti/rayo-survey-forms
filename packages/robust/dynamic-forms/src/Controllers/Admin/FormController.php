@@ -3,10 +3,14 @@
 namespace Robust\DynamicForms\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Controllers\Admin\Traits\CrudTrait;
 use Illuminate\Http\Request;
+use Robust\Core\Helpers\MenuHelper;
 use Robust\DynamicForms\Models\Form;
+use Robust\DynamicForms\Models\FormUser;
 use Robust\DynamicForms\Repositories\Admin\FormRepository;
 
 /**
@@ -35,6 +39,35 @@ class FormController extends Controller
         $this->view = 'admin.forms';
         $this->title = 'Forms';
     }
+
+
+    /**
+     * @param \Robust\DynamicForms\Models\FormUser $formUser
+     * @return \Robust\DynamicForms\Controllers\Admin\FormController
+     */
+    public function index(FormUser $formUser)
+    {
+        // Get accessible forms ids for the current user
+        $forms_available = $formUser->select('form_id')->where('user_id', Auth::id())->get();
+
+        // If super user display all forms
+        if(Auth::id() == 1) {
+            $records = $this->model->paginate();
+        } else {
+            // Display the forms the user has been given access to
+            $records = $this->model->whereIn('id', $forms_available)->paginate();
+        }
+
+        return $this->display($this->table,
+            [
+                'records' => $records,
+                'primary_menu' => (new MenuHelper())->getPrimaryMenu($this->package_name),
+                'title' => (isset($this->title)) ? $this->title : '',
+                'package' => $this->package_name,
+            ]
+        );
+    }
+
 
     /**
 
@@ -105,6 +138,49 @@ class FormController extends Controller
         return $this->display("{$this->package_name}::{$this->view}.preview", [
                 'model' => $model,
                 'query_params' => $query_params
+            ]
+        );
+    }
+
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param $id
+     * @param \Robust\DynamicForms\Models\Form $form
+     * @param \App\User $user
+     * @return \Robust\DynamicForms\Controllers\Admin\FormController
+     */
+    public function permissions(Request $request, $id, Form $form, User $user)
+    {
+        parse_str($request->getQueryString(), $query_params);
+
+        // Array of all users except super admin
+        $all_users = $user->where('id', '!=', 1)->get()->toArray();
+
+        // Array of permitted users to the form
+        $permitted_users = [];
+        foreach($form->find($id)->users as $user) {
+            array_push($permitted_users, $user->toArray());
+        }
+
+        // Mapping both all users and permitted users into an array
+        $users = array_map(function($user) {
+            return [$user['id'], $user['first_name'], $user['last_name']];
+        }, $all_users);
+        $p_users = array_map(function($user) {
+            return [$user['id'], $user['first_name'], $user['last_name']];
+        }, $permitted_users);
+
+        // Get the difference between two array
+        $unpermitted_users = array_diff(array_map('json_encode', $users), array_map('json_encode', $p_users));
+        // Json decode the result
+        $unpermitted_users = array_map('json_decode', $unpermitted_users);
+
+        return $this->display("{$this->package_name}::{$this->view}.permissions", [
+                'all_users' => $all_users,
+                'permitted_users' => $permitted_users,
+                'unpermitted_users' => $unpermitted_users,
+                'form_id' => $id
             ]
         );
     }
