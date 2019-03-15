@@ -5,7 +5,7 @@
     <div id="form_create">
         {{ Form::model($model, ['route' => $ui->getRoute($model), 'method' => $ui->getMethod($model) ]) }}
         <input type="hidden" name="base_url" value="{{url('/')}}">
-        <input type="hidden" name="created_by" value="{{Auth::id()}}">
+        <input type="hidden" name="user_id" value="{{Auth::id()}}">
         <div class="form-group form-material row">
             <div class="col-sm-6">
                 {{ Form::label('title', 'Form Name', ['class' => 'control-label' ])}}

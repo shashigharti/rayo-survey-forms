@@ -46,7 +46,7 @@ class Form extends BaseModel
         'notify_to_user',
         'single_submit',
         'make_public',
-        'created_by'
+        'user_id'
     ];
 
     /**
@@ -70,7 +70,7 @@ class Form extends BaseModel
      */
     public function createdBy()
     {
-        return $this->created_by;
+        return $this->user_id;
     }
 
 }

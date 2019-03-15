@@ -27,9 +27,9 @@
                     @set('options', $header)
                     <td class="text-nowrap text-right">
                         @foreach($options as $key => $option)
-                            @if(isset($row['created_by']))
+                            @if(isset($row['user_id']))
                                 {{--If the formw as not created by the auth user--}}
-                                @if($row['created_by'] !== $id && $id !== 1)
+                                @if($row['user_id'] !== $id && $id !== 1)
                                     @can($option['permission'])
                                         {{--Only allow to view data--}}
                                         @if($key == "data")
