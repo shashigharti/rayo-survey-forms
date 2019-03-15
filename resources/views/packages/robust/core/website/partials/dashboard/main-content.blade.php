@@ -7,12 +7,16 @@
                         <h1>SIMPLIFIED DATA
                             COLLECTION, MONITORING
                             AND ANALYSIS TOOL</h1>
-                        <div class="text-flexslider">
+                        <div class="text-flexslider clearfix">
                             <ul class="slides">
                                 <li><p>BUILD , COLLECT AND ANALYSE</p></li>
                                 <li><p>FORM COLLECTION IN EASIEST WAY</p></li>
                                 <li><p>NO MORE PAPER FORMS</p></li>
                             </ul>
+                        </div>
+                        <div>
+                            <a href="{{route('auth.register')}}" class="login-btn">
+                            Register Now</a>
                         </div>
                     </div>
                 </div>
