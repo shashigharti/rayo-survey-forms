@@ -59,5 +59,13 @@ class SettingTableSeeder extends Seeder
             'package_name' => 'core',
             'values' => '{}'
         ]);
+
+        // Seed UserSetting table
+        \Robust\Core\Models\UserSetting::create([
+            'slug' => "general",
+            'display_name' => 'General',
+            'package_name' => 'core',
+            'values' => '{}'
+        ]);
     }
 }

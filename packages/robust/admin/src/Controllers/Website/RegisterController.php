@@ -43,7 +43,6 @@ class RegisterController extends Controller
         if ($user) {
             $event = $this->events['create'];
             event(new $event($user));
-            Auth::attempt(['email' => $this->request->get('email'), 'password' => $this->request->get('password')]);
         }
         if (\Cache::get('redirect_url')) {
             $redirect_url = \Cache::get('redirect_url');
@@ -51,7 +50,7 @@ class RegisterController extends Controller
         if (isset($redirect_url)) {
             return redirect($redirect_url);
         }
-        return redirect()->route('website.home')->with('message', 'Account created successfully');
+        return redirect()->route('verification.notice')->with('message', 'A new verification email has been sent to your email. Please review it first before logging in.');
     }
 
 }
