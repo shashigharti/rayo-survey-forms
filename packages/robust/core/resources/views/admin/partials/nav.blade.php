@@ -104,12 +104,11 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
-                       aria-expanded="false"
-                       data-animation="scale-up" role="button">
+                    <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
                         <i class="site-menu-icon md-settings" aria-hidden="true"></i>
                     </a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li role="presentation">
                             <a href="{{ route('admin.profile.settings.edit', [Auth::user()->id, 'general']) }}"
                                role="menuitem"><i class="icon md-account"
