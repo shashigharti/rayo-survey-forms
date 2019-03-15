@@ -92,7 +92,7 @@ ul {
 }
 .header-text h1{
     color:#fff;
-    font-size: 60px;
+    font-size:50px;
     font-weight: bold;
 }
 .header-text p{
@@ -253,9 +253,12 @@ img.phone{
     color: #6b4994;
 }
 .login-btn {
-    color:#6b4994 !important;
+    color: #ffffff !important;
     border: 1px solid;
-    margin-left: 60px;
+    margin-left: 0px;
+    display: inline-block;
+    padding: 6px 35px;
+    margin-top: 25px;
 }
 .site-heading.sticky {
     box-shadow: 2px 2px 2px #0e0e0e;

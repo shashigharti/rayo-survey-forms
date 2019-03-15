@@ -13,10 +13,8 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#features">Features</a></li>
                 
-                @if(!\Auth::check())
-                    <li><a href="{{route('auth.register')}}" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i>
-                            Register</a></li>
-                    <li><a href="{{route('auth.login')}}" class="login-btn"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                @if(!\Auth::check())                 
+                    <li><a href="{{route('auth.login')}}">
                             Login</a></li>
                 @else
                     <li><a href="{{route('admin.user.dashboards.index')}}">Dashboard</a></li>
