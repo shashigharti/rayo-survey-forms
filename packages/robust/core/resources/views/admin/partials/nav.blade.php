@@ -1,38 +1,25 @@
-<nav class="site-navbar navbar rayo-nav navbar-inverse navbar-fixed-top navbar-mega navbar-inverse"
-     role="navigation">
-    <div class="navbar-header">
+<nav class="header__top" role="navigation">
+    <div class="pull-left">
         <a class="left-smallmenu-bar">
             <i class="fa fa-bars"></i>
         </a>
-        <a class="navbar-brand" href="{{--{{ route('admin.home') }}--}}">
-            <img class="navbar-brand-logo navbar-brand-logo-normal"
-                 src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png')  }}"
+        <a href="{{--{{ route('admin.home') }}--}}">
+            <img class="header--logo" src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png')  }}"
                  title="Rayo forms">
         </a>
-
     </div>
-    <div class="navbar-container container-fluid">
-        <!-- Navbar Collapse -->
-        <div class="snavbar-collapse-toolbar" id="">
+    <div class="pull-right">
+        <div>
             <!-- Navbar Toolbar -->
-            <ul class="nav navbar-toolbar">
-                <li class="hidden-float" id="toggleMenubar">
-                    <a data-toggle="menubar" href="#" role="button">
-                        <i class="icon hamburger hamburger-arrow-left">
-                            <span class="sr-only">Toggle menubar</span>
-                            <span class="hamburger-bar"></span>
-                        </i>
-                    </a>
-                </li>
+            <ul class="nav navbar-toolbar">                
                 @inject('menu_helper', 'Robust\Core\Helpers\MenuHelper')
             </ul>
 
-            <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right site-notifications">
-                <li class="dropdown dropdown-fw dropdown-mega">
+            <ul class="nav notification--bar">
+                <li class="dropdown">
                     <span><a href="#">{{$dashboard->name}}</a></span>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="" aria-expanded="false"
-                       data-animation="fade" role="button">
-                        <i class="icon md-chevron-down" aria-hidden="true"></i>
+                       data-animation="fade" role="button">                        
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         @foreach($user->dashboards as $dashboard)
@@ -47,14 +34,14 @@
                     <a class="nav-notification" data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
                        aria-expanded="false"
                        data-animation="scale-up" role="button">
-                        <i class="icon md-notifications" aria-hidden="true"></i>
+                        <i class="fa fa-bell" aria-hidden="true"></i>
                         @if($notifications->count() > 0)
                             <span class="badge badge-danger up">{{$notifications->count()}}</span>
                         @endif
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                    <ul class="dropdown-menu dropdown-menu__right dropdown-menu-media" role="menu">
                         <li class="dropdown-menu-header notification" role="presentation">
-                            <h5>NOTIFICATIONS</h5>
+                            <span>NOTIFICATIONS</span>
                             @if($notifications->count() > 0)
                                 <span class="label label-round label-danger">New {{$notifications->count()}}</span>
                             @endif
@@ -83,8 +70,8 @@
                             </div>
                         </li>
                         <li class="dropdown-menu-footer" role="presentation">
-                            <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
-                                <i class="icon md-settings" aria-hidden="true"></i>
+                            <a class="dropdown-menu-footer-btn pull-right" href="javascript:void(0)" role="button">
+                                <i class="icon fa fa-gear" aria-hidden="true"></i>
                             </a>
                             <a href="{{route('admin.notifications')}}" role="menuitem">
                                 See All
@@ -94,7 +81,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
+                    <a class="navbar--avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="scale-up" role="button">
                         Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         <span class="avatar avatar-online">
@@ -107,7 +94,7 @@
                     <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications"
                        aria-expanded="false"
                        data-animation="scale-up" role="button">
-                        <i class="site-menu-icon md-settings" aria-hidden="true"></i>
+                        <i class="site-menu-icon fa fa-gear" aria-hidden="true"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation">
@@ -115,18 +102,15 @@
                                role="menuitem"><i class="icon md-account"
                                                   aria-hidden="true"></i> Profile</a>
                         </li>
-                        <li class="divider" role="presentation"></li>
                         @foreach($menu_helper->getMenus() as $index => $menu)
                             @if($menu->type == 'secondary')
                                 @can($menu->permission)
                                     <li role="presentation">
-                                        <a href="{{$menu->url}}">
-                                            <i class="site-menu-icon {{ $menu->icon }}" aria-hidden="true"></i>
+                                        <a href="{{$menu->url}}">                                            
                                             <span class="site-menu-title">{{$menu->display_name}}</span>
                                         </a>
                                     </li>
-
-                                    <li class="divider" role="presentation"></li>
+                                   
                                 @endcan
                             @endif
                         @endforeach

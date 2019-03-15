@@ -3,11 +3,11 @@
 @section('content')
     @set('ui', new $ui)
     <div class="page {{$title}}">
-        <div class="page-content">
-            <div class="container">
+        <div class="page--content">
+            <div class="page--container">
                 @if(isset($ui->left_menu))
-                    <div class="page-title">
-                        <div class="rayo-breadcrumb pull-left">
+                    <div class="page--title clearfix">
+                        <div class="pull-left">
                             <span><h3>{{ $title }}</h3></span>
                             {!! Breadcrumb::getInstance()->render(false)  !!}
                         </div>
@@ -24,8 +24,8 @@
                 @endif
                 @yield('custom_title')
                 @include("core::admin.partials.tabs.tabs")
-                <div class="panel form-panel">
-                    <div class="panel-body">
+                <div class="panel">
+                    <div class="panel--body">
                         @include("core::admin.partials.messages.info")
                         @yield('custom_design')
                     </div>

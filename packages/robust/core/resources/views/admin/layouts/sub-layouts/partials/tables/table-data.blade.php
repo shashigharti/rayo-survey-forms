@@ -1,4 +1,4 @@
-<table class="table dataTables table-body form-table">
+<table class="table dataTables table-body">
     <thead>
     <tr>
         <th>SN</th>

@@ -1,0 +1,45 @@
+body {
+    font-family: "Roboto", sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.57142857 !important;
+    color:$dark_grey !important;
+    background-color:$body_color !important;
+}
+a{
+	&:hover{
+		color:$white !important;
+	}
+}
+html {
+  height: 100%;
+}
+.page {
+    position: relative;
+    min-height: calc(100% - 37px);
+    margin: 0 auto;
+    background: #d1cdc7;
+    padding-left: 80px;
+    top:70px;
+    .page--title {
+    	h3 {
+    		color:$black;
+    		font-weight: 400;
+    	}
+	}
+	.page--container{
+    	width: 97%;
+    	margin: 0px;
+    	padding: 0px;
+    	min-height: 100%;
+	}
+}
+.panel{
+	width: 100%;
+    margin: 0 auto;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 0 3px #666;
+    box-shadow: 0 0 3px #666;
+    .panel--body{
+	  background: #fff;
+	}
+}

@@ -1,0 +1,80 @@
+.header__top{
+	padding: 0px 20px;
+	background-color:$white;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+	top:0;
+	position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1500;
+}
+.header--logo{
+	height:50px;
+}
+.notification--bar{
+	li{
+		display: inline-block;
+		padding: 10px 15px;
+		font-size: 13px;		
+		a{
+			color:$dark_grey;
+		}
+		&:hover{
+			background:$theme_color;
+			a{
+				color:$white;				
+			}
+			.dropdown-menu{
+				a{
+					color:$dark_grey;
+				}
+			}
+		}
+	}
+	.dropdown-menu {
+    	padding: 0px;
+    	right:0px !important;
+    	left: auto !important;
+    	width: 230px;
+    	top:47px !important;
+    	transform: translate3d(0px, 0px, 0px) !important;
+    	li{
+    		display: block;
+    		&:hover{
+    			background:$theme-color;
+				a{
+					color:$white;				
+				}
+    		}
+    	}
+    	
+	}
+}
+.navbar--avatar {
+	.avatar{
+		width: 30px;
+		vertical-align: middle;
+	}   
+}
+@media (max-width: 768px) {
+ 	.header__top{
+			a{
+			    display: inline-block;
+			    width: 48%;
+			    vertical-align: middle;
+			}
+ 	}
+ 	.notification--bar {
+ 		position: relative;
+ 		li{
+ 			position: static;
+ 			padding: 10px 2px;
+ 			a{
+ 				width:auto;
+ 			}
+ 		}
+ 		.dropdown-menu{
+ 			width: 100%;
+ 		}
+ 	}
+}

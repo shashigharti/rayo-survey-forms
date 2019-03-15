@@ -2,11 +2,11 @@
 
 @section('content')
     @set('ui', new $ui)
-    <div class="page dashboard-content">
-        <div class="page-content">
-            <div class="container">
-                <div class="page-title">
-                    <div class="rayo-breadcrumb pull-left">
+    <div class="page">
+        <div class="page--content">
+            <div class="page--container">
+                <div class="page--title clearfix">
+                    <div class="pull-left">
                         <span><h3>{{ $title }}</h3></span>
                         {!! Breadcrumb::getInstance()->render(false)  !!}
 
@@ -25,8 +25,8 @@
                 </div>
 
                 @include("core::admin.partials.tabs.tabs")
-                <div class="panel form-panel">
-                    <div class="panel-body">
+                <div class="panel">
+                    <div class="panel--body">
                         @if(isset($ui->right_menu))
                             <span class="clearfix pull-left">
                             </span>
