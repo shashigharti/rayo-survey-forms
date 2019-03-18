@@ -131,8 +131,19 @@ class FormController extends Controller
         return response('success');
     }
 
-    public  function allForms(){
-        return response()->json(json_decode('{"_id":"5c84a07000b9d18c9e9c1943","type":"form","tags":[],"owner":null,"components":[{"type":"email","persistent":true,"unique":false,"protected":false,"defaultValue":"","suffix":"","prefix":"","placeholder":"Enter your email address","key":"email","lockKey":true,"label":"Email","inputType":"email","tableView":true,"input":true},{"type":"password","persistent":true,"protected":true,"suffix":"","prefix":"","placeholder":"Enter your password.","key":"password","lockKey":true,"label":"Password","inputType":"password","tableView":false,"input":true},{"theme":"primary","disableOnInvalid":true,"action":"submit","block":false,"rightIcon":"","leftIcon":"","size":"md","key":"submit","label":"Submit","input":true,"type":"button"}],"revisions":"","_vid":0,"title":"User Register","name":"userRegister","path":"user/register","access":[{"roles":["5c84a07000b9d166429c193f"],"type":"read_all"}],"submissionAccess":[{"roles":["5c84a07000b9d166429c193f"],"type":"create_own"}],"machineName":"oidsfffyigjdncg:userRegister","project":"5c84a07000b9d1fe669c193c","created":"2019-03-10T05:28:16.143Z","modified":"2019-03-10T05:28:16.146Z"}', true));
-
+    public function allForms(Form $form){
+        $allForms = $form->all()->toArray();
+        $allForms = array_map(function($form) {
+            return [
+                '_id' => $form['id'],
+                'title' => $form['title']
+            ];
+        }, $allForms);
+        return response()->json([["_id" => '5692b920d1028f01000407e7', 'title' => 'User'], ["_id" => '5692b920d1028f01000407e7', 'title' => 'User']]);
+    }
+    public function getLiveForm($id, Form $form)
+    {
+        $liveForm = $form->find(5);
+        return response($liveForm->properties, 200);
     }
 }
