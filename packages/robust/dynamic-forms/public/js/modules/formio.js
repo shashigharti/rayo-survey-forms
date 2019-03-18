@@ -12,7 +12,7 @@
                 let formElement = document.getElementById('designer');
                 let id = $('.design--form').data('form-id');
 
-                builder = Formio.builder(formElement, {}, {
+                Formio.builder(formElement, {}, {
                     readOnly: false
                 }).then(function (form) {
                     formData['display'] = "form";
@@ -91,7 +91,8 @@
      */
     $(function () {
         let base_url = $('.design--form').data("base-url");
-        FRW.DynamicForms.FormIO.init();
+        Formio.setBaseUrl('http://127.0.0.1:8000');
         Formio.setProjectUrl(base_url + '/api/forms');
+        FRW.DynamicForms.FormIO.init();
     });
 }(jQuery, FRW, window, document));
