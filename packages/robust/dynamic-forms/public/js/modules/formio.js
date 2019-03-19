@@ -12,6 +12,7 @@
                 let formElement = document.getElementById('designer');
                 let id = $('.design--form').data('form-id');
                 let slug = $('.design--form').data('slug');
+                let title = $('.design--form').data('title');
 
                 fetch('/admin/user/form-json/' + slug)
                     .then(s  => {return s.json()})
@@ -21,7 +22,10 @@
                             formData['display'] = "form";
                             formData['_method'] = 'PUT';
                             formData['type'] = 'form';
-                            formData['id'] = $('.design--form :input[name="id"]').val();
+                            formData['_id'] = id;
+                            formData['title'] = title;
+                            formData['name'] = title.toLowerCase();
+                            formData['path'] = title.toLowerCase();
                             formData['components'] = form.component.components;
 
                             form.on('change', (elem) => {
