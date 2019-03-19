@@ -93,6 +93,6 @@
         let base_url = $('.design--form').data("base-url");
         FRW.DynamicForms.FormIO.init();
         // Formio.setProjectUrl('https://examples.form.io/');
-        Formio.setProjectUrl('http://127.0.0.1:8000');
+        Formio.setProjectUrl('https://rayoforms.robuststaging.biz/');
     });
 }(jQuery, FRW, window, document));
