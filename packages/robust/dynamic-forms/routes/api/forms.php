@@ -44,7 +44,12 @@ Route::group(['prefix' => config('core.frw.api'), 'as' => 'api.', 'group' => 'Fo
 
 });
 
-Route::get('api/form/{id}', [
+Route::get('/form', [
+    'as' => 'forms.form',
+    'uses' => 'Robust\DynamicForms\Controllers\API\FormController@allForms',
+]);
+
+Route::get('/form/{id}', [
     'as' => 'forms.form.live',
     'uses' => 'Robust\DynamicForms\Controllers\API\FormController@getLiveForm',
 ]);
