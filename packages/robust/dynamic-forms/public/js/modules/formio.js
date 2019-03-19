@@ -11,28 +11,34 @@
             if ($('#designer').length > 0) {
                 let formElement = document.getElementById('designer');
                 let id = $('.design--form').data('form-id');
+                let slug = $('.design--form').data('slug');
 
-                builder = Formio.builder(formElement, {}, {
-                    readOnly: false
-                }).then(function (form) {
-                    formData['display'] = "form";
-                    formData['_method'] = 'PUT';
-                    formData['type'] = 'form';
-                    formData['id'] = $('.design--form :input[name="id"]').val();
-                    formData['components'] = form.component.components;
+                fetch('/admin/user/form-json/' + slug)
+                    .then(s  => {return s.json()})
+                    .then(a => {
+                        let components = JSON.parse(a.properties);
+                        Formio.builder(formElement, components).then(function (form) {
+                            formData['display'] = "form";
+                            formData['_method'] = 'PUT';
+                            formData['type'] = 'form';
+                            formData['id'] = $('.design--form :input[name="id"]').val();
+                            formData['components'] = form.component.components;
 
-                    form.on('change', (elem) => {
-                        if (elem.components) {
-                            formData['components'] = elem.components;
-                        }
+                            form.on('change', (elem) => {
+                                if (elem.components) {
+                                    formData['components'] = elem.components;
+                                }
+                            });
+                            $(".dynamic--form__type").change(function () {
+                                display = $(this).val();
+                                formData['display'] = display;
+                                form.display = display;
+                                Formio.builder(document.getElementById('designer'), form);
+                            });
+                        });
                     });
-                    $(".dynamic--form__type").change(function () {
-                        display = $(this).val();
-                        formData['display'] = display;
-                        form.display = display;
-                        Formio.builder(document.getElementById('designer'), form);
-                    });
-                });
+
+
             }
 
 
