@@ -24,8 +24,6 @@ return [
         'forms.data.print' => 'Print Data',
         'forms.data.delete' => 'Delete Data',
         'forms.data.export' => 'Export Data',
-        'forms.report.advance' => 'Advance Report',
-        'forms.report.individual' => 'Advance Report',
         'forms.form.view-all-submissions' => 'View all submissions',
         'forms.form.view-own-submissions' => 'View own submissions',
         'forms.form.delete-all-submissions' => 'Delete all submissions',
