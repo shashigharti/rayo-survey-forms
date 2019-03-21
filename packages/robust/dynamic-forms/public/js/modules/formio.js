@@ -102,6 +102,6 @@
     $(function () {
         let base_url = $('.design--form').data("base-url");
         FRW.DynamicForms.FormIO.init();
-        Formio.setProjectUrl('https://rayoforms.robuststaging.biz');
+        Formio.setProjectUrl(base_url);
     });
 }(jQuery, FRW, window, document));
