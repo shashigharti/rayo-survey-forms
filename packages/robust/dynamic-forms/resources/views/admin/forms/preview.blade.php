@@ -5,7 +5,7 @@
         @include("core::admin.partials.messages.info")
         <div class="col-md-12 preview--block">
             <div id='preview--container__form'></div>
-                <div id="form__view" data-slug="{{$model->slug}}" data-mode="readonly">
+                <div id="form__view" data-base-url="{{env('APP_URL')}}" data-slug="{{$model->slug}}" data-mode="readonly">
 
                 </div>
         </div>
