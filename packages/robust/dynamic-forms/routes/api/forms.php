@@ -53,3 +53,9 @@ Route::get('/form/{id}', [
     'as' => 'forms.form.live',
     'uses' => 'Robust\DynamicForms\Controllers\API\FormController@getLiveForm',
 ]);
+
+// Formio form submission
+Route::post('/form/{id}/submission', [
+    'as' => 'form.formio.submit',
+    'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForms',
+]);

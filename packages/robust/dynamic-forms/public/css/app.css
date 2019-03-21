@@ -1,1 +1,6 @@
 @import '../../../../../node_modules/formiojs/dist/formio.full.css';
+
+/*Temporarily disable the loader wrapper class*/
+.loader-wrapper {
+    display: none;
+}

@@ -42,7 +42,7 @@
                     <h2 class="">{{ $model->title }}</h2>
                 </div>
                 <div class="form__field clearfix">
-                    <div id = "form__view" data-id="{{$data->id}}" data-slug="{{$model->slug}}" data-mode="edit" data-values="{{$data['values']}}">
+                    <div id = "form__view" data-base-url="{{env('APP_URL')}}" data-id="{{$data->id}}" data-slug="{{$model->slug}}" data-mode="edit" data-values="{{$data['values']}}">
 
                     </div>
 {{--                    {!! Shortcode::compile("[dyn-form preview = false data_id = {$data->id}]{$model->title}[/dyn-form]")  !!}--}}

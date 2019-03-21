@@ -29,10 +29,10 @@
                         <div class="form__field clearfix col-md-12">
                             <form id="dynamicForm">
                                 @csrf
-                                <div id="form__view" data-slug="{{$model->slug}}" class="form--slider">
+                                <div id="form__view" data-base-url="{{env('APP_URL')}}" data-slug="{{$model->slug}}" class="form--slider">
 
                                 </div>
-                            </form>                           
+                            </form>
                         </div>
                     </div>
                     <br>

@@ -86,19 +86,20 @@ class FormController extends Controller
         return response()->json($data);
     }
 
+
     /**
-     * Submission function for form data
      * @param \Illuminate\Http\Request $request
      * @param \Robust\DynamicForms\Models\Data $dynform_tbl
+     * @param null $id
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function submitForm(Request $request, Data $dynform_tbl)
+    public function submitForm(Request $request, Data $dynform_tbl, $id=null)
     {
         $slug = $request->get('slug');
         $mis_survey = $request->except(['id', '_token', 'updated_at']);
         $json_survey = json_encode($mis_survey, true);
         $data = [
-            'form_id' => $request->get('id'),
+            'form_id' => $request->has('id') ? $request->get('id') : $id,
             'values' => $json_survey,
             'completed' => 1,
             'user_id' => Auth::id(),
@@ -131,6 +132,10 @@ class FormController extends Controller
         return response('success');
     }
 
+    /**
+     * @param \Robust\DynamicForms\Models\Form $form
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function allForms(Form $form){
         $allForms = $form->all()->toArray();
         $allForms = array_map(function($form) {
@@ -141,6 +146,12 @@ class FormController extends Controller
         }, $allForms);
         return response()->json($allForms);
     }
+
+    /**
+     * @param $id
+     * @param \Robust\DynamicForms\Models\Form $form
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getLiveForm($id, Form $form)
     {
         $liveForm = json_decode($form->find($id)->properties);
