@@ -6,6 +6,12 @@ body {
     background-color:$body_color !important;
 }
 a{
+    color:$theme_color;
+    -webkit-transition: all .3s ease-in-out;
+       -moz-transition: all .3s ease-in-out;
+        -ms-transition: all .3s ease-in-out;
+         -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
 	&:hover{
 		color:$white !important;
 	}
@@ -20,6 +26,7 @@ html {
     background: #d1cdc7;
     padding-left: 80px;
     top:70px;
+    margin-bottom:60px;
     .page--title {
     	h3 {
     		color:$black;
@@ -38,8 +45,22 @@ html {
     margin: 0 auto;
     border-radius: 0px;
     -webkit-box-shadow: 0 0 3px #666;
-    box-shadow: 0 0 3px #666;
+    box-shadow: 0 0 3px #666;    
     .panel--body{
 	  background: #fff;
+      min-height: 500px;
 	}
+}
+.pd-t-20{
+    padding-top: 20px;
+}
+.mr-t-40{
+    margin-top: 40px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    vertical-align: middle;
 }

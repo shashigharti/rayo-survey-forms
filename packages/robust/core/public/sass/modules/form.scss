@@ -1,3 +1,17 @@
+.form__wrapper{
+  .form-control{
+    height: 30px;
+    font-size: 16px;
+    min-height: 30px;
+  }
+}
+.badge__theme,.form-badge{
+  background: #676767;
+  color: #fff;
+  padding: 4px 10px !important;
+  font-weight: 500;
+  border-radius: 30px !important;
+}
 .form-group {
   label.required::after {
     content: ' *';

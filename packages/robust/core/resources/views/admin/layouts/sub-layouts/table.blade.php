@@ -14,7 +14,7 @@
                     </div>
                     @section('left_menu')
                         @if(isset($ui->left_menu))
-                            <span class="create-btn clearfix pull-right">
+                            <span class="clearfix pull-right">
                                 @include("core::admin.layouts.sub-layouts.partials.tables.create",
                                 [
                                     'ui' => isset($child_ui)?$child_ui:$ui

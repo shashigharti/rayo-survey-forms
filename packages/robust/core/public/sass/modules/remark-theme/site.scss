@@ -1,9 +1,4 @@
 
-
-.default-theme {
-  background-color: #d1cdc7;
-}
-
 .site-navbar {
   padding: 0px 20px;
 }
@@ -459,7 +454,7 @@ ul.site-menu-sub {
     padding: 10px 0;
     background-color: #fff;
     border-top: 1px solid #e0e0e0;
-    .form-control {
+    .rol {
       border: none;
       border-right: 1px solid #e0e0e0;
     }
@@ -1208,9 +1203,7 @@ body.site-navbar-small {
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-top: 66px;
-  }
+  
   .site-navbar {
     .brand {
       display: none;
@@ -11621,12 +11614,6 @@ body{
   }
 }
 
-.form-badge {
-  background: #676767;
-  color: #fff;
-  padding: 4px 10px;
-  font-weight: 500;
-}
 
 .data-edit {
   label {

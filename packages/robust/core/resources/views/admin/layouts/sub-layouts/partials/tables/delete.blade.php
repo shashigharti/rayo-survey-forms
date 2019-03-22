@@ -2,7 +2,7 @@
 {!! Form::button( $option['display_name'],
     [
     'type' => 'button',
-    'class'=> "btn btn-info btn-delete btn-xs waves-effect waves-light",
+    'class'=> "btn btn__red btn__small",
     'data-toggle' => 'modal',
     'data-target' => '#confirmDelete',
     'data-title' => isset($option['data_title'])?$option['data_title']:'Delete Row',

@@ -34,7 +34,7 @@
 
 </head>
 
-<body class="page-login-v3 layout-full"
+<body class="page__login"
       @if(settings('general-setting', 'login_page_image') != '') style="background: url({{settings('general-setting', 'login_page_image')}});" @endif>
 @yield('content')
 <script src="{{ URL::asset('assets/js/core.js') }}"></script>

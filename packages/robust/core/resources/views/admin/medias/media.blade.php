@@ -21,9 +21,9 @@
 
 @section('custom_design')
     <div class="media">
-        <div class="panel-body bg-white">
+        <div class="media--container">
             <!-- Media Sidebar -->
-            <div class="page-aside">
+            <div class="media--sidebar">
                 @include('core::admin.partials.medias.left')
             </div>
             <!-- Media Content -->

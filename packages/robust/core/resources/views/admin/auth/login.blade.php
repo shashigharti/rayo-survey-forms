@@ -1,13 +1,9 @@
 @extends('core::admin.layouts.login')
 
 @section('content')
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-<!-- Page -->
+
 <div class="page">
-    <div class="page-content">
+    <div class="page--container">
         <div class="page-brand-info">
             <div class="brand clearfix">
                 <div class="brand-info">
@@ -22,7 +18,7 @@
             </div>
         </div>
         <div class="panel pull-right">
-            <div class="panel-body">
+            <div class="panel--body">
                 <div class="responsive-logo">
                     <img class="brand-img2"
                          src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png') }}"
@@ -71,13 +67,13 @@
                     </div>
                     <a class="pull-right" href="#">Forgot password?</a>
                 </div>
-                <button type="submit" class="btn btn-primary sign-in btn-block btn-lg margin-top-40">Sign in
+                <button type="submit" class="btn btn__purple btn__block mr-t-40 btn__large btn__radius--none">Sign in
                 </button>
                 {{ Form::close() }}
 
                {{-- <p>Still no account? Please go to <a href="#">Sign up</a></p>
                 <a href="{{ route('frw.user.auth.facebook') }}" type="submit"
-                   class="btn btn-primary btn-block sign-in btn-lg margin-top-40"
+                   class="btn btn__purple btn__block mr-t-40 btn__radius--none"
                    style="pointer-events: none; cursor: default;">Sign up wth Facebook</a>--}}
 
             </div>

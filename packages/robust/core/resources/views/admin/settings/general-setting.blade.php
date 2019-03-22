@@ -14,16 +14,16 @@
                    data-image-path="#file-upload__logo-url" data-hidden="#logo"></i>
             @endif
 
-            <div class="col-sm-5 file-upload__btn">
+            <div class="col-sm-5 ">
 
                 {{ Form::file('files[logo]', [
-                    'class' =>'image-upload',
+                    'class' =>'image-upload ',
                     'data-preview' => '#file-upload__img',
                     'data-image-path' => '#file-upload__logo-url'
                 ])
                 }}
                 {{ Form::hidden('logo', isset($settings['logo'])?$settings['logo']:'', ['id' => 'logo']) }}
-                <button type="button" id="btn__select-image" class="btn theme-btn">Upload Logo</button>
+                <button type="button" id="btn__select-image" class="btn btn-primary">Upload Logo</button>
             </div>
             <div class="col-sm-12">(Image Size: 200 x 200)</div>
         </div>
@@ -40,7 +40,7 @@
                 ])}}
                 {{ Form::hidden('login_page_image', isset($settings['login_page_image'])?$settings['login_page_image']:'', ['id' => 'login_page-img']) }}
                 <div id="file-upload__login-image-url">{{$settings['login_page_image'] ?? ''}}</div>
-                <button type="button" class="btn theme-btn">Upload Login Image</button>
+                <button type="button" class="btn btn-primary">Upload Login Image</button>
             </div>
             <div class="col-sm-12">(Image Size: 1200 x 1200)</div>
         </div>

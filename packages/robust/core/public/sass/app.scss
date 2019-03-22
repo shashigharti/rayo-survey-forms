@@ -1,17 +1,14 @@
 @import 'modules/remark-theme/font/material-design.scss';
 @import 'modules/remark-theme/font/brand-icons.scss';
-@import 'modules/remark-theme/site.scss';
-@import 'modules/remark-theme/dashboard.scss';
+//@import 'modules/remark-theme/site.scss';
 @import 'modules/remark-theme/login.scss';
 @import 'modules/remark-theme/tables/table.scss';
-@import 'modules/remark-theme/button.scss';
 @import 'modules/form.scss';
 @import 'modules/image_upload.scss';
 @import 'modules/media.scss';
 @import 'modules/cropper.scss';
 @import 'modules/menus/left-menu.scss';
 @import 'modules/menus/top-nav.scss';
-@import 'modules/menus/nav-tab.scss';
 @import 'modules/menus/breadcrumb.scss';
 @import 'modules/button.scss';
 @import 'modules/site_dashboard.scss';
@@ -22,6 +19,8 @@
 @import 'modules/input.scss';
 @import "modules/toggle-switch.scss";
 @import "modules/spinner.scss";
+@import 'modules/remark-theme/button.scss';
+@import 'modules/menus/tabs.scss';
 @import 'modules/remark-theme/color.scss';
 @import 'modules/remark-theme/base.scss';
 @import 'modules/remark-theme/header.scss';

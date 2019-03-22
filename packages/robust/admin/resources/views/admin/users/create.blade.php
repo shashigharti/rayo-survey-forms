@@ -86,7 +86,7 @@
         </div>
     @endif
     <div class="form-group form-material">
-        {{ Form::submit($ui->getSubmitText(), ['class' => 'btn btn-primary theme-btn']) }}
+        {{ Form::submit($ui->getSubmitText(), ['class' => 'btn btn__small btn__purple']) }}
     </div>
     {{ Form::close() }}
 

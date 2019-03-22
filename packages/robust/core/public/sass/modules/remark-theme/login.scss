@@ -7,34 +7,44 @@ $theme_color: #6b4994;
 $hover_color: #7461BC;
 $url_0: url('../../assets/images/meeting.jpeg');
 
-.page-login-v3 {
+.page__login {
     background: $url_0;
     background-size: cover !important;
     background-repeat:no-repeat !important;
     &:before{
-
     position: fixed;
     top: 0;
     left: 0;
-    // z-index: -1;
     width: 100%;
     height: 100%;
     content: '';
-     // background-image: $url_0;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3949ab', endColorstr='#ff283593', GradientType=0);
     background-repeat:no-repeat !important;
     background-position: center top;
     background-size: cover !important;
     
   }
-
+  .page{
+    top:0px;
+    max-width: none;
+    height: 100%;
+    padding: 0;
+    margin: 0 !important;
+    background-color: transparent;
+  }
 
   .panel {
     width: 400px;
     background: $white;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    .panel-body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    min-height: 100%;
+    color: #76838f;
+    .panel--body {
       padding: 50px 40px 0px;
+      min-height: 100vh;
     }
     .brand-text {
       margin-top: 8px;
@@ -70,27 +80,9 @@ $url_0: url('../../assets/images/meeting.jpeg');
   }
 }
 
-.page-dark.layout-full::before {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background-position: center top;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-
 .responsive-logo {
   display: none;
 }
-
-.page-dark.layout-full .brand {
-  margin-bottom: 0px;
-}
-
 .social-icon {
   width: 40px;
 }

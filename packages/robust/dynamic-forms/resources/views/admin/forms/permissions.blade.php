@@ -2,8 +2,8 @@
 
 @section('form')
     @set('ui', new $ui)
-
-    <div id="form_permission">
+    
+    <div id="form__wrapper">
         <input type="hidden" name="base_url" value="{{url('/')}}">
         <fieldset>
             <legend>Roles:</legend>

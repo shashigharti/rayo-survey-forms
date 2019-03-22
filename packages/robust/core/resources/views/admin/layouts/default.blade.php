@@ -39,7 +39,7 @@
     {!! settings('contact-setting', 'g-analytics') !!}
 
 </head>
-<body class="default-theme">
+<body>
 @include("core::admin.partials.nav")
 @include("core::admin.partials.menus.left-menu")
 @yield('content')

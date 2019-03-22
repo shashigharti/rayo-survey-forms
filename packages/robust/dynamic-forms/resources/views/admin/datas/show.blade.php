@@ -8,24 +8,25 @@
     @set('setting', $setting_helper->get('general-setting'))
 
     @if(isset($ui->right_menu))
-        <span class="create-btn clearfix pull-right">
-           @foreach($ui->right_menu as $key => $menu)
-                <div class="pull-right">
-                    <div role="group" class="media-arrangement">
-                        @can($menu['permission'])
-                            <a href="{{route($menu['url'], $data->id)}}">
-                                <span>{!!  $menu['display_name'] !!}</span>
-                            </a>
-                        @endcan
+        <div class="col-sm-12 text-right pd-t-20">
+            <span>
+               @foreach($ui->right_menu as $key => $menu)
+                    <div>
+                        <div role="group" class="media-arrangement">
+                            @can($menu['permission'])
+                                <a class=" btn__purple" href="{{route($menu['url'], $data->id)}}">
+                                    <span>{!!  $menu['display_name'] !!}</span>
+                                </a>
+                            @endcan
+                        </div>
                     </div>
-                </div>
-            @endforeach
-
-        </span>
+                @endforeach
+            </span>
+        </div>
     @endif
 
     <div id="theme_preview">
-        <div class="col-md-12 panel-body dynamic__form-container form__wrapper default-form">
+        <div class="form__wrapper">
 
             <div class="project-info">
                 <h6>Client name : {{ Auth::user()->first_name }}</h6>

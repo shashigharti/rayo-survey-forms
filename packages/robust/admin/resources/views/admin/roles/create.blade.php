@@ -3,9 +3,9 @@
     @inject('permission_helper', '\Robust\Core\Helpers\PermissionHelper')
     @set('ui', new $ui)
     <div class="page">
-        <div class="page-content">
-            <div class="container form-container">
-                <div class="panel-box panel-default">
+        <div class="page--container">
+            <div class="panel">
+                <div class="panel--body">
                     <div class="form__wrapper">
                         @include("core::admin.partials.messages.info")
                         {{ Form::model($model, ['route' => ['admin.roles.update', $model->id], 'method' => $ui->getMethod($model) ]) }}

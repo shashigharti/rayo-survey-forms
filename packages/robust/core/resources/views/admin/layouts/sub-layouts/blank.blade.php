@@ -12,12 +12,12 @@
                             {!! Breadcrumb::getInstance()->render(false)  !!}
                         </div>
                         @section('create-btn')
-                            <span class="create-btn">
+                        <div>
                             @include("core::admin.layouts.sub-layouts.partials.tables.create",
                             [
                                 'ui' => isset($child_ui)?$child_ui:$ui
                             ])
-                        </span>
+                        </div>
                         @show
                     </div>
 
