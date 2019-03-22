@@ -43,6 +43,7 @@ class RegisterController extends Controller
         if ($user) {
             $event = $this->events['create'];
             event(new $event($user));
+            Auth::attempt(['email' => $this->request->get('email'), 'password' => $this->request->get('password')]);
         }
         if (\Cache::get('redirect_url')) {
             $redirect_url = \Cache::get('redirect_url');
