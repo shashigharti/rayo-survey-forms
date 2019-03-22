@@ -96,9 +96,6 @@
      |--------------------------------------------------------------------------
      */
     $(function () {
-        let base_url = $('.design--form').data("base-url");
-        Formio.setBaseUrl('http://127.0.0.1:8000');
-        Formio.setProjectUrl(base_url + '/api/forms');
         FRW.DynamicForms.FormIO.init();
     });
 }(jQuery, FRW, window, document));

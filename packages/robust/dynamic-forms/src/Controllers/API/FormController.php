@@ -139,11 +139,11 @@ class FormController extends Controller
                 'title' => $form['title']
             ];
         }, $allForms);
-        return response()->json([["_id" => '5692b920d1028f01000407e7', 'title' => 'User'], ["_id" => '5692b920d1028f01000407e7', 'title' => 'User']]);
+        return response()->json($allForms);
     }
     public function getLiveForm($id, Form $form)
     {
-        $liveForm = $form->find(5);
-        return response($liveForm->properties, 200);
+        $liveForm = json_decode($form->find($id)->properties, true);
+        return response()->json($liveForm);
     }
 }
