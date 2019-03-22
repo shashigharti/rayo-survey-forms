@@ -123,14 +123,11 @@ const fns = {
         method: 'post',
         credentials: "same-origin",
     },
-    base_url: $('#form__view').data('base-url'),
     init : () => {
         // Set token in options' header
         fns.options.headers['X-CSRF-TOKEN'] = fns.token;
         // Set modes for form if it's readonly / editable / new form etc.
         fns.setFormMode();
-        // Set Formio's project url
-        Formio.setProjectUrl(fns.base_url);
         return new Worker('/assets/website/js/worker.js');
     },
     setFormMode: () => {
