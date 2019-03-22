@@ -79,5 +79,12 @@
 
 <script src="{{ url('assets/website/js/idb.js') }}"></script>
 <script src="{{ url('assets/website/js/pwa.js') }}"></script>
+<script>
+    $(function() {
+        let base_url = '{{env('APP_URL')}}';
+        Formio.setBaseUrl(base_url);
+        Formio.setProjectUrl(base_url);
+    })
+</script>
 </body>
 </html>

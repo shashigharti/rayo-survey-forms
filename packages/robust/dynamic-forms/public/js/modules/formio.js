@@ -100,8 +100,6 @@
      |--------------------------------------------------------------------------
      */
     $(function () {
-        let base_url = $('.design--form').data("base-url");
         FRW.DynamicForms.FormIO.init();
-        Formio.setProjectUrl(base_url);
     });
 }(jQuery, FRW, window, document));

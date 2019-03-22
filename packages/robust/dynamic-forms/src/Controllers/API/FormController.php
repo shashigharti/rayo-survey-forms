@@ -154,7 +154,7 @@ class FormController extends Controller
      */
     public function getLiveForm($id, Form $form)
     {
-        $liveForm = json_decode($form->find($id)->properties);
+        $liveForm = json_decode($form->find($id)->properties, true);
         return response()->json($liveForm);
     }
 }

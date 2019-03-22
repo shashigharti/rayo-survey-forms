@@ -59,3 +59,4 @@ Route::post('/form/{id}/submission', [
     'as' => 'form.formio.submit',
     'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForms',
 ]);
+
