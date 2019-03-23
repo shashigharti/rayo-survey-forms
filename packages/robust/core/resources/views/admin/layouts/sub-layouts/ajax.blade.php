@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="page {{$title}}">
-        <div class="page-content">
-            <div class="container">
-                <div class="page-title text-center">
+        <div class="page--content">
+            <div class="page--container">
+                <div class="page--title text-center clearfix">
                     <span>{{ $title }}</span>
                 </div>
                 <div class="panel-box panel-default">

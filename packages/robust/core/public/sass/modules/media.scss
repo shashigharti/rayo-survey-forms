@@ -12,10 +12,9 @@ $color_outer_space_60_approx: rgba(38, 50, 56, .6);
   height: 100%;
   width: 1600px;
   margin: 15px auto;
-  .page-header {
-    padding: 0px;
-  }
-  .page-aside {
+  position: relative;
+ 
+  .media--sidebar {
     overflow-x: hidden;
     .list-group-item {
       -webkit-transition: all 0.3s ease;

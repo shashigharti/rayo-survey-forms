@@ -1,5 +1,5 @@
 @media (max-width: 768px) {
- 	.left-menu{
+ 	.menu__left{
  		top:85px;
  		.left{
  			width:0px;
@@ -16,12 +16,13 @@
     			width: 20px;
     			color: #fff;
 		    }
- 		}
+ 		} 		
  	}
  	a.left-smallmenu-bar {
     	display: inline-block;
     	width: 50%;
     	font-size: 18px;
+    	color:#66499e !important;
 	}
 }
 @media (max-width: 480px) {

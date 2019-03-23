@@ -1,12 +1,10 @@
-.form-table > thead > tr > th {
-  border-bottom: 2px solid #c9c9c9;
-}
 .table {
   color:#111;
   th {
     font-family: 'roboto';
     font-size: 14px;
     font-weight: 500 !important;
+    border-bottom: 2px solid #c9c9c9;
   }
 
   a {

@@ -9,7 +9,7 @@
     {{ Form::model($model,['route' => $ui->getRoute($model, $slug), 'enctype' => 'multipart/form-data', 'method' => $ui->getMethod($model) ]) }}
     @include("admin::admin.partials.profile.{$slug}")
     <div class="form-group form-material">
-        {{ Form::submit($ui->getSubmitText(), ['class' => 'btn btn-primary theme-btn']) }}
+        {{ Form::submit($ui->getSubmitText(), ['class' => 'btn btn__small btn__purple']) }}
     </div>
     {{ Form::close() }}
 @endsection

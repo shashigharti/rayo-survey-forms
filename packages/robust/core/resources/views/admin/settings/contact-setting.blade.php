@@ -5,7 +5,7 @@
             ]) }}
 
     <div class="nav-tabs-vertical">
-        <ul class="nav nav-tabs lang-nav">
+        <ul class="nav tabs--bottom__border tabs--container lang-nav">
             <li class="active"><a data-toggle="tab" href="#english">English</a></li>
             <li><a data-toggle="tab" href="#nepali">Nepali</a></li>
         </ul>

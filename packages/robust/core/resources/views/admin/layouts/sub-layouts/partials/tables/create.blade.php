@@ -3,12 +3,11 @@
     <div class="pull-right">
         <div role="group" class="media-arrangement">
             @can($menu['permission'])
-            <a
+            <a class="btn__purple"
                     @if(isset($ui->isModal) && $ui->isModal)
                     data-toggle="modal"
                     data-modal="crudModal"
-                    data-title="{{ $ui->getTitle()  }}"
-
+                    data-title="{{ $ui->getTitle()  }}"                    
                     data-url="{{isset($child_ui)?$ui->getCreateRoute($key, ['parent_id' => $model->id]):$ui->getCreateRoute($key)}}"
                     href='javascript:void(0)'
                     @else

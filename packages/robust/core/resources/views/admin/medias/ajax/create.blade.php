@@ -12,7 +12,7 @@
 </div>
 
 <div class="form-group form-material">
-    {{ Form::submit('Save', ['class' => 'btn btn-dark theme-btn']) }}
+    {{ Form::submit('Save', ['class' => 'btn btn__purple btn__small']) }}
 </div>
 {!! Form::close() !!}
 

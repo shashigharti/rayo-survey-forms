@@ -1,111 +1,4 @@
 
-.default-theme {
-  .container {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    min-height: 100%;
-    .panel-default {
-      min-height: 500px;
-    }
-  }
-}
-
-.navbar-inverse .navbar-toolbar > li > a {
-  color: #75736f;
-}
-
-.navbar-inverse .navbar-toolbar > li > a:hover, .navbar-inverse .navbar-toolbar > li > a:focus {
-  color: #fff;
-  background-color: #6b4994;
-}
-
-.nav {
-  padding-left: 100px;
-}
-
-.site-navbar {
-  .navbar-header {
-    .navbar-brand-logo {
-      height: 50px;
-    }
-    .navbar-brand-logo-normal {
-      display: none;
-    }
-    .navbar-brand {
-      font-family: "Roboto", sans-serif;
-      cursor: pointer;
-    }
-  }
-  .navbar-container {
-    background-color: transparent;
-  }
-  &.navbar-inverse {
-    .navbar-header {
-      .hamburger {
-        &:before, &:after, .hamburger-bar {
-          background-color: #fff;
-        }
-      }
-      .navbar-brand-logo-normal {
-        display: inline-block;
-      }
-      .navbar-brand-logo-special {
-        display: none;
-      }
-    }
-    .navbar-container {
-      background-color: transparent;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .site-navbar .navbar-header {
-    width: 160px;
-  }
-}
-
-@media (min-width: 768px) {
-  .site-navbar .navbar-container {
-    margin-left: 160px;
-    #toggleMenubar {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .site-navbar .navbar-container {
-    background-color: #fff;
-  }
-}
-
-@media (max-width: 767px) {
-  .site-navbar.navbar-inverse .navbar-container {
-    background-color: #fff;
-  }
-}
-
-@media (max-width: 767px) {
-  .site-navbar.navbar-inverse .navbar-toolbar > li > a {
-    color: inherit;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  padding-top: 70px;
-}
-
-.default-theme {
-  background-color: #d1cdc7;
-}
-
 .site-navbar {
   padding: 0px 20px;
 }
@@ -561,7 +454,7 @@ ul.site-menu-sub {
     padding: 10px 0;
     background-color: #fff;
     border-top: 1px solid #e0e0e0;
-    .form-control {
+    .rol {
       border: none;
       border-right: 1px solid #e0e0e0;
     }
@@ -643,19 +536,7 @@ ul.site-menu-sub {
   }
 }
 
-body {
-  background-color: #d1cdc7;
-}
 
-.page {
-  position: relative;
-  min-height: -webkit-calc(100% - 37px);
-  min-height: calc(100% - 37px);
-  margin: 0 auto;
-  background: #d1cdc7;
-  padding-left:54px;
-  top:-14px;
-}
 
 .page-dark.layout-full {
   color: #fff;
@@ -806,29 +687,6 @@ body {
   }
 }
 
-// @media screen and (min-width: 1600px) {
-//   .page {
-//     max-width: 1600px;
-//   }
-// }
-
-// @media (min-width: 1200px) and (max-width: 1599px) {
-//   .page {
-//     max-width: 1200px;
-//   }
-// }
-
-// @media (min-width: 992px) and (max-width: 1199px) {
-//   .page {
-//     max-width: 992px;
-//   }
-// }
-
-// @media (min-width: 768px) and (max-width: 991px) {
-//   .page {
-//     max-width: 768px;
-//   }
-// }
 
 .page-header + .page-content {
   padding-top: 0;
@@ -1345,9 +1203,7 @@ body.site-navbar-small {
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-top: 66px;
-  }
+  
   .site-navbar {
     .brand {
       display: none;
@@ -11758,12 +11614,6 @@ body{
   }
 }
 
-.form-badge {
-  background: #676767;
-  color: #fff;
-  padding: 4px 10px;
-  font-weight: 500;
-}
 
 .data-edit {
   label {
@@ -11773,9 +11623,7 @@ body{
 .btn {
   box-shadow: none;
 }
-.panel-body{
-  background: #fff;
-}
+
 .panel-box {
   position: relative;
   background: #fff;
@@ -11839,14 +11687,7 @@ body{
   }
 }
 
-.form-panel {
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 0px;
-  -moz-box-shadow: 0 0 3px #666;
-  -webkit-box-shadow: 0 0 3px #666;
-  box-shadow: 0 0 3px #666;
-}
+
 .btn-lg,
     .btn-group-lg > .btn {
       padding: 10px 16px;

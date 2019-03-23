@@ -8,7 +8,7 @@
   }
 }
 @media(max-width: 480px) {
-  .page-login-v3 {
+  .page__login {
     .page{
       top:0px;
     }
@@ -18,7 +18,7 @@
     .panel {
       width: auto;
       padding: 10px;
-      .panel-body {
+      .panel--body {
         padding: 35px 25px;
       }
     }
@@ -29,11 +29,11 @@
   }
 }
 @media(max-width: 767px) {
-  .page-login-v3 .page-brand-info {
+  .page__login .page-brand-info {
     display: none;
   }
 
-  .page-login-v3 .panel {
+  .page__login .panel {
     width: 100%;
   }
 

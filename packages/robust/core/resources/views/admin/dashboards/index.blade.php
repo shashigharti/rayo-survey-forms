@@ -3,9 +3,9 @@
     @set('ui', new $ui)
 
     <div class="page">
-        <div class="page-content container-fluid">
-            <div class="page-title text-center">
-                    <span class="create-btn">
+        <div class="page--content container-fluid">
+            <div class="page--title text-center">
+                    <span class="btn__purple">
                         @include("core::admin.layouts.sub-layouts.partials.tables.create",
                         [
                             'ui' => isset($child_ui)?$child_ui:$ui

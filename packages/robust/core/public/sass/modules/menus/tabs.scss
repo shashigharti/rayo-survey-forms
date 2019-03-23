@@ -1,0 +1,25 @@
+.tabs--container {
+    li {
+    	display: inline-block;
+    	margin-right: 2px;
+    	a {
+		    padding: 10px 20px;
+		    color: #757575;
+		    -webkit-transition: .25s;
+		    transition: .25s;
+		    border: 1px solid transparent;
+    		border-radius: 3px 3px 0 0; 
+    		display: inline-block;   		
+		}
+		&.active{
+			a{
+				background-color: #6b4994;
+    			border-bottom-color: #6b4994;
+    			color: #fff;
+			}
+		}
+	}
+}
+.tabs--bottom__border{
+	border-bottom: 1px solid #dee2e6;
+}

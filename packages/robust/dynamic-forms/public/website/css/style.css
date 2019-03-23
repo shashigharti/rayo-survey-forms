@@ -85,7 +85,7 @@ a {
     text-decoration: none;
 }
 
-Dashboard
+/* Dashboard */
 .settings .dropdown-menu {
     right: 0;
     left: inherit;
@@ -329,4 +329,8 @@ a.left-menu-bar {
 
 .left-menu-bar i {
     font-size: 12px;
+}
+.design--form--block .drag-container{
+    height: 600px;
+    overflow: auto;
 }

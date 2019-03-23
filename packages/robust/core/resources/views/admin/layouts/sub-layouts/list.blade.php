@@ -3,9 +3,9 @@
 @section('content')
     @set('ui', new $ui)
     <div class="page {{ $title }}">
-        <div class="page-content">
-            <div class="page-title">
-                <div class="rayo-breadcrumb pull-left">
+        <div class="page--content">
+            <div class="page--title clearfix">
+                <div class="pull-left">
                     <span><h3>{{ $title }}</h3></span>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -22,7 +22,7 @@
                     </span>
             </div>
 
-            <div class="panel-body">
+            <div class="panel--body">
                 @include("core::admin.partials.messages.info")
                 @if(method_exists($ui, 'getModel'))
                     <div class="col-sm-3 pull-right">
