@@ -8,7 +8,7 @@ $(window).on('load', function () {
     let online = navigator.onLine;
 
 
-    if(!online) {
+    if (!online) {
         console.log("Offline mode.");
         // Get offline slug
         fns.getOfflineSlug();
@@ -33,7 +33,7 @@ $(window).on('load', function () {
             Formio.createForm(document.getElementById('form__view'), formProperties, {
                 readOnly: fns.readOnly
             }).then(function (form) {
-                if(fns.editMode) {
+                if (fns.editMode) {
                     form.submission = $('#form__view').data('values');
                 }
                 form.on('submit', (submission) => {
@@ -46,18 +46,40 @@ $(window).on('load', function () {
 
                 });
 
-                form.on('render', (rendered) => { 
-                    setTimeout(function(){
-                        $('.form--slider').children(":first").addClass('mobile--slider');                   
-                        if(window.innerWidth < 500){
-                         $('.form--slider .mobile--slider').slick({
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                            arrows: true
-                         });
+                form.on('change', function (change) {
+                    if (window.innerWidth < 500) {
+                        // Set slick class to display none if the formio component is hidden & vice versa
+                        $('.form-group').each(function () {
+                            if ($(this).attr('hidden') !== undefined) {
+                                $(this).parent().parent().attr('style', 'display: none;');
+                            } else {
+                                $(this).parent().parent().attr('style', 'display: block;');
+                            }
+                        });
                     }
+                });
+
+                form.on('render', (rendered) => {
+                    setTimeout(function () {
+                        $('.form--slider').children(":first").addClass('mobile--slider');
+                        if (window.innerWidth < 500) {
+                            $('.form--slider .mobile--slider').slick({
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                arrows: true
+                            });
+
+                            // Set slick class to display none if the formio component is hidden & vice versa
+                            $('.form-group').each(function () {
+                                if ($(this).attr('hidden') !== undefined) {
+                                    $(this).parent().parent().attr('style', 'display: none;');
+                                } else {
+                                    $(this).parent().parent().attr('style', 'display: block;');
+                                }
+                            });
+                        }
                     }, 1000)
-                    
+
                 });
             });
 
@@ -71,11 +93,11 @@ $(window).on('load', function () {
     }
 
     // Receive messages from web worker
-    worker.addEventListener('message', function(e) {
+    worker.addEventListener('message', function (e) {
         let resp = e.data;
-        if(resp.type === "storeInLocal") {
+        if (resp.type === "storeInLocal") {
             // If store successful
-            if(resp.status) {
+            if (resp.status) {
                 $('.glyphicon-refresh.glyphicon-spin').remove();
                 $('[name="data[submit]"]').attr('class', 'btn btn-primary btn-md btn-success submit-success');
             } else {
@@ -89,7 +111,7 @@ $(window).on('load', function () {
             // Set title of the form page
             $('#form-title').html(item.title);
             // Render the form
-            Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function(form){
+            Formio.createForm(document.getElementById('form__view'), JSON.parse(item.properties)).then(function (form) {
                 form.on('submit', (submission) => {
                     submission.formId = item.id;
                     submission.updated_at = fns.getYMD();
@@ -123,7 +145,7 @@ const fns = {
         method: 'post',
         credentials: "same-origin",
     },
-    init : () => {
+    init: () => {
         // Set token in options' header
         fns.options.headers['X-CSRF-TOKEN'] = fns.token;
         // Set modes for form if it's readonly / editable / new form etc.
@@ -148,7 +170,7 @@ const fns = {
             console.log(data);
         });
     },
-    updateData : (data) => {
+    updateData: (data) => {
         data.update_id = $('#form__view').data('id');
         fns.options.body = JSON.stringify(data);
         // Submit the form via API
@@ -173,9 +195,9 @@ const fns = {
         let year = dateObj.getUTCFullYear();
         let time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
 
-        return(year + "-" + month + "-" + day + " " + time);
+        return (year + "-" + month + "-" + day + " " + time);
     },
-    getLeftMenu : (menus) => {
+    getLeftMenu: (menus) => {
         let el = '';
         menus.forEach((menu) => {
             el += '<div class="item-tooltip">' +
@@ -190,4 +212,4 @@ const fns = {
         });
         return el;
     }
-}
+};

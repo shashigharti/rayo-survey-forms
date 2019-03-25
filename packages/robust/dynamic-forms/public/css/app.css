@@ -4,3 +4,7 @@
 .loader-wrapper {
     display: none;
 }
+/*Remove help from formio builder*/
+i.glyphicon.glyphicon-new-window {
+    display: none;
+}
