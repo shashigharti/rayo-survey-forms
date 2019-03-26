@@ -56,6 +56,14 @@
                     }
                 }
 
+                formData["properties"]["settings"] = {
+                    'recaptcha': {
+                        'isEnabled': 'true',
+                        "secretKey": "6LcV_pkUAAAAAHxUK7HsURaS0Pozt97zdUaV0mSy",
+                        "siteKey": "6LcV_pkUAAAAAOPyibpztMVOJVad5ePUVSFZurW2"
+                    }
+                };
+
 
                 let url = $('.design--form').data("url");
                 formData['properties'] = JSON.stringify(formData['properties']);
