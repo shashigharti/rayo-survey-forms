@@ -175,6 +175,6 @@ class FormController extends Controller
             dd($e);
         }
 
-        dd($response);
+        dd($response->getBody());
     }
 }
