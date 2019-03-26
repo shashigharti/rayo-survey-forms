@@ -67,6 +67,7 @@
 
                 let url = $('.design--form').data("url");
                 formData['properties'] = JSON.stringify(formData['properties']);
+                $('.dynamic-form__save').html('<i class="fa fa-spinner fa-spin"></i> Saving..');
                 $.ajax({
                     url: url,
                     type: 'POST',
