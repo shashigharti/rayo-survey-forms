@@ -35,6 +35,12 @@ $(window).on('load', function () {
             }).then(function (form) {
                 if (fns.editMode) {
                     form.submission = $('#form__view').data('values');
+                } else {
+                    // Provide a default submission.
+                    form.submission = {
+                        data: {
+                        }
+                    };
                 }
                 form.on('submit', (submission) => {
                     submission.id = jsonData.id;
