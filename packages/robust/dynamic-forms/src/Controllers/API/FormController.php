@@ -3,8 +3,10 @@
 namespace Robust\DynamicForms\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mockery\Exception;
 use Robust\DynamicForms\Helpers\FormHelper;
 use Robust\DynamicForms\Models\Data;
 use Robust\DynamicForms\Models\Form;
@@ -156,5 +158,23 @@ class FormController extends Controller
     {
         $liveForm = json_decode($form->find($id)->properties, true);
         return response()->json($liveForm);
+    }
+
+    public function getRecaptchaResponse(Request $request, Client $client)
+    {
+        $secret = '6LcV_pkUAAAAAHxUK7HsURaS0Pozt97zdUaV0mSy';
+        $recaptchaToken = $request->get('recaptchaToken');
+        try {
+            $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
+                'form_params' => [
+                    'secret' => $secret,
+                    'token' => $recaptchaToken,
+                ]
+            ]);
+        } catch(Exception $e) {
+            dd($e);
+        }
+
+        dd($response);
     }
 }

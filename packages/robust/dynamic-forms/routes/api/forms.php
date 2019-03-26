@@ -60,3 +60,9 @@ Route::post('/form/{id}/submission', [
     'uses' => 'Robust\DynamicForms\Controllers\API\FormController@submitForms',
 ]);
 
+// Formio form submission
+Route::get('/recaptcha', [
+    'as' => 'form.google.recaptcha',
+    'uses' => 'Robust\DynamicForms\Controllers\API\FormController@getRecaptchaResponse',
+]);
+
