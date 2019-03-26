@@ -168,7 +168,7 @@ class FormController extends Controller
             $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
                 'form_params' => [
                     'secret' => $secret,
-                    'token' => $recaptchaToken,
+                    'response' => $recaptchaToken,
                 ]
             ]);
         } catch(Exception $e) {
