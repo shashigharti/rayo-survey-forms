@@ -54,7 +54,22 @@
 	.avatar{
 		width: 30px;
 		vertical-align: middle;
+		img {
+		    width: 100%;
+		    max-width: 100%;
+		    height: auto;
+		    border: 0 none;
+		    border-radius: 1000px;
+		}
 	}   
+}
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    white-space: nowrap;
+    vertical-align: bottom;
+    border-radius: 1000px;
 }
 @media (max-width: 768px) {
  	.header__top{

@@ -38,7 +38,8 @@
                                             @elseif(View::exists("core::admin.layouts.sub-layouts.partials.tables.{$key}") )
                                                 @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
                                             @else
-                                                <a class='btn btn__blue btn__small btn-{{$key}}'
+
+                                                <a class='btn btn__blue btn__small btn__{{$key}}'
                                                    @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
                                                    data-url="{{$ui->getTableRoute($option,
                                                [
@@ -72,7 +73,7 @@
                                         @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
                                     @else
                                        
-                                    <a class='btn btn__blue btn__small btn-{{$key}}'
+                                    <a class='btn btn__blue btn__small btn__{{$key}}'
                                        @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
                                        data-url="{{$ui->getTableRoute($option,
                                                [
@@ -103,7 +104,7 @@
                                     @elseif(View::exists("core::admin.layouts.sub-layouts.partials.tables.{$key}") )
                                         @include("core::admin.layouts.sub-layouts.partials.tables.{$key}", ['extra_params' => (isset($option['params']))? $option['params'] : []])
                                     @else
-                                        <a class='btn btn__blue btn__small btn-{{$key}}'
+                                        <a class='btn btn__blue btn__small btn__{{$key}}'
                                            @if(isset($ui->isModal) && $ui->isModal && ($key == 'edit'))
                                            data-url="{{$ui->getTableRoute($option,
                                                [
