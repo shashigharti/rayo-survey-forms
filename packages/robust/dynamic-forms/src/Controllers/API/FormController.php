@@ -175,6 +175,7 @@ class FormController extends Controller
             dd($e);
         }
 
-        dd($response->getBody());
+        $jsonResponse = json_decode($response->getBody());
+        return response()->json($jsonResponse);
     }
 }
