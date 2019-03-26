@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page">
-    <div class="page-content">
+    <div class="page--container">
         <div class="page-brand-info">
             <div class="brand clearfix">
                 <div class="brand-info">
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="panel pull-right">
-            <div class="panel-body">
+            <div class="panel--body">
                 <div class="responsive-logo">
                     <img class="brand-img2"
                          src="{{ (settings('general-setting', 'logo') != '') ? settings('general-setting', 'logo') : url('assets/images/logo-rayo-insight.png') }}"

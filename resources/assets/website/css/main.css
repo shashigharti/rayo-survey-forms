@@ -71,7 +71,7 @@ ul {
 .site-logo {
     padding: 0px;
     text-align: center;
-    width: 300px;
+    width:212px;
     float: left;
 }
 .site-logo h2 {
@@ -294,4 +294,7 @@ img.phone{
 }
 .half-cta textarea{
     height: 100px;
+}
+.cta-container .row{
+    margin: 0px;
 }

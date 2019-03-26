@@ -11,6 +11,8 @@ $url_0: url('../../assets/images/meeting.jpeg');
     background: $url_0;
     background-size: cover !important;
     background-repeat:no-repeat !important;
+    padding-top: 0;
+    height:100%;
     &:before{
     position: fixed;
     top: 0;
@@ -26,6 +28,17 @@ $url_0: url('../../assets/images/meeting.jpeg');
   }
   .page{
     top:0px;
+    max-width: none;
+    height: 100%;
+    padding: 0;
+    margin: 0 !important;
+    background-color: transparent;
+    .page--container{
+      width:100%;
+      .brand-img{
+        width:400px;
+      }
+    }
   }
   h3{
     max-width: none;
@@ -38,10 +51,10 @@ $url_0: url('../../assets/images/meeting.jpeg');
   .panel {
     width: 400px;
     background: $white;
+    min-height:100vh;
 
     .panel--body {
       padding: 50px 40px 0px;
-      min-height: 100vh;
     }
     .brand-text {
       margin-top: 8px;
@@ -99,11 +112,11 @@ $url_0: url('../../assets/images/meeting.jpeg');
 .brand-info{
   position:absolute;
   top:0;
-  width: 100%;
+  width: 76%;
   height: 100%;
   padding-top: 380px !important;
-  padding-left:60px !important;
-  padding-right:89px !important;
+  padding-right:0px !important;
+  padding-left:60px;
     p{
       font-size:20px !important;
       color:#0f0f0a !important;

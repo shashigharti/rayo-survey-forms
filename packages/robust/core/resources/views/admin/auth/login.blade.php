@@ -32,7 +32,7 @@
                 @endif
                 @if(isset($verification) && $verification == true)
                     <h3 class="text-center">Verify Your Email Address</h3>
-                    <div class="container">
+                    <div class="mr-t-150 text-center">
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
                                 A fresh verification link has been sent to your email address.
