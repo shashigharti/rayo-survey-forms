@@ -58,7 +58,7 @@
 
                 formData["properties"]["settings"] = {
                     'recaptcha': {
-                        "secretKey": "6LcV_pkUAAAAAHxUK7HsURaS0Pozt97zdUaV0mSy",
+                        'isEnabled': 'true',
                         "siteKey": "6LcV_pkUAAAAAOPyibpztMVOJVad5ePUVSFZurW2"
                     }
                 };
