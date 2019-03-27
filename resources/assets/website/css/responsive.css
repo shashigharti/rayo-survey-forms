@@ -61,6 +61,20 @@
     .site-heading.sticky .contact-links {
     	padding: 20px 20px 0;
 	}
+    .navbar-expand .navbar-toggler{
+        display: block;
+    }
+    .collapse:not(.show) {
+        display: none !important;
+    }
+    .site-heading .navbar-nav li{
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    #navbarSupportedContent{
+        background: #4a3594;
+    }
 }
 @media(max-width:480px){
     .header-text h1{

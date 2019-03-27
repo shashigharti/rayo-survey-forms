@@ -13,10 +13,21 @@
 		top:30px;
 		height: 100%;
 		padding-left: 0px;
+		.page--container{
+			width:100%;
+			padding:10px;
+		}
 	}
     .site-footer {
         display: none;
     }
+    .table{
+    	display:block;
+    	overflow-x:auto;
+    }
+    .hidden-xs {
+    	display: none;
+	}
 }
 @media (max-width: 480px) {
 	.page-content {
@@ -31,5 +42,8 @@
     			width: 100%;
 		    }
 		}
+	}
+	.page {
+    	top:118px;	
 	}	
 }
