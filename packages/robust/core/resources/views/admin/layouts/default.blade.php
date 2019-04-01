@@ -54,6 +54,8 @@
 @include("core::admin.partials.modals.crud")
 @include("core::admin.partials.modals.content_modal")
 @include("core::admin.medias.ajax.media")
+{{--Store id--}}
+<div id="info" data-id="{{Auth::id()}}" data-url="{{env('APP_URL')}}"></div>
 
 <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
