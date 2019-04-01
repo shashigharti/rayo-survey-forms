@@ -17,7 +17,7 @@ $(window).on('load', function () {
         worker.postMessage(['getForm', fns.slug]);
 
         // Get all forms
-        worker.postMessage(['getAllForms']);
+        // worker.postMessage(['getAllForms']);
 
     } else {
         // Handle online form submission

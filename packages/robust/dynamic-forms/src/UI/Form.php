@@ -1,8 +1,10 @@
 <?php
 namespace Robust\DynamicForms\UI;
 
+use Illuminate\Support\Facades\Auth;
 use Robust\Core\UI\Core\BaseUI;
 use Robust\DynamicForms\Models\Form as Model;
+use Robust\DynamicForms\Models\Data as Data;
 use Robust\Projects\Models\Project;
 
 /**
@@ -171,8 +173,15 @@ class Form extends BaseUI
      */
     public function getDataSubmitted($params)
     {
-        $form = Model::find($params['id']);
-        return '<a href="' . route("admin.forms.data.index", [$params['id']]) . '"><span class="badge form-badge">' . $form->datas()->count() . '</span></a> ';
+        $data = new Data();
+        // Check if form is accessed by the form owner or super admin
+        if((Auth::id() == 1 || $params['user_id'] == Auth::id())) {
+            $form = $data->where('form_id', $params['id'])->count();
+        } else {
+            $form = $data->where('form_id', $params['id'])->where('user_id', Auth::id())->count();
+        }
+
+        return '<a href="' . route("admin.forms.data.index", [$params['id']]) . '"><span class="badge form-badge">' . $form . '</span></a> ';
     }
 
     /**

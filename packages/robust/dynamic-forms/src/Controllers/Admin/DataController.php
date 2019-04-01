@@ -169,7 +169,7 @@ class DataController extends Controller
     public function showFormData(Request $request, $form_id, Form $form){
         $owner = $form->find($form_id)->user_id === Auth::id();
         // Display those data entered by the specific user unless the user is the owner of the form
-        if($owner) {
+        if($owner || Auth::id() == 1) {
             $records = $this->model->findBy('form_id', $form_id);
         } else {
             $records = $this->model->findBy([

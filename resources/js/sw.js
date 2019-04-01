@@ -35,6 +35,11 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
+        '/admin/forms',
+        workbox.strategies.networkFirst()
+    );
+
+    workbox.routing.registerRoute(
         new RegExp('/admin/forms/.*'),
         customHandler
     );
@@ -88,19 +93,19 @@ if (workbox) {
     //     }
     // );
     //
-    // workbox.routing.registerRoute(
-    //     /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff.*/,
-    //     function() {
-    //         return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff');
-    //     }
-    // );
-    //
-    // workbox.routing.registerRoute(
-    //     /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff2.*/,
-    //     function() {
-    //         return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2');
-    //     }
-    // );
+    workbox.routing.registerRoute(
+        /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff.*/,
+        function() {
+            return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff');
+        }
+    );
+
+    workbox.routing.registerRoute(
+        /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff2.*/,
+        function() {
+            return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2');
+        }
+    );
 } else {
     console.log(`Boo! Workbox didn't load 😬`);
 }

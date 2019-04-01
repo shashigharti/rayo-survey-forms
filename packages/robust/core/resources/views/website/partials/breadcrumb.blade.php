@@ -2,7 +2,7 @@
     <ol class="breadcrumb">
         @section('core.partials.breadcrumbs.home')
             <li>
-                <a href="{{ route('website.home') }}">
+                <a href="{{ route('admin.user.dashboards.index') }}">
                     @section('core.partials.breadcrumbs.home.icon')
                         <i class="fa fa-home"></i>
                     @show
