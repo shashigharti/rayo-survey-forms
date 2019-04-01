@@ -123,9 +123,7 @@ $(window).on('load', function () {
                 });
             });
         } else if (resp.type === "getAllForms") {
-            let menus = resp.data;
-            let leftMenu = fns.getLeftMenu(menus);
-            $('#theMenu').html(leftMenu);
+        //
         }
     });
 });
@@ -198,21 +196,6 @@ const fns = {
         let time = dateObj.getHours() + ":" + dateObj.getMinutes() + ":" + dateObj.getSeconds();
 
         return (year + "-" + month + "-" + day + " " + time);
-    },
-    getLeftMenu: (menus) => {
-        let el = '';
-        menus.forEach((menu) => {
-            el += '<div class="item-tooltip">' +
-                '            <li class="item">' +
-                '                <a href="javascript:void(0)"><i class="icon fa fa-home" aria-hidden="true"></i></a>' +
-                '                <span class="btn-class">' +
-                '                        <a class="menu_item" href="/admin/forms/' + menu.id + '">' + menu.title + '</a>' +
-                '                    </span>' +
-                '            </li>' +
-                '            <span class="tooltiptext tooltip-right">' + menu.title + '</span>' +
-                '        </div>';
-        });
-        return el;
     },
     setLeftMenu: (user, url) => {
         let el = '';
