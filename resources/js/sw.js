@@ -35,14 +35,14 @@ if (workbox) {
     );
 
     workbox.routing.registerRoute(
-        '/admin/forms',
+        /.*\/admin\/forms\/.*/,
         workbox.strategies.networkFirst()
     );
 
-    workbox.routing.registerRoute(
-        new RegExp('/admin/forms/.*'),
-        customHandler
-    );
+    // workbox.routing.registerRoute(
+    //     new RegExp('/admin/forms/.*'),
+    //     customHandler
+    // );
 
     // const handlerCb = ({url, event, params}) => {
     //     return fetch(event.request)
