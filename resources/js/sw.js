@@ -9,26 +9,6 @@ if (workbox) {
 
     workbox.precaching.precacheAndRoute([]);
 
-
-    const customHandler = async (args) => {
-        try {
-            return await workbox.strategies.networkFirst({
-                cacheName: 'pages'
-            }).handle(args) || caches.match('/assets/website/html/layout.html')
-        } catch (error) {
-            return caches.match('/assets/website/html/layout.html')
-        }
-    }
-
-    const navigationRoute = new workbox.routing.NavigationRoute(customHandler, {
-        // dont cache this urls
-        blacklist: [
-            new RegExp('/(login|register|password|auth)'),
-        ]
-    });
-
-    workbox.routing.registerRoute(navigationRoute)
-
     workbox.routing.registerRoute(
        '/admin/user/dashboards',
         workbox.strategies.networkFirst()
