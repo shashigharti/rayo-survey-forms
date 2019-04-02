@@ -8,6 +8,8 @@ use Robust\Core\Controllers\Admin\Traits\ViewTrait;
 use Robust\Core\Helpers\MenuHelper;
 use Robust\Core\Repositories\Traits\CommonRepositoryTrait;
 use Robust\Core\Services\MailService;
+use Robust\DynamicForms\Models\Data;
+use Robust\DynamicForms\Models\FormUser;
 
 /**
  * Class UserController
@@ -49,6 +51,20 @@ class UserController extends Controller
                 'view' => $this->view
             ]
         );
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id, FormUser $formUser)
+    {
+        // Delete foreign table's data
+        $formUser->where('user_id', $id)->delete();
+
+        // Delete user
+        $this->model->delete($id);
+        return redirect()->back()->with('message', 'Record was successfully deleted!');
     }
 
 }
