@@ -93,18 +93,31 @@ if (workbox) {
     //     }
     // );
     //
+
+
+    const fontHandler = async (args) => {
+        try {
+            return await workbox.strategies.networkFirst().handle(args) || caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff')
+        } catch (error) {
+            return caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff')
+        }
+    }
+
+    const fontHandler2 = async (args) => {
+        try {
+            return await workbox.strategies.networkFirst().handle(args) || caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2')
+        } catch (error) {
+            return caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2')
+        }
+    }
     workbox.routing.registerRoute(
         /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff.*/,
-        function() {
-            return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff');
-        }
+        fontHandler
     );
 
     workbox.routing.registerRoute(
         /.*\/assets\/fonts\/material-design\/Material-Design-Iconic-Font.woff2.*/,
-        function() {
-            return online ? false : caches.match('/assets/fonts/material-design/Material-Design-Iconic-Font.woff2');
-        }
+        fontHandler2
     );
 } else {
     console.log(`Boo! Workbox didn't load 😬`);

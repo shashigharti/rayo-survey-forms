@@ -17,7 +17,7 @@ $(window).on('load', function () {
         worker.postMessage(['getForm', fns.slug]);
 
         // Set the left menu
-        // fns.setLeftMenu(localStorage.getItem('user'), localStorage.getItem('app'));
+        fns.setLeftMenu(localStorage.getItem('user'), localStorage.getItem('app'));
 
     } else {
         // Handle online form submission
