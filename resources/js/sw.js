@@ -19,6 +19,11 @@ if (workbox) {
         workbox.strategies.networkFirst()
     );
 
+    workbox.routing.registerRoute(
+        /.*\/admin\/forms.*/,
+        workbox.strategies.networkFirst()
+    );
+
     // workbox.routing.registerRoute(
     //     new RegExp('/admin/forms/.*'),
     //     customHandler
