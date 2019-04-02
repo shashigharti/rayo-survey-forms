@@ -3,6 +3,16 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox
 if (workbox) {
     let online = navigator.onLine;
 
+    const customHandler = async (args) => {
+        try {
+            return await workbox.strategies.networkFirst({
+                cacheName: 'pages'
+            }).handle(args) || caches.match('/assets/website/html/layout.html')
+        } catch (error) {
+            return caches.match('/assets/website/html/layout.html')
+        }
+    }
+
     // Debug mode set to true
     workbox.setConfig({ debug: true });
     workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
@@ -16,13 +26,15 @@ if (workbox) {
 
     workbox.routing.registerRoute(
         /.*\/admin\/forms\/.*/,
-        workbox.strategies.networkFirst()
+        customHandler
     );
 
     workbox.routing.registerRoute(
         /.*\/admin\/forms.*/,
         workbox.strategies.networkFirst()
     );
+
+
 
     // workbox.routing.registerRoute(
     //     new RegExp('/admin/forms/.*'),

@@ -144,8 +144,8 @@ const fns = {
         credentials: "same-origin",
     },
     init: () => {
-        localStorage.setItem('user', $('#info').data('id'));
-        localStorage.setItem('app', $('#info').data('url'));
+        localStorage.getItem('user') === null ? localStorage.setItem('user', $('#info').data('id')) : '';
+        localStorage.getItem('app') === null ? localStorage.setItem('app', $('#info').data('url')) : '';
         // Set token in options' header
         fns.options.headers['X-CSRF-TOKEN'] = fns.token;
         // Set modes for form if it's readonly / editable / new form etc.
@@ -266,6 +266,28 @@ const fns = {
                 '                                                    </ul>' +
                 '                    </li>' +
                 '                    <span class="tooltiptext tooltip-right">Media Manager</span>' +
+                '                </div>' +
+                '<div class="item-tooltip">\n' +
+                '                    <li class="item">\n' +
+                '                        <a href="javascript:void(0)"><i class="icon md-folder-outline" aria-hidden="true"></i></a>\n' +
+                '                        <span class="btn-class">\n' +
+                '                        <a class="menu_item" href="' + url + '/admin/projects">Project</a>\n' +
+                '                                                        </span>\n' +
+                '                        <ul id="Project" class="sub-menu collapse">\n' +
+                '                                                    </ul>\n' +
+                '                    </li>\n' +
+                '                    <span class="tooltiptext tooltip-right">Project</span>\n' +
+                '                </div>' +
+                '<div class="item-tooltip">\n' +
+                '                    <li class="item">\n' +
+                '                        <a href="javascript:void(0)"><i class="icon md-collection-item" aria-hidden="true"></i></a>\n' +
+                '                        <span class="btn-class">\n' +
+                '                        <a class="menu_item" href="' + url + '/admin/report-designer/reports">Reports</a>\n' +
+                '                                                        </span>\n' +
+                '                        <ul id="Reports" class="sub-menu collapse">\n' +
+                '                                                    </ul>\n' +
+                '                    </li>\n' +
+                '                    <span class="tooltiptext tooltip-right">Reports</span>\n' +
                 '                </div>' +
                 '                                                                                                                                                                                    <div class="item-tooltip">' +
                 '                    <li class="item">' +
