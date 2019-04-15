@@ -19,7 +19,10 @@
                         return s.json()
                     })
                     .then(a => {
-                        let components = JSON.parse(a.properties);
+                        let components = {"components":[{"tabindex":"6","conditional":{"show":""},"tags":[],"input":true,"label":"Submit","tableView":false,"key":"submit","disableOnInvalid":true,"theme":"primary","type":"button"}]}
+                        if(a.properties !== null) {
+                            components = JSON.parse(a.properties);
+                        }
                         Formio.builder(formElement, components).then(function (form) {
                             formData['display'] = "form";
                             formData['_method'] = 'PUT';
@@ -56,6 +59,9 @@
             }
         },
         saveForm: function (formData) {
+            // Show loading status
+            $('.dynamic-form__save').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Saving');
+
             formData["properties"] = {};
             // Save pressed
             // Adjust form data properties column
@@ -77,12 +83,10 @@
                     $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
                 },
                 error: function (e, xhr) {
-                    // Temporary resolvement
+                    // Temporary 302 fallback resolvement
                     // Executes this because request gives out 302 which resolves into error closure. Need refactoring.
-                    let saveElement = '<i aria-hidden="true" class="icon md-book"></i> Save';
-
-                    // Notify that the form was saved for a second and revert back to original element.
-                    $('.dynamic-form__save').html('<i class="fa fa-check" aria-hidden="true"></i> Form saved');
+                    let saveElement = '<i class="fa fa-check" aria-hidden="true"></i> Up to date';
+                    // Revert back to original element.
                     setTimeout(function () {
                         $('.dynamic-form__save').html(saveElement);
                     }, 1000);

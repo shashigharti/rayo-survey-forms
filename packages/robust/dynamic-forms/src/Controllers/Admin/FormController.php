@@ -114,11 +114,16 @@ class FormController extends Controller
 
     /**
      * @param $id
+     * @param \Robust\DynamicForms\Models\FormUser $formUser
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy($id, FormUser $formUser)
     {
+        // Delete foreign related elements first
+        $formUser->where('form_id', $id)->delete();
+
+        // Delete the form itself
         $form = $this->model->find($id);
         $form->datas()->delete();
         $form->delete($id);
