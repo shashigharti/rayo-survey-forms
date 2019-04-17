@@ -16,6 +16,17 @@
                     <div class="col-md-6 project-info">
                         <h6>Client name : {{ Auth::user()->first_name }}</h6>
                         <h6>Form ID : {{ $model->id }}</h6>
+                        <div class="layout-block">
+                            <h6>Choose Layout</h6>
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-secondary active layout">
+                                    <input type="radio" name="options" id="slider" autocomplete="off" checked> Slider
+                                </label>
+                                <label class="btn btn-secondary layout">
+                                    <input type="radio" name="options" id="fixed" autocomplete="off"> Fixed
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-6 text-right company-info">
@@ -24,7 +35,8 @@
                         <h6>{{ (isset($setting['phone_number'])) ? 'Tel no : '. $setting['phone_number'] : '' }}</h6>
                     </div>
                     <div class="form__content clearfix">
-                        <div class="text-center col-md-12 clearfix form_title"><h2 class="">{{ $model->title }}</h2>
+                        <div class="text-center col-md-12 clearfix form_title">
+                            <h2 class="">{{ $model->title }}</h2>
                         </div>
                         <div class="form__field clearfix col-md-12">
                             <form id="dynamicForm">

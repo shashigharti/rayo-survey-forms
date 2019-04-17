@@ -47,7 +47,7 @@ $(window).on('load', function () {
                 });
 
                 form.on('change', function (change) {
-                    if (window.innerWidth < 500) {
+                    if (window.innerWidth < 500 && fns.slider) {
                         // Set slick class to display none if the formio component is hidden & vice versa
                         $('.form-group').each(function () {
                             if ($(this).attr('hidden') !== undefined) {
@@ -123,7 +123,7 @@ $(window).on('load', function () {
                 });
             });
         } else if (resp.type === "getAllForms") {
-        //
+            //
         }
     });
 });
@@ -133,6 +133,7 @@ const fns = {
     token: $('meta[name="csrf-token"]').attr('content'),
     readOnlyMode: false,
     editMode: false,
+    slider: true,
     options: {
         headers: {
             "Content-Type": "application/json",
@@ -148,9 +149,47 @@ const fns = {
         localStorage.getItem('app') === null ? localStorage.setItem('app', $('#info').data('url')) : '';
         // Set token in options' header
         fns.options.headers['X-CSRF-TOKEN'] = fns.token;
+
+        // Change form layouts
+        fns.checkLayouts();
+
         // Set modes for form if it's readonly / editable / new form etc.
         fns.setFormMode();
         return new Worker('/assets/website/js/worker.js');
+    },
+    checkLayouts: () => {
+        // Trigger layout change
+        $('.layout').on('click', function () {
+            setTimeout(function() {
+                // Check which one is checked
+                if ($('#slider').is(':checked')) {
+                    console.log("Slider");
+                    fns.slider = true;
+                    $('.form--slider').children(":first").addClass('mobile--slider');
+                    if (window.innerWidth < 500) {
+                        $('.form--slider .mobile--slider').slick({
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: true
+                        });
+
+                        // Set slick class to display none if the formio component is hidden & vice versa
+                        $('.form-group').each(function () {
+                            if ($(this).attr('hidden') !== undefined) {
+                                $(this).parent().parent().attr('style', 'display: none;');
+                            } else {
+                                $(this).parent().parent().attr('style', 'display: block;');
+                            }
+                        });
+                    }
+                } else {
+                    console.log("Fixed");
+                    fns.slider = false;
+                    $('.form--slider .mobile--slider').slick('unslick');
+                }
+            }, 0);
+
+        })
     },
     setFormMode: () => {
         let field = $('#form__view').data('mode');
@@ -200,7 +239,7 @@ const fns = {
     setLeftMenu: (user, url) => {
         let el = '';
 
-        if(user == 1) {
+        if (user == 1) {
             el += '<div class="item-tooltip">' +
                 '                    <li class="item">' +
                 '                        <a href="javascript:void(0)"><i class="icon md-apps" aria-hidden="true"></i></a>' +
@@ -321,7 +360,7 @@ const fns = {
                 '                </div>' +
                 '                                 ';
         }
-        
-        $('#theMenu').html(el); 
+
+        $('#theMenu').html(el);
     }
 };

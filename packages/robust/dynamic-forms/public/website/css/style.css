@@ -330,3 +330,7 @@ a.left-menu-bar {
 .left-menu-bar i {
     font-size: 12px;
 }
+
+.layout-block {
+    display: none;
+}

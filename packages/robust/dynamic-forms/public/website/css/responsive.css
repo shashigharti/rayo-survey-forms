@@ -46,4 +46,8 @@
     .site-navbar .navbar-header .navbar-brand-logo {
         height: 30px;
     }
+    
+    .layout-block {
+        display: block;
+    }
 }
