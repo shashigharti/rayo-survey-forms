@@ -92,22 +92,10 @@ class FormController extends Controller
      */
     public function duplicate($form_id)
     {
-        $form = $this->model->find($form_id);
-
-        $new_data = [
-            'slug' => $form->slug,
-            'title' => $form->title,
-            'status' => $form->status,
-            'field_for_user_email' => $form->field_for_user_email,
-            'notify_to_user' => $form->notify_to_user,
-            'single_submit' => $form->single_submit,
-            'make_public' => $form->make_public,
-            'user_id' => Auth::user()->id
-        ];
-
-        $new_data['slug'] = $this->getDuplicateName($new_data['slug']);
-        $new_data['title'] = ucwords(str_replace('-', ' ', $new_data['slug']));
-        $new_form = $this->model->store($new_data);
+        $form = $this->model->find($form_id)->toArray();
+        $form['slug'] = $this->getDuplicateName($form['slug']);
+        $form['title'] = ucwords(str_replace('-', ' ', $form['slug']));
+        $this->model->store($form);
         return \Redirect::back()->with(['message' => 'You have successfully duplicated a form']);
     }
 
