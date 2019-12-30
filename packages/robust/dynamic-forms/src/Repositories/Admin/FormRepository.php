@@ -50,5 +50,21 @@ class FormRepository
         return $this->model->find($id)->update($data);
     }*/
 
+    /**
+     * @return mixed
+     */
+    public function toSql()
+    {
+       return $this->model->toSql();
+    }
+
+    /**
+     * @param $columns
+     * @return mixed
+     */
+    public function pluck($columns)
+    {
+        return $this->model->pluck($columns);
+    }
 
 }

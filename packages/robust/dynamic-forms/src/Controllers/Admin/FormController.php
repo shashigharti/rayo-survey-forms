@@ -97,21 +97,36 @@ class FormController extends Controller
         $new_data = [
             'slug' => $form->slug,
             'title' => $form->title,
-            'pages' => $form->pages,
             'status' => $form->status,
             'field_for_user_email' => $form->field_for_user_email,
             'notify_to_user' => $form->notify_to_user,
             'single_submit' => $form->single_submit,
-            'make_public' => $form->make_public
+            'make_public' => $form->make_public,
+            'user_id' => Auth::user()->id
         ];
 
-        $new_data['slug'] = $this->getDuplicateName(with(new Form()), $new_data['slug'] == '' ? \Str::slug($new_data['title']) : $new_data['slug'], 'slug');
-        $new_data['title'] = $this->getDuplicateName(with(new Form()), $new_data['title'], 'title');
+        $new_data['slug'] = $this->getDuplicateName($new_data['slug']);
+        $new_data['title'] = ucwords(str_replace('-', ' ', $new_data['slug']));
         $new_form = $this->model->store($new_data);
         return \Redirect::back()->with(['message' => 'You have successfully duplicated a form']);
     }
 
-
+    /**
+     * @param $slug
+     * @return string|null
+     */
+    public function getDuplicateName($slug)
+    {
+        $slugs = $this->model->where('slug','%' .$slug . '%','like')
+                ->pluck('slug')->toArray();
+        $counter = 1;
+        $result = null;
+        do{
+            $result = $slug . '-duplicate-' .$counter;
+            $counter+=1;
+        }while(in_array($result,$slugs));
+        return $result;
+    }
     /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
