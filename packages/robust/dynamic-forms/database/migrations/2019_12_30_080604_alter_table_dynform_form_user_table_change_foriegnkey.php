@@ -19,7 +19,6 @@ class AlterTableDynformFormUserTableChangeForiegnkey extends Migration
             $table->dropForeign('dynform_form_user_user_id_foreign');
         });
     }
-
     /**
      * Reverse the migrations.
      *
