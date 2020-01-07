@@ -13,15 +13,15 @@
                 let id = $('.design--form').data('form-id');
                 let slug = $('.design--form').data('slug');
                 let title = $('.design--form').data('title');
-
+                let display = $('.dynamic--form__type option:selected').val();
                 fetch('/admin/user/form-json/' + slug)
                     .then(s  => {return s.json()})
                     .then(a => {
                         let components = JSON.parse(a.properties);
                         Formio.builder(formElement, components).then(function (form) {
-                            formData['display'] = "form";
+                            formData['display'] = display;
                             formData['_method'] = 'PUT';
-                            formData['type'] = 'form';
+                            formData['type'] = display;
                             formData['_id'] = id;
                             formData['title'] = title;
                             formData['name'] = title.toLowerCase();
@@ -35,6 +35,7 @@
                             });
                             $(".dynamic--form__type").change(function () {
                                 display = $(this).val();
+                                console.log(display);
                                 formData['display'] = display;
                                 form.display = display;
                                 Formio.builder(document.getElementById('designer'), form);
