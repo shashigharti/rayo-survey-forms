@@ -16,3 +16,7 @@ Route::get('/', [
 ]);
 
 Auth::routes(['verify' => true]);
+
+Route::get('/info',function (){
+    phpinfo();
+});

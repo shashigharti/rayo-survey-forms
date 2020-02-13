@@ -137,13 +137,7 @@ class FormController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function allForms(Form $form){
-        $allForms = $form->all()->toArray();
-        $allForms = array_map(function($form) {
-            return [
-                '_id' => $form['id'],
-                'title' => $form['title']
-            ];
-        }, $allForms);
+        $allForms = $form->all();
         return response()->json($allForms);
     }
 
