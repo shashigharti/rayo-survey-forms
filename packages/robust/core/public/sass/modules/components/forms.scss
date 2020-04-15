@@ -1,0 +1,396 @@
+/*----------------------------------------
+    Forms
+------------------------------------------*/
+
+.input-field {
+    div.error {
+        font-size: .8rem;
+        position: relative;
+        top: 0rem;
+        left: 0rem;
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+        transform: translateY(0%);
+        color: #ff4081;
+    }
+
+    label.active {
+        width: 100%;
+    }
+}
+
+.left-alert {
+    input {
+        &[type=text] + label:after, &[type=password] + label:after, &[type=email] + label:after, &[type=url] + label:after, &[type=time] + label:after, &[type=date] + label:after, &[type=datetime-local] + label:after, &[type=tel] + label:after, &[type=number] + label:after, &[type=search] + label:after {
+            left: 0;
+        }
+    }
+
+    textarea.materialize-textarea + label:after {
+        left: 0;
+    }
+}
+
+.right-alert {
+    input {
+        &[type=text] + label:after, &[type=password] + label:after, &[type=email] + label:after, &[type=url] + label:after, &[type=time] + label:after, &[type=date] + label:after, &[type=datetime-local] + label:after, &[type=tel] + label:after, &[type=number] + label:after, &[type=search] + label:after {
+            right: 70px;
+        }
+    }
+
+    textarea.materialize-textarea + label:after {
+        right: 70px;
+    }
+}
+
+/*input*/
+
+input {
+    &:not([type]):focus:not([readonly]), &[type=text]:not(.browser-default):focus:not([readonly]), &[type=password]:not(.browser-default):focus:not([readonly]), &[type=email]:not(.browser-default):focus:not([readonly]), &[type=url]:not(.browser-default):focus:not([readonly]), &[type=time]:not(.browser-default):focus:not([readonly]), &[type=date]:not(.browser-default):focus:not([readonly]), &[type=datetime]:not(.browser-default):focus:not([readonly]), &[type=datetime-local]:not(.browser-default):focus:not([readonly]), &[type=tel]:not(.browser-default):focus:not([readonly]), &[type=number]:not(.browser-default):focus:not([readonly]), &[type=search]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #8d62c1 !important;
+        box-shadow: 0 1px 0 0 #8d62c1 !important;
+    }
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #8d62c1 !important;
+    box-shadow: 0 1px 0 0 #8d62c1 !important;
+}
+
+.input-field .prefix.active {
+    color: #6b4994;
+}
+
+input {
+    &:not([type]):focus:not([readonly]) + label, &[type=text]:not(.browser-default):focus:not([readonly]) + label, &[type=password]:not(.browser-default):focus:not([readonly]) + label, &[type=email]:not(.browser-default):focus:not([readonly]) + label, &[type=url]:not(.browser-default):focus:not([readonly]) + label, &[type=time]:not(.browser-default):focus:not([readonly]) + label, &[type=date]:not(.browser-default):focus:not([readonly]) + label, &[type=datetime]:not(.browser-default):focus:not([readonly]) + label, &[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, &[type=tel]:not(.browser-default):focus:not([readonly]) + label, &[type=number]:not(.browser-default):focus:not([readonly]) + label, &[type=search]:not(.browser-default):focus:not([readonly]) + label {
+        color: #6b4994;
+    }
+}
+
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #6b4994;
+}
+
+input {
+    &:not([type]):focus.valid ~ label, &[type=text]:not(.browser-default):focus.valid ~ label, &[type=password]:not(.browser-default):focus.valid ~ label, &[type=email]:not(.browser-default):focus.valid ~ label, &[type=url]:not(.browser-default):focus.valid ~ label, &[type=time]:not(.browser-default):focus.valid ~ label, &[type=date]:not(.browser-default):focus.valid ~ label, &[type=datetime]:not(.browser-default):focus.valid ~ label, &[type=datetime-local]:not(.browser-default):focus.valid ~ label, &[type=tel]:not(.browser-default):focus.valid ~ label, &[type=number]:not(.browser-default):focus.valid ~ label, &[type=search]:not(.browser-default):focus.valid ~ label {
+        color: #6b4994;
+    }
+}
+
+textarea.materialize-textarea:focus.valid ~ label {
+    color: #6b4994;
+}
+
+/*----------------------------------------
+    Tables
+------------------------------------------*/
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role='row'] > {
+    td:first-child:before, th:first-child:before {
+        line-height: 15px;
+        top: 19px;
+        text-indent: -1px !important;
+    }
+}
+
+.textarea-field textarea {
+    min-height: 150px;
+    padding: 10px;
+    transition: border .3s, -webkit-box-shadow .3s;
+    transition: box-shadow .3s, border .3s;
+
+    &:focus {
+        border: 1px solid #8d62c1 !important;
+        box-shadow: 0 1px 0 0 #8d62c1 !important;
+    }
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+}
+
+.file-upload {
+    margin-bottom: 10px;
+
+    .theme-btn {
+        margin: 10px 0px 5px;
+    }
+}
+
+.sub--block {
+    padding: 20px 20px 5px;
+    border: 1px dashed #ccc;
+    margin: 10px 0px 30px;
+}
+
+#main {
+    [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: relative;
+        opacity: 1;
+        pointer-events: initial;
+        vertical-align: middle;
+        margin-left: 6px;
+        margin-bottom: 6px;
+    }
+
+    .input-field {
+        textarea + label {
+            transform: translateY(-14px) scale(1);
+        }
+
+        [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+            margin-bottom: 0px;
+            margin-left: 0px;
+
+            + label {
+                display: inline-block;
+                position: relative;
+                vertical-align: middle;
+                margin: 0;
+                transform: translateY(0px);
+            }
+        }
+    }
+}
+
+.image-upload {
+    display: block;
+}
+
+.select-wrapper input.select-dropdown {
+    color: #9e9e9e;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    font-size: 11px;
+}
+
+.input-field-btn {
+    font-size: 12px;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 0;
+}
+
+.form--links {
+    font-size: 12px;
+    font-weight: 600;
+
+    i {
+        vertical-align: bottom;
+        font-size: 20px;
+    }
+}
+
+.Banners {
+    .sub--block {
+        margin: 10px 5px 30px;
+
+        .input-field {
+            > label.control-label {
+                position: absolute;
+                display: block;
+                transform: translateY(-30px) scale(1);
+            }
+        }
+    }
+}
+
+.jFiler {
+    display: inline-block;
+    vertical-align: middle;
+
+    &.jFiler-theme-default .jFiler-input {
+        margin: 0 0 0px 0;
+    }
+}
+
+.file-uploader__upload-btn {
+    display: inline-block;
+    vertical-align: middle;
+    height: 33px;
+    line-height: 33px;
+}
+
+.input-field > label {
+    color: $dark-greyish;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+label {
+    color: $dark-greyish;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.input-field > label:not(.label-icon).active {
+    -webkit-transform: translateY(-14px) scale(1);
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid $theme-color !important;
+    box-shadow: 0 1px 0 0 $theme-color !important;
+}
+
+textarea {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin-top: 12px;
+    padding: 10px;
+    font-size: .8rem;
+    font-weight: 600;
+    color: $dark-greyish;
+}
+
+input {
+    font-size: .8rem !important;
+    color: $dark-greyish;
+    font-weight: 600;
+}
+
+.input-field.col label {
+    left: .9rem;
+}
+
+.cke {
+    margin-top: 12px !important;
+}
+
+.status {
+    font-size: 12px;
+}
+
+.services__status--green {
+    color: green;
+}
+
+.services__status--red {
+    color: #c10b0b;
+}
+
+.email-field {
+    input {
+        width: 80% !important;
+        vertical-align: bottom;
+        margin-bottom: 0 !important;
+    }
+}
+
+.file-uploader__file {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .file-uploader__delete-btn {
+        position: absolute;
+        right: -8px;
+        top: -10px;
+        color: #FFC107;
+
+        i {
+            font-size: 20px;
+        }
+    }
+}
+
+[type="checkbox"] + span:not(.lever):before, [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+    display: none;
+}
+
+[type="checkbox"]:checked + span:not(.lever):before {
+    display: none;
+}
+
+[type="checkbox"] + span:not(.lever) {
+    padding-left: 10px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #7b7979;
+    color: #fff;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-right: 5px;
+    color: #fff;
+}
+
+.split--block {
+    &.input-field > label {
+        position: relative;
+        left: 0px;
+    }
+
+    span {
+        width: 100%;
+        display: inline-block;
+        font-size: 11px;
+        margin-top: 5px;
+    }
+
+    input {
+        width: 66% !important;
+        height: 20px !important;
+    }
+}
+
+.dynamic-elem__btn {
+    margin-top: 25px;
+}
+
+.sort-container__handle {
+    vertical-align: middle;
+}
+
+.tab-content {
+    fieldset {
+        legend {
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+}
+
+.select2-container {
+    width: 100% !important;
+}
+.sort-container__placeholder { 
+    border: 1px dashed #0a0a0a ;
+     background-color: #00bcd4;
+}
+.inline__input-field{
+    label{
+        position: relative !important; 
+        left: 0 !important;
+    }
+    input{
+        width:68% !important;
+        display: inline-block !important;
+        margin-left: 10px !important;
+    }
+}
+.template--wrapper{
+    .dropdown-content{
+        height:200px !important;
+        top:0 !important;
+        overflow-y:scroll !important;
+    }
+}

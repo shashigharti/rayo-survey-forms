@@ -1,0 +1,11 @@
+{
+    "name": "robust/dynamic-forms",
+    "description": "Dynamic Forms",
+    "authors": [
+        {
+            "name": "Shashi Gharti",
+            "email": "shashi.gharti@gmail.com"
+        }
+    ],
+    "require": {}
+}

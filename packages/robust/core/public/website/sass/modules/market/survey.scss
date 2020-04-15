@@ -1,0 +1,1936 @@
+.map-section {
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .col-sm-6 {
+    padding: 0px;
+  }
+}
+
+#map1 {
+  height: 100vh;
+  width: 100%;
+}
+
+.market-survey {
+    h1 {
+      font-weight: 500;
+      font-size: 24px;
+      color: #333;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      line-height: 26px;
+      padding: 15px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+}
+
+.market-survey__right-container--tabs .tabs {
+  display: flex;
+  background-color: $white;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-size: 16px;
+  border-bottom: 1px solid #e2e2e2;
+
+  li {
+    width: 50%;
+    line-height: 53px;
+    height: 53px;
+
+    a {
+      color: #333;
+      display: inline;
+      text-decoration: none;
+    }
+  }
+}
+
+.SearchNavBar .tab-heading.selected {
+  font-weight: 600;
+  border-bottom: 2px solid #333;
+}
+
+.market-survey__right-container--tabs .tabs {
+  .indicator {
+    display: none;
+  }
+
+  li a {
+    &.active, &:hover, &:focus {
+      color: $theme_color;
+      font-weight: 600;
+      background: transparent;
+      background-color: transparent;
+    }
+  }
+}
+
+.market-survey__right-container--header {
+  z-index: 15;
+  background-color: $white;
+}
+
+.market-survey__listings {
+    padding: 20px;
+
+    .filter--bar {
+        margin: 15px 0px;
+        background: #f5f5f5;
+        padding: 20px;
+    }
+
+    .search--bar {
+        width: 100%;
+    }
+
+    .select-wrapper {
+        width: 80px;
+        background: $white;
+        .dropdown-content li {
+            min-height: auto;
+            line-height: 20px;
+        }
+        .dropdown-content li > a, .dropdown-content li > span {
+            padding: 4px 4px;
+            font-size: 12px;
+            color: #454646;
+            display: block;
+            line-height: 20px;
+        }
+
+        input.select-dropdown {
+            width: 85px;
+        }
+    }
+
+    .sold-select-wrapper {
+        .select-wrapper {
+            width: 200px;
+
+            .caret {
+                right: 0px !important;
+            }
+        }
+    }
+}
+
+.market-survey__listings--reset-btn {
+  border: 0;
+  width: 100px;
+}
+
+.market-survey__listings--details {
+  margin: 30px 0px;
+
+  label {
+    color: #777;
+  }
+
+  button {
+    border: 0;
+    width: 100px;
+    margin-left: 5px;
+  }
+}
+
+.market-survey__listings .search--bar {
+    input {
+        width: 58% !important;
+        display: inline-block;
+        border: 2px solid #8a8989 !important;
+        padding: 5px !important;
+        height: 19px !important;
+        vertical-align: middle;
+        margin-bottom: 0 !important;
+    }
+
+    button {
+        width:100px;
+        display: inline-block;
+        border: 0;
+        vertical-align: middle;
+        height: 33px;
+        box-shadow: none
+    }
+}
+
+.market-survey__listings--details-block {
+  margin: 20px 0px;
+  height:630px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.market-survey__listings--details-card {
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 10px;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .card--details {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    pointer-events: none;
+    font-size: 10px;
+    white-space: nowrap;
+    justify-content: space-between;
+    padding: 20px 10px;
+    left: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+
+    p {
+      color: $white;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+  }
+
+  input[type="checkbox"] {
+    &:not(:checked), &:checked {
+      position: absolute;
+      opacity: 1;
+      pointer-events: inherit;
+    }
+  }
+
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  border: 5px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.SearchSidePaneHeader .MapFilter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+div#accordion {
+  display: block;
+  width: 682px;
+}
+
+.FilterTitle {
+  display: inline-block;
+  font-size: 16px;
+  color: #333;
+  padding-bottom: 0;
+  padding: 20px;
+}
+
+.RangeSelect {
+  display: inline-block;
+  justify-content: space-between;
+  margin: 10px;
+
+  select {
+    display: inline-block;
+    padding: 6px 2px 6px;
+    background-color: $white;
+    border-color: #ccc;
+    width: 108px;
+    margin: 0px 8px;
+  }
+
+  .separator {
+    line-height: 32px;
+    color: #999;
+    padding: 0;
+    font-size: 14px;
+  }
+}
+
+.accordion {
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+
+  .link span:before {
+    content: "More Filters";
+    width: 110px;
+    display: inline-block;
+  }
+
+  i {
+    font-size: 14px;
+  }
+}
+
+.link {
+  color: #0089ff;
+  position: absolute;
+  right: 19px;
+  top: 19px;
+}
+
+.accordion.open .link span:before {
+  content: "Few Filters";
+  width: 92px;
+  display: inline-block;
+}
+
+.filter-submenu {
+  display: none;
+  background: $white;
+  font-size: 14px;
+  padding: 20px;
+  height: 400px;
+  overflow: auto;
+}
+
+.accordion.open i.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.filter-submenu {
+  h3 {
+    font-size: 16px;
+    margin: 0px;
+    font-weight: normal;
+  }
+
+  .RangeSelect {
+    margin: 10px 0px;
+  }
+}
+
+.filterrow span {
+  width: 50px;
+  display: inline-block;
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+span.Stepper {
+  width: 150px;
+}
+
+.filterrow {
+  margin: 10px 0px;
+}
+
+.PropertyType {
+  .svg-icon {
+    height: 16px;
+  }
+
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    margin-left: 1px;
+    margin-bottom: 1px;
+    outline-style: solid;
+    outline-color: #ccc;
+    outline-width: 1px;
+    position: relative;
+    z-index: 90;
+  }
+}
+
+.svg-icon svg.SvgIcon {
+  width: 18px;
+  height: 18px;
+  fill: #585858;
+}
+
+.PropertyType {
+  span {
+    margin-top: 7px;
+    display: block;
+    color: #333;
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  display: flex;
+  margin: 10px 0px;
+}
+
+.FilterSubBlock {
+  margin: 20px 0px 30px;
+}
+
+.filter-submenu .col-sm-12 {
+  padding: 0px;
+}
+
+.mr-t-20 {
+  margin-top: 20px;
+}
+
+.PropertyFact {
+  h4 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  padding: 0px 20px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.checkbox-filter {
+  input {
+    margin-right: 8px;
+
+    &[type=checkbox] {
+      &:after {
+        background-color: $white;
+        border: 1px solid #ccc;
+        padding: 9px;
+        border-radius: 0px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -4px;
+        content: "";
+      }
+
+      &:checked:after {
+        content: '\2714';
+        font-size: 20px;
+        position: absolute;
+        top: 0px;
+        left: -4px;
+        color: $white;
+        padding: 0px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        background-color: #30b0d7;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+
+  span {
+    font-size: 16px;
+  }
+
+  margin-top: 10px;
+  position: relative;
+}
+
+.keywordblock input {
+  display: block;
+  width: 300px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.fixedfooter {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: block;
+  padding: 20px 20px;
+  font-size: 14px;
+  width: 637px;
+  background: $white;
+  border-top: 1px solid #ccc;
+}
+
+button.reset-button {
+  background: $white;
+  border: 0;
+  color: #0576a9;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.homeCount {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.description {
+  font-size: 12px;
+  padding: 10px 20px 0px;
+}
+
+.totaRecords {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.button-text {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  font: inherit;
+  color: #333;
+  margin: 0;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.sortFlyout .sortDropDown {
+  width: 20px;
+  height: 20px;
+  margin-top: -1px;
+  margin-left: -2px;
+  vertical-align: middle;
+  fill: #333;
+}
+
+.sort.summary {
+  display: inline-block;
+}
+
+.button-text:focus {
+  outline: 0;
+}
+
+.descriptor {
+  .nav {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    width: auto;
+    height: 34px;
+
+    li.nav-item {
+      display: inline-block;
+    }
+  }
+
+  .nav-pills .nav-link {
+    color: #111;
+    background-color: $white;
+    border-radius: 0px;
+    font-size: 16px;
+    padding-top: 0px;
+  }
+
+  .tabs .indicator {
+    display: none;
+  }
+
+  .nav-pills {
+    .nav-link.active, .show > .nav-link {
+      border-bottom: 3px solid #111;
+      font-weight: 600;
+      color: #111;
+    }
+  }
+}
+
+.button-text:focus {
+  background-color: transparent;
+}
+
+.SearchSideContainer {
+  margin-top: 282px;
+}
+
+.HomeCardImage {
+  display: inline-block;
+  width: 49%;
+  height: 250px;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 97%;
+  margin: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0px 4px;
+  height: 100%;
+}
+
+.soldDate {
+  display: inline-block;
+  color: $white;
+  font-size: 10px;
+  background: #2686d2;
+  padding: 0px 6px;
+}
+
+.favIcon {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  margin-top: 3px;
+}
+
+.favorite-icon {
+  fill: rgba(0, 0, 0, 0.5);
+  height: 28px !important;
+  width: 28px !important;
+}
+
+.favorite-actionable-outline {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: rgb(255, 255, 255);
+}
+
+.card-bottom {
+  position: absolute;
+  bottom: 0;
+
+  .left {
+    text-align: left;
+    min-width: 0px;
+    margin: 0px 10px 10px;
+    flex: 1 1 50%;
+  }
+
+  .right {
+    text-align: right;
+    min-width: 0px;
+    margin: 0px 10px 5px 0px;
+    flex: 1 2 50%;
+  }
+}
+
+.right .HomeStats {
+  justify-content: flex-end;
+}
+
+.card-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  pointer-events: none;
+  align-items: flex-end;
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  padding-top: 20px;
+  left: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+
+  .right .HomeStats:last-child {
+    margin-bottom: 18px;
+  }
+}
+
+.HomeStats {
+  > div {
+    flex-direction: column;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+    &:first-child {
+      padding-left: 0px;
+    }
+
+    &:last-child {
+      padding-right: 0px;
+      border-right: none;
+    }
+  }
+
+  display: flex;
+  text-align: center;
+  text-transform: capitalize;
+  color: $white;
+
+  .value {
+    font-size: 15px;
+    height: 16px;
+    padding-bottom: 0.25em;
+    font-weight: 700;
+  }
+}
+
+.HomeIcon {
+  margin-right: 6px;
+  overflow: initial;
+  background-color: rgb(93, 138, 203);
+  border-radius: 3px;
+  width: 19px;
+  display: inline-block;
+  text-align: center;
+
+  .SvgIcon {
+    width: 12px;
+    height: 12px;
+    top: 1px;
+    left: 2px;
+    position: relative;
+    fill: rgb(255, 255, 255);
+  }
+}
+
+.homeCardPrice {
+  font-size: 15px;
+  color: $white;
+  font-weight: 600;
+}
+
+.addressDisplay {
+  color: #e6e4e4;
+  font-size: 10px;
+}
+
+.street {
+  font-size: 12px;
+  color: $white;
+}
+
+.FilterPagination {
+  width: 100%;
+  padding: 30px 0px;
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.pagination-controls a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #2196F3;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.FilterBreadcrumb {
+  .separator {
+    padding: 0 10px;
+    padding-right: 16px;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+
+    .SvgIcon {
+      fill: #999;
+      width: 8px;
+      height: 12px;
+      position: absolute;
+      top: calc(50% - 10px);
+    }
+  }
+
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px 0px 30px;
+
+  a {
+    color: #ccc;
+
+    &.active {
+      color: #999;
+    }
+  }
+}
+
+.dropArrow {
+  width: 100%;
+}
+
+.primary-heading {
+  padding: 50px 0px;
+  width: 100%;
+
+  h2 {
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 100;
+    color: #000;
+  }
+}
+
+.blurb {
+  font-size: 16px;
+  font-weight: 400;
+  color: #727272;
+  text-align: center;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.mini-slider {
+  .carousel-item {
+    width: 268px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.affordability-card {
+  position: relative;
+  color: #333;
+  margin: 0.5em !important;
+  padding: 1em;
+  box-shadow: 0 1px 2px 0 #aaa;
+  background-color: $white;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  min-height: 160px;
+  text-align: center;
+
+  .info {
+    position: absolute;
+    right: 2em;
+    top: 1.5em;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .button-text {
+    color: #0c82a5;
+  }
+
+  .info {
+    position: absolute;
+    right: 2em;
+    top: 1.5em;
+    cursor: pointer;
+    pointer-events: auto;
+
+    .infoIcon {
+      width: 18px;
+      height: 18px;
+      right: -1em;
+      top: -.5em;
+      fill: #0c82a5;
+    }
+  }
+
+  .content {
+    .title {
+      text-align: left;
+    }
+
+    .sub-title {
+      font-size: .875rem;
+      line-height: 1;
+      color: #727272;
+      text-align: left;
+      margin-top: .25em;
+    }
+
+    .price {
+      font-size: 2.3em;
+      color: #727272;
+      margin-top: .5em;
+    }
+
+    .see-more {
+      margin-top: 1em;
+    }
+  }
+}
+
+.mini-slider {
+  .carousel-control-next, .carousel-control-prev {
+    color: #777;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+    top: 84px;
+  }
+
+  .carousel-control-next {
+    right: -50px;
+  }
+
+  .carousel-control-prev {
+    left: -50px;
+  }
+}
+
+.trend {
+  color: #0c82a5;
+}
+
+.region-trends-section {
+  .trends-primary-heading {
+    padding: 20px 20px 0;
+    margin: 0;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
+    color: #000;
+  }
+
+  .trends-blurb {
+    font-size: 14px;
+    font-weight: 300;
+    color: #999;
+    text-align: center;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px 20px;
+  }
+
+  .trends {
+    padding: 0;
+
+    ul.trends-list {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      list-style-type: none;
+      padding: 20px 0 0;
+
+      li {
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 270px;
+        border-bottom: 1px solid #ccc;
+
+        span {
+          &.label {
+            color: #999;
+            float: left;
+            font-weight: 300;
+            padding-top: 11px;
+          }
+
+          &.value {
+            color: #333;
+            float: right;
+            font-weight: 700;
+            padding-top: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.region-content-section {
+  padding: 50px 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.primary-heading {
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 200;
+  color: #000;
+}
+
+.schools-table {
+  .nav-pills {
+    .nav-link {
+      color: #111;
+      background-color: $white;
+      border-radius: 0px;
+      font-size: 16px;
+
+      &.active {
+        border-bottom: 3px solid #111;
+        font-weight: 600;
+      }
+    }
+
+    .show > .nav-link {
+      border-bottom: 3px solid #111;
+      font-weight: 600;
+    }
+
+    border-bottom: 1px solid #ccc;
+  }
+
+  .tab-content h3 {
+    font-size: 14px;
+    border-bottom: none;
+    color: #999;
+    padding: 0px 20px;
+  }
+}
+
+.name-and-info {
+  vertical-align: middle;
+  line-height: 1.4;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+}
+
+.font-color-gray-light {
+  color: #999;
+}
+
+.name-and-info .gs-rating-row {
+  padding-top: 8px;
+}
+
+.schools-table .star-rating .SvgIcon {
+  height: 16px;
+  width: 16px;
+  vertical-align: text-top;
+  fill: #fad700;
+}
+
+.name-and-info .rating {
+  display: inline-block;
+}
+
+.schools-table-row {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  justify-content: space-between;
+}
+
+.school-section .tab-content {
+  padding: 0px;
+}
+
+.schools-table, .school-section {
+  width: 100%;
+}
+
+.schools-table {
+  table {
+    width: 100%;
+  }
+
+  td {
+    width: 30%;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+th {
+  width: 30%;
+  padding: 10px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+.schools-table th {
+  font-size: 14px;
+  color: #999;
+  border-bottom: none;
+}
+
+.DataTable {
+  table {
+    width: 100%;
+  }
+
+  .favoriteButton {
+    height: 24px;
+    width: 24px;
+    fill: #585858;
+  }
+
+  th {
+    .button-text {
+      color: #444343;
+      font-weight: normal;
+      font-size: 13px;
+    }
+
+    width: 67px;
+    font-size: 12px;
+    padding: 10px 0px 0px 5px;
+    border-bottom: 0;
+  }
+}
+
+td {
+  width: 67px;
+  font-size: 12px;
+  padding: 10px 0px 0px 5px;
+  border-bottom: 0;
+}
+
+.DataTable td {
+  border-bottom: 1px solid #eee;
+}
+
+.td a {
+  color: #444343;
+  text-decoration: none;
+}
+
+.DataTable thead {
+  position: fixed;
+  cursor: pointer;
+  box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.4);
+  height: 40px;
+  background-color: $white;
+  width: 100%;
+  z-index: 9;
+}
+
+.tableList tr:first-child {
+  height: 37px !important;
+}
+
+.more-schools {
+  color: #727272;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.subtext {
+  color: #727272;
+  font-size: 12px;
+}
+
+.agent-contact-section {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 40px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.numActiveAgents {
+  color: $white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.button.tertiary-alt {
+  color: #585858;
+  background-color: $white;
+  border-color: #ccc;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.message {
+  padding: 10px 30px;
+  max-width: 100%;
+  height: 100%;
+  font-size: 14px;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr="#4D000000",endColorstr="#4D000000");
+  background: rgba(0, 0, 0, 0.3);
+  text-align: left;
+
+  .title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 200;
+    color: $white;
+    padding-top: 30px;
+  }
+
+  .regionalAgentStats {
+    padding-top: 30px;
+  }
+
+  .stat {
+    padding-bottom: 5px;
+  }
+}
+
+.stat {
+  color: $white;
+  width: 100%;
+  padding: 2%;
+  display: block;
+  vertical-align: top;
+  text-align: left;
+
+  .stat-descriptors {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    line-height: 80%;
+  }
+
+  .stat-value {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    line-height: 80%;
+    font-size: 28px;
+    width: 70px;
+    vertical-align: top;
+    margin-right: 7px;
+  }
+}
+
+.message {
+  .agentContactCTA {
+    margin-top: 30px;
+
+    .Button.tertiary-alt {
+      border-color: transparent !important;
+    }
+  }
+
+  .numActiveAgents {
+    margin-top: 20px;
+  }
+}
+
+.stat {
+  .stat-descriptors {
+    width: auto;
+    vertical-align: middle;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  div {
+    width: 100%;
+  }
+}
+
+.message .regionalAgentStats .stat-ratings {
+  padding-top: 5px;
+
+  .StarRating {
+    .starFullSvg, .starHalfSvg {
+      display: inline;
+
+      .SvgIcon {
+        width: 16px;
+        height: 16px;
+        fill: #ffb92e;
+      }
+    }
+  }
+}
+
+.OfferInsightsCard {
+  background-color: $white;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  position: relative;
+}
+
+.OfferInsightsSection ul > li {
+  margin: 10px 0 30px;
+}
+
+.OfferInsightsCard {
+  .home-stats {
+    margin-bottom: 5px;
+  }
+
+  .offer-value {
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
+  .sale-date {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #999;
+  }
+
+  .offer-result-line {
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+
+  .offer-result {
+    &.won:before {
+      background: #38b118;
+    }
+
+    &:before {
+      width: 8px;
+      height: 8px;
+      background: #999;
+      content: "";
+      display: inline-block;
+      margin-bottom: 1px;
+      margin-right: 6px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.detail--component.horizontal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.detail--componentdetail--component.horizontal .detail {
+  flex-direction: column;
+}
+
+.detail--component {
+  .detail {
+    display: flex;
+  }
+
+  &.horizontal .label {
+    order: 2;
+  }
+
+  .label {
+    color: #999;
+    font-size: 12px;
+  }
+
+  &.horizontal .value {
+    order: 1;
+  }
+
+  .value {
+    font-size: 16px;
+  }
+
+  .divider {
+    flex: 1;
+    min-width: 1px;
+    max-width: 1px;
+    background: #e2e2e2;
+    margin: 0 22px;
+    height: 35px;
+  }
+}
+
+.OfferInsightsCard {
+  .offer-insight {
+    font-size: 16px;
+    margin-top: 19px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .ExpandableText.truncated .expansion {
+    display: none;
+  }
+
+  .offer-insight .more-link {
+    color: #0c82a5;
+  }
+
+  .agent-info {
+    margin-top: 14px;
+    display: flex;
+  }
+}
+
+.OfferInsightsSection ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+.OfferInsightsCard .agent-photo img.photo {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+.transition-opaque-fast {
+  opacity: 0;
+  -webkit-transition: opacity .3s ease-out 0s;
+  transition: opacity .3s ease-out 0s;
+}
+
+.OfferInsightsCard .agent-photo {
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.OfferInsightsSection .agent-photo {
+  margin-right: .75rem;
+}
+
+.OfferInsightsCard:hover {
+  box-shadow: 0 0 0 3px #999;
+}
+
+.region-content .walk-score {
+  text-align: center;
+}
+
+.transportation-score-section .viz-container {
+  margin-top: 25px;
+}
+
+.walk-score .viz-container {
+  min-height: 130px;
+
+  .score {
+    margin-bottom: 30px;
+  }
+}
+
+.inline-block {
+  display: -moz-inline-box;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  text-align: center;
+  width: 32%;
+}
+
+.walk-score .viz-container {
+  .score {
+    .percentage {
+      padding-bottom: 10px;
+    }
+
+    .fair {
+      color: #fcb000;
+    }
+
+    .value {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .total {
+      font-size: 10px;
+      color: #999;
+    }
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .score {
+    .label {
+      color: #585858;
+      font-size: 12px;
+    }
+
+    .walkscore-link {
+      color: #585858;
+    }
+  }
+}
+
+.font-weight-bold {
+  font-weight: 600;
+}
+
+.transportation-score-section .desc.blurb {
+  font-size: 15px;
+}
+
+.neighborhood-photos-container {
+  float: none;
+  zoom: 1;
+
+  &:after, &:before {
+    content: "";
+    display: table;
+  }
+}
+
+.neighborhood-photos-section .neighborhood-photos-container.count-6 div.place {
+  width: 31.3333%;
+  margin-left: 1.5%;
+}
+
+.neighborhood-photos-container div.place {
+  position: relative;
+  display: inline-block;
+  width: 24.25%;
+  margin-left: 1%;
+}
+
+.neighborhood-photos-section .neighborhood-photos-container div.photo-container {
+  width: 100%;
+  padding-bottom: 71.875%;
+  position: relative;
+}
+
+.neighborhood-photos-container div.place > div {
+  overflow: hidden;
+}
+
+.neighborhood-photos-section .neighborhood-photos-container div.photo-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.neighborhood-photos-container {
+  img {
+    width: 100%;
+    border: 1px solid #d7d8d7;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  div.place p.place-name {
+    margin: 0;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px;
+  }
+}
+
+.market-survey__insights--MoreResources {
+  font-size: 16px;
+  text-align: center;
+
+  .columns {
+    display: block;
+  }
+}
+
+#region-content .market-survey__insights--MoreResources .resources-section {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+  margin: 0 auto 15px;
+  width: 90%;
+  text-align: center;
+}
+
+.market-survey__insights--MoreResources {
+  h3 {
+    color: #333;
+    font-size: 16px;
+    font-weight: 350;
+    line-height: 1.375;
+    margin-top: 0;
+    margin-bottom: .75rem;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    list-style-type: none;
+  }
+
+  .link-text {
+    line-height: 28px;
+    text-decoration: none;
+    color: #0c82a5;
+  }
+}
+
+#table {
+  .mini-slider {
+    width: 43%;
+  }
+
+  .OfferInsightsSection, .school-section, #neighborhood-photos-section {
+    padding: 50px 15px;
+  }
+}
+
+#marketInsights {
+  margin-top: 75px;
+}
+
+.region-content-section .secondary-heading {
+  margin-top: -17px;
+  margin-bottom: 24px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+}
+
+.CompeteScore .scoreTM {
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+
+  .very {
+    color: #94cfc5;
+  }
+
+  .score {
+    font-size: 52px;
+    margin-right: 10px;
+    letter-spacing: -2px;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shortDescription {
+    font-size: 20px;
+    color: #333;
+    line-height: 25.5px;
+  }
+
+  .trademarkWrapper {
+    font-family: Libre Franklin,sans-serif;
+    font-size: 14px;
+    color: #999;
+    position: relative;
+    top: -3px;
+
+    .trademarkText {
+      border-bottom: 1px dotted #999;
+      cursor: pointer;
+    }
+  }
+}
+
+.static-bar {
+  position: relative;
+  display: flex;
+  height: 12px;
+  margin-bottom: 20px;
+
+  .left {
+    margin-right: 5px;
+    max-width: 20px;
+  }
+
+  .scale {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .background-bar {
+    background-color: #e2e2e2;
+    height: 12px;
+    flex: 1;
+    height: 100%;
+    border-radius: 40px;
+  }
+
+  .foreground-bar, .background-bar, .foreground-bar {
+    height: 100%;
+    border-radius: 40px;
+  }
+
+  .right {
+    margin-left: 5px;
+    max-width: 20px;
+  }
+}
+
+.CompeteScore {
+  .scoreDetails {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
+
+  .details {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    margin-left: 15px;
+    list-style: none;
+    padding-left: 0px;
+  }
+
+  .details-row {
+    font-size: 16px;
+    line-height: 22px;
+    vertical-align: text-top;
+    margin-top: 10px;
+  }
+
+  li {
+    color: #ccc;
+    list-style-position: outside;
+
+    &:before {
+      content: "\2022 ";
+      font-size: 30px;
+      vertical-align: middle;
+      margin-left: -15px;
+    }
+
+    span {
+      color: #333;
+    }
+  }
+
+  .background-bar .very {
+    background-color: #94cfc5;
+  }
+
+  .primary-heading {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 22px;
+    color: #333;
+    padding-left: 0px;
+  }
+}
+
+@media (min-width: 1199px) {
+  .CompeteScore .details-row {
+    max-width: 250px;
+  }
+}
+
+.market-survey__insights--trends .primary-heading, .market-survey__insights--CTA .primary-heading {
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 22px;
+  color: #333;
+  padding-left: 0px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.market-survey__insights--trends .detail--component.primary {
+  justify-content: flex-start;
+}
+
+.detail--component.horizontal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+@media (min-width: 1200px) {
+  .market-survey__insights--trends .detail--component.primary .detail {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.market-survey__insights--trends .detail--component.primary .detail {
+  flex: 1;
+  display: flex;
+}
+
+.detail--component {
+  &.horizontal .detail {
+    flex-direction: column;
+  }
+
+  .detail {
+    display: flex;
+  }
+}
+
+.market-survey__insights--trends .detail--component.primary .value {
+  font-size: 32px;
+}
+
+.detail--component {
+  &.horizontal .value {
+    order: 1;
+  }
+
+  .value {
+    font-size: 16px;
+  }
+
+  &.horizontal .label {
+    order: 2;
+  }
+
+  .label {
+    color: #999;
+  }
+
+  .sub-label {
+    color: #75b945;
+    font-size: 12px;
+  }
+
+  .divider {
+    flex: 1;
+    min-width: 1px;
+    max-width: 1px;
+    background: #e2e2e2;
+    margin: 0 12px;
+    height: 35px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .market-survey__insights--trends .detail--component.primary .detail .sub-label {
+    margin-left: 16px;
+  }
+}
+
+.market-survey__insights--trends, .market-survey__insights--CTA {
+  width: 100%;
+}
+
+.market-survey__insights--trends .primary-heading {
+  padding: 20px 0px;
+}
+
+@media (min-width: 1200px) {
+  .market-survey__insights--CTA .cta-container {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .market-survey__insights--CTA .cta-container {
+    .agents-image-container {
+      float: right;
+      margin-left: 40px;
+    }
+
+    .agents-image {
+      height: 91px;
+    }
+  }
+}
+
+.market-survey__insights--CTA {
+  .cta-container {
+    .agents-image-container {
+      margin-right: 20px;
+    }
+
+    .agents-image {
+      height: 74px;
+    }
+
+    .cta-description {
+      flex: 1;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .cta-button {
+      flex: 2;
+      margin-top: 15px;
+      min-width: 328px;
+    }
+  }
+
+  .button {
+    box-shadow: none;
+    display: inline-block;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -.1px;
+    line-height: 1;
+    height: 40px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: 2px 2px 2px 2px;
+    -webkit-transition: all .1s ease-out 0s;
+    transition: all .1s ease-out 0s;
+    padding: 12px 1.5rem;
+    color: #585858;
+  }
+}
+.market-survey__left-container {
+    .market-survey__right-container--tabs .tabs li {
+        text-align: left;
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+.market-survey__insights {
+    padding:0px 20px 20px;
+}
+.market-survey__insights--trends .primary-heading {
+    padding: 20px 0;
+}
+.market-survey__insights--trends.region-content-section{
+    padding-top:0px;
+}
+.leaflet__compare-container {
+    th, td {
+        width: 14%;
+        font-size: 10px;
+        padding: 10px 2px 10px 2px !important;
+    }
+
+    td {
+        font-weight: 500;
+    }
+}

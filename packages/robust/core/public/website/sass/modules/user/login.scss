@@ -1,0 +1,95 @@
+.nav-btn .nav-link {
+  margin-top: -5px;
+}
+
+.site-menu .modal {
+  max-height: fit-content;
+}
+
+
+
+.form-group input {
+  font-size: 12px !important;
+  border: 1px solid #9e9e9e !important;
+  padding: 10px !important;
+  border-radius: 4px !important;
+  line-height: 20px !important;
+  height: 17px !important;
+  width: 88% !important;
+  margin-bottom: 0px !important;
+}
+
+
+
+.form-group [type="checkbox"] {
+  &:not(:checked), &:checked {
+    position: relative !important;
+    opacity: 1 !important;
+    pointer-events: initial !important;
+    text-align: left;
+    width: 17px !important;
+    vertical-align: middle;
+  }
+}
+
+.agree-to-terms {
+  margin-top: 40px;
+  font-size: 12px;
+  font-style: italic;
+  width: 88%;
+  line-height: 20px !important;
+
+  a {
+    display: inline-block !important;
+    width: auto;
+    font-size: 12px !important;
+    text-decoration: underline;
+    color: $light_black;
+    padding: 0px !important;
+  }
+}
+
+
+/*admin login*/
+.login-page {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    .card-panel.border-radius-6.login-card {
+        margin-left: 0 !important;
+    }
+
+    [type="checkbox"] + span:not(.lever) {
+        font-weight: 400;
+    }
+
+    input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid $theme_color;
+        -webkit-box-shadow: 0 1px 0 0 $theme_color;
+        box-shadow: 0 1px 0 0 $theme_color;
+    }
+
+    .input-field .prefix {
+        &.active {
+            color: $theme_color;
+        }
+
+        ~ label {
+            font-weight: 400;
+        }
+    }
+}

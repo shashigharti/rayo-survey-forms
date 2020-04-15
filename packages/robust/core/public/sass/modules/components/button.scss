@@ -1,0 +1,28 @@
+.btn-small {
+    height: 28px;
+    line-height: 28px;
+    padding: 0px 10px;
+    font-size: 10px !important;
+    margin: 0px 2px;
+
+    i {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+}
+.action--btns{
+    width:200px;
+    a,form{
+        display:inline-block;
+    }
+}
+.btn-floating {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+
+    i {
+        line-height: 30px;
+        font-size: 20px;
+    }
+}

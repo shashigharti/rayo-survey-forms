@@ -1,0 +1,6 @@
+[submodule "packages/robust/core"]
+	path = packages/robust/core
+	url = git@bitbucket.org:robustadmin/rayo-core.git
+[submodule "packages/robust/dynamic-forms"]
+	path = packages/robust/dynamic-forms
+	url = git@bitbucket.org:robustadmin/rayo-dynamic-forms.git

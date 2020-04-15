@@ -1,0 +1,68 @@
+.tabs {
+
+    .tab {
+        a {
+            color: #126692;
+            text-transform: none;
+            padding: 0px 10px;
+            font-weight: 600;
+            font-size: 13px;
+
+            &:hover, &.active, &:focus {
+                background-color:$theme-color;
+                color:#ffffff;
+
+                &.active {
+                    background-color:$theme-color;
+                }
+            }
+        }
+        &:hover, &.active, &:focus {
+            background-color:$theme-color;
+            color:$white;
+            a{
+                color:$white;
+            }
+        }
+    }
+
+    .indicator {
+        background-color: $theme-color;
+    }
+}
+/*tabs*/
+
+.theme__tabs {
+    .tab a {
+        color: #333333;
+        font-weight: 600;
+        padding: 0 10px;
+        font-size: 12px;
+
+        &:hover, &.active {
+            color: #ffffff;
+        }
+
+        &:focus {
+            background-color: transparent;
+
+            &.active {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &.tabs {
+        height: 40px;
+    }
+
+    .tab {
+        line-height: 40px;
+        height: 40px;
+    }
+}
+
+.filter--bar .tabs {
+    background-color: transparent;
+    margin-bottom: 15px;
+}

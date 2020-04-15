@@ -1,0 +1,123 @@
+.search--main--content {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    &.page-slide{
+        padding-right: 350px;
+        margin-bottom:80px;
+        .listing--houses{
+            .row{
+                .col.m3{
+                    width:50%;
+                }
+            }
+        }
+    }
+
+}
+.search--right--section{
+    position: absolute;
+    top:358px;
+    right:29px;
+    display: block;
+    z-index:8;
+    color: $white;
+    font-family: Roboto,sans-serif;
+    height: 100%;
+    width: 0px;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+    &.fix{
+        width: 380px;
+        padding-right: 20px;
+        padding-left: 15px;
+    }
+    a.right-icon {
+        color: $white;
+        background:$theme_color;
+        padding: 10px;
+        position: fixed;
+        right: 0;
+        top:292px;
+        z-index: 999;
+    }
+
+
+    .right--single--block {
+        overflow-x: hidden;
+        display:none;
+        [type="checkbox"]+span:not(.lever) {
+            line-height:14px;
+        }
+        .intro--section {
+            margin: 50px 0px;
+            h3 {
+                color:$theme_color;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            p {
+                color:$dark_grey;
+                font-size: 14px;
+            }
+        }
+        .data--section{
+            table {
+                width: 100%;
+                color: $light_black;
+                td {
+                    padding: 10px 0px 10px 5px;
+                    border-bottom: 0;
+                    border: 1px solid$dark_grey;
+                }
+                label {
+                    font-weight: 600;
+                    margin-bottom: 0px;
+                    font-size: 13px;
+                }
+            }
+        }
+        .comment--section {
+            border: 1px solid $light_grey;
+            padding: 15px 15px 30px;
+            margin: 50px 0px;
+            background: $white;
+            p {
+                font-size: 14px;
+                color:$dark_grey;
+                font-weight: 500;
+                line-height: 25px;
+            }
+            textarea {
+                width: 100%;
+                height: 63px;
+                padding: 9px;
+                font-size: 14px;
+                color:$dark_grey;
+            }
+            span {
+                font-size: 12px;
+                vertical-align: text-top;
+                display: inline-block;
+                color:$dark_grey;
+            }
+            .theme-btn {
+                width: 130px;
+                margin-left: 0px;
+                box-shadow: 1px 1px 4px 1px$dark_grey;
+            }
+        }
+    }
+    &.fix{
+       .right--single--block{
+        display:block;
+       } 
+    }
+
+}

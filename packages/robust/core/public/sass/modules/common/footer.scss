@@ -1,0 +1,23 @@
+/*footer*/
+footer {
+    background:$footer_color;
+    color: $white;
+    padding: 50px 0px 20px;
+}
+footer h3{
+    font-size: 22px;
+    margin-bottom: 30px;
+    color:$white;
+}
+footer p{
+    font-size: 12px;
+    color: #d1d1d1;
+}
+footer i{
+    margin-right: 10px;
+}
+.footer-bottom{
+    margin-top: 40px;
+    border-top: 1px solid $light_grey;
+    padding-top: 30px;
+}
